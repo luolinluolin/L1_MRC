@@ -6,28 +6,24 @@
 #
 #######################################################################
 
-source ./timerenv.sh
-TIMER_DIR=$PWD
+platform=$1
+test_ver=$2
 
 # This script takes as an argument an expression that is passed to the --gtest_filter.
 # To run all functional tests this script should be run as follows: ./run_all_tests *Check*
 if [ $# -ne 2 ] || [ $1 = "-h" ];then
     echo "
-         example : ./test_sdk_perf.sh  cslsp prod_r21.11
-         example : ./test_sdk_perf.sh  iclsp prod_r21.11
-         example : ./test_sdk_perf.sh  icld prod_r21.11
+         example : ./do_sdk_perf.sh  cslsp prod_r21.11
+         example : ./do_sdk_perf.sh  iclsp prod_r21.11
+         example : ./do_sdk_perf.sh  icld prod_r21.11
      "
    exit 0
 fi
 
 
-platform=$1
-test_ver=$2
-
-base=$PWD
+source ./timerenv.sh
 
 sdk_results=$sdk_results_dir/$test_ver/$platform
-
 
 testfolder=${WIRELESS_SDK}/${SDK_BUILD_DIR}/test/phy/
 if [ ! -d $sdk_results ]; then
@@ -44,3 +40,5 @@ do
         cp test_results.xml $sdk_results/$test_dir.xml
 	cd ..
 done
+
+cd -

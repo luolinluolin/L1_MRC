@@ -1,8 +1,8 @@
 
 #---------------used NIC------------
-MRC_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+MRC_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)/../
 
-source $MRC_DIR/var/oranvar.sh
+source $MRC_DIR/var/timervar.sh
 
 env_file=$MRC_DIR/var/env.sh
 

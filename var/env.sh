@@ -37,9 +37,9 @@ export DIR_WIRELESS_TEST_4G=$BASE/flexran_l1_4g_test
 export DIR_WIRELESS_TEST_5G=$BASE$flexran_l1_5g_test
 export DIR_WIRELESS_FW=$WIRELESS_CONVERGENCE_L1/framework
 
-export SDK_BUILD=build-$ISA-$WIRELESS_SDK_TOOLCHAIN
+export SDK_BUILD_DIR=build-$ISA-$WIRELESS_SDK_TOOLCHAIN
 export GTEST_ROOT=/opt/gtest/gtest-1.7.0
-export DIR_WIRELESS_SDK=$WIRELESS_SDK/build-$ISA-$WIRELESS_SDK_TOOLCHAIN
+export DIR_WIRELESS_SDK=$WIRELESS_SDK/$SDK_BUILD_DIR
 export FLEXRAN_SDK=${DIR_WIRELESS_SDK}/install
 export DIR_WIRELESS_SDK_ROOT=$WIRELESS_SDK
 export WIRELESS_SDK_TARGET_ISA=$ISA
@@ -83,6 +83,6 @@ alias l2="cd $FLEXRAN_L1_SW/bin/nr5g/gnb/testmac"
 alias buildphy="../../../../build/nr5g/gnb/l1app/build_phy.sh SUB6 BBDEV_FEC_ACCL_NR5G"
 alias testcase="cd $DIR_WIRELESS_TEST_5G/ul/mu1_100mhz"
 
-
 source /opt/intel/oneapi/setvars.sh
 export PATH=$PATH:/opt/intel/oneapi/compiler/2022.0.1/linux/bin-llvm/
+source /opt/rh/devtoolset-8/enable

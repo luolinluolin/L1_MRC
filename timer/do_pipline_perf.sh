@@ -1,12 +1,11 @@
 
-source ./timerenv.sh
 TIMER_DIR=$PWD
 
-if [ $# -ne 3 ] || [ $1 = "-h" ];then
+if [ $# -ne 2 ] || [ $1 = "-h" ];then
     echo "
-         example : ./L1_MRC/test_pipline_perf.sh  cslsp prod_r21.11 [timer oran]
-         example : ./L1_MRC/test_pipline_perf.sh  iclsp prod_r21.11 [timer oran]
-         example : ./L1_MRC/test_pipline_perf.sh  icld prod_r21.11 [timer oran]
+         example : ./do_pipline_perf.sh  cslsp prod_r21.11
+         example : ./do_pipline_perf.sh  iclsp prod_r21.11
+         example : ./do_pipline_perf.sh  icld prod_r21.11
      "
    exit 0
 fi
@@ -15,6 +14,7 @@ platform=$1
 test_ver=$2
 test_mode=$3
 
+source ./timerenv.sh
 l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac	
 echo "--------$l1_dir---------------"
@@ -48,7 +48,7 @@ icxd_mu3_100mhz_hton.cfg
 test_perf() {
     case_dir=$1
     test_cases=$2
-    pipline_result=$pipline_results_dir$case_dir/$test_ver/$test_mode
+    pipline_result=$pipline_results_dir$case_dir/$test_ver
     if [ ! -d $pipline_result ]; then
         mkdir -p $pipline_result
     fi 
