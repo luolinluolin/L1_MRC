@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-source ../oranvar.sh
+source ../../var/oranvar.sh
 data_nic=$RU_NIC_PORT
 
 NID=` ethtool -i ${data_nic}|grep bus-info|cut -c16-26|awk -F: '{print $1}' `

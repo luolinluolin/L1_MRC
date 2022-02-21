@@ -2,7 +2,7 @@
 
 du_dir=$PWD
 ru_dir=$du_dir/../RU
-source ../oranvar.sh
+source ../../var/oranvar.sh
 
 
 # for i in `ls -d ./sub*`
@@ -12,7 +12,7 @@ source ../oranvar.sh
   $ru_dir/kill.sh
   ssh $RU_IP "$ru_dir/kill.sh; exit"
 
-  echo "-----------revomve old file-----------------"
+  echo "-----------revomve src old file-----------------"
   result=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt
   if [ -f result ]
   then
@@ -44,11 +44,19 @@ source ../oranvar.sh
 
 	done
 
-  echo "------------cp $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt--------------" 
-  result_dir=$ORAN_DIR/../$RESULT_SUDIR/oran/$i
+  result_dir=$pipline_results_dir$i
+  echo "------------cp $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt to --------------" 
+  echo "------------$result_dir --------------" 
   if [ ! -d $result_dir ]; then
     mkdir -p $result_dir
   fi
+  echo "-----------revomve dst old file-----------------"
+  result=$result_dir/l1_mlog_stats.txt
+  if [ -f result ]
+  then
+    rm -rf result
+  fi
+
   cp -rf $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt $result_dir
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../oranvar.sh
+source ../../var/oranvar.sh
 #data_nic=enp34s0f0
 data_nic=$DU_NIC_PORT
 NID=` ethtool -i ${data_nic}|grep bus-info|cut -c16-26|awk -F: '{print $1}' `

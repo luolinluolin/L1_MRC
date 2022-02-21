@@ -1,10 +1,10 @@
 
 #---------------used NIC------------
-ORAN_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+export ORAN_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
-source $ORAN_DIR/oranvar.sh
+source $ORAN_DIR/../var/oranvar.sh
 
-env_file=$ORAN_DIR/env.sh
+env_file=$ORAN_DIR/../var/env.sh
 
 echo "------------env--------------"
 source $env_file $ORANISA
@@ -18,6 +18,3 @@ echo RU_IP=$RU_IP
 echo DU_NIC_PORT=$DU_NIC_PORT
 echo DU_PTP_PORT=$DU_PTP_PORT
 echo WORK_DIR=$WORK_DIR
-
-source /opt/intel/oneapi/setvars.sh
-export PATH=$PATH:/opt/intel/oneapi/compiler/2022.0.1/linux/bin-llvm/
