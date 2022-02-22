@@ -16,13 +16,16 @@ clone_repo() {
 REPO_DIR=$1
 REPO=$2
 BRANCH=$3
-echo "----------$REPO_DIR----------------"
-echo "----------$REPO----------------"
-echo "----------$BRANCH----------------"
-#echo "repo https://github.com/intel-innersource/networking.wireless.flexran.$2.git"
+
+echo "----------REPO_DIR $REPO_DIR----------------"
+echo "----------REPO $REPO----------------"
+echo "----------BRANCH $BRANCH----------------"
+echo "repo https://github.com/intel-innersource/networking.wireless.flexran.$REPO.git"
 #[ ! -d $1 ] && git clone https://github.com/intel-innersource/networking.wireless.flexran.$2.git 
-echo "git clone https://github.com/intel-innersource/$REPO.git"
 if [ ! -d $REPO_DIR ]; then
+  echo "git clone https://github.com/intel-innersource/$REPO.git"
+  cd $WORK_DIR
+  echo "--------clone dir $WORK_DIR--------"
   git clone https://github.com/intel-innersource/$REPO.git 
 fi
 cd ${REPO_DIR}

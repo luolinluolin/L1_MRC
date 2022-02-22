@@ -9,6 +9,7 @@
 platform=$1
 test_ver=$2
 
+CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 # This script takes as an argument an expression that is passed to the --gtest_filter.
 # To run all functional tests this script should be run as follows: ./run_all_tests *Check*
 if [ $# -ne 2 ] || [ $1 = "-h" ];then
@@ -21,9 +22,15 @@ if [ $# -ne 2 ] || [ $1 = "-h" ];then
 fi
 
 
-source ./timerenv.sh
+source $CURRENT_DIR/timerenv.sh
 
-sdk_results=$sdk_results_dir/$test_ver/$platform
+
+echo "---------------sdk_results_dir $sdk_results_dir-----------"
+sdk_results=$sdk_results_dir/
+
+if [ ! -d $sdk_results ]; then
+    mkdir -p $sdk_results
+fi 
 
 testfolder=${WIRELESS_SDK}/${SDK_BUILD_DIR}/test/phy/
 if [ ! -d $sdk_results ]; then

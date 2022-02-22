@@ -13,15 +13,23 @@ platform=$1
 test_ver=$2
 test_mode=$3
 
-source ./timerenv.sh
+
+CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+
+source $CURRENT_DIR/timerenv.sh
 l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac	
 echo "--------$l1_dir---------------"
 echo "--------$l2_dir---------------"
 #-----setup MBC-----
-../setup/mbc_vc_setup.sh MBC
+$CURRENT_DIR/../setup/mbc_vc_setup.sh MBC
 dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/
 deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
+
+if [ ! -n "$deviceid" ]; then
+  echo "-------pls setup vf mode MBC------"
+  exit 0
+fi
 sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
 sed -i "s#\(igbuioMode=\)\S*#\10#" ${dpdk_path}dpdk.sh
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${dpdk_path}phycfg_timer.xml
@@ -65,7 +73,6 @@ test_perf() {
     cp l1_mlog_stats.txt $pipline_result
 }
 
-sh ./test_func.sh $case_csl_sp
 if [ $platform = "cslsp" ]
 then
    echo "------------casecade lake sp test------------------"
@@ -74,8 +81,8 @@ fi
 
 if [ $platform = "iclsp" ]
 then
-   echo "------------ice lake sp test------------------"
-   test_perf icelake-sp "{$case_icl_sp}"
+   echo "------------ice lake sp test $case_icl_sp------------------"
+   test_perf icelake-sp "${case_icl_sp}"
 fi
 
 if [ $platform = "icld" ]
