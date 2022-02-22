@@ -1,7 +1,7 @@
 #!/bin/bash
 
 du_dir=$PWD
-ru_dir=$du_dir/../RU
+ru_dir=$du_dir/../ru
 source ../../var/oranvar.sh
 
 
