@@ -15,6 +15,6 @@ timer_case_icl_sp=`sed '/^timer_case_icl_sp=/!d;s/.*=//' $cfg_file`
 timer_case_icl_d=`sed '/^timer_case_icl_d=/!d;s/.*=//' $cfg_file`
 
 
-pipline_results_dir=$TIMER_DIR/../$RESULT_SUDIR/pipline_results/timer
-sdk_results_dir=$TIMER_DIR/../$RESULT_SUDIR/sdk_results
+pipline_results_dir=$MRC_VAR_DIR/../$RESULT_SUDIR/timer
+sdk_results_dir=$MRC_VAR_DIR/../$RESULT_SUDIR/sdk_results
 

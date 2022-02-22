@@ -1,10 +1,10 @@
 #!/bin/bash
 
 
-if [ $# -ne 4 ];then
+if [ $# -ne 3 ];then
    echo "
-     ./setup pull flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
-     ./setup build flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
+     ./setup.sh pull flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
+     ./setup.sh build flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
      "
    exit 0
 fi
@@ -33,6 +33,9 @@ then
   fi
   cd $RTE_SDK/../
   $SETUP/meson_build.sh
+
+  sed -i "s/\/\/phydi_init_mlog_stats/phydi_init_mlog_stats/" $FLEXRAN_L1_SW//source/nr5g/gnb_main/gnb_main.c
+  sed -i "s/SAMPLEAPP=0/SAMPLEAPP=1/" ${XRAN_DIR}/build.sh
 
   echo "---------build flexran--------------"
   cd $FLEXRAN_L1_SW

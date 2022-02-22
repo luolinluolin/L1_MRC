@@ -3,7 +3,6 @@
 MRC_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)/..
 
 source $MRC_DIR/var/oranvar.sh
-export pipline_results_dir=$MRC_DIR$RESULT_SUDIR/oran/
 
 env_file=$MRC_DIR/var/env.sh
 

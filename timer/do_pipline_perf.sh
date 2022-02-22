@@ -1,5 +1,4 @@
 
-TIMER_DIR=$PWD
 
 if [ $# -ne 2 ] || [ $1 = "-h" ];then
     echo "
@@ -27,9 +26,6 @@ sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
 sed -i "s#\(igbuioMode=\)\S*#\10#" ${dpdk_path}dpdk.sh
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${dpdk_path}phycfg_timer.xml
 
-csl_sp_dir=cascade_lake-sp
-icl_sp_dir=icelake-sp
-icl_d_dir=icelake-d
 
 case_csl_sp=$timer_case_csl_sp
 case_icl_sp=$timer_case_icl_sp
@@ -39,7 +35,7 @@ case_icl_d=$timer_case_icl_d
 test_perf() {
     case_dir=$1
     test_cases=$2
-    pipline_result=$pipline_results_dir$case_dir/$test_ver
+    pipline_result=$pipline_results_dir$case_dir/
     if [ ! -d $pipline_result ]; then
         mkdir -p $pipline_result
     fi 
@@ -64,27 +60,27 @@ test_perf() {
         ps -aux|grep l1app|awk '{print $2}'|xargs kill -9
     done
     
-    echo "-----------copy result to $pipline_results--------------" 
+    echo "-----------copy result to $pipline_result--------------" 
     cd $l1_dir
-    cp l1_mlog_stats.txt $pipline_results
+    cp l1_mlog_stats.txt $pipline_result
 }
 
 sh ./test_func.sh $case_csl_sp
 if [ $platform = "cslsp" ]
 then
    echo "------------casecade lake sp test------------------"
-   test_perf $csl_sp_dir "${case_csl_sp}"
+   test_perf cascade_lake-sp "${case_csl_sp}"
 fi
 
 if [ $platform = "iclsp" ]
 then
    echo "------------ice lake sp test------------------"
-   test_perf $icl_sp_dir "{$case_icl_sp}"
+   test_perf icelake-sp "{$case_icl_sp}"
 fi
 
 if [ $platform = "icld" ]
 then
    echo "------------ice lake d test------------------"
-   test_perf $icl_d_dir "${case_icl_d}"
+   test_perf icelake-d "${case_icl_d}"
 fi
 
