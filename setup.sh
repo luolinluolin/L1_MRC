@@ -1,6 +1,5 @@
 #!/bin/bash
-
-BASE=$PWD
+SETUP_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
 if [ $# -ne 3 ];then
    echo "
@@ -13,7 +12,11 @@ fi
 OPTION=$1
 flexran_branch=$2
 dpdk_branch=$3
+
+
+BASE=$PWD
 SETUP=./setup
+
 
 echo "---------source gcc--------------"
 #$SETUP/gcc.sh
@@ -33,7 +36,8 @@ then
     rm -rf build
   fi
 
-  cd $BASE
+  cd $SETUP_DIR
+  echo "----------$PWD----------------"
   $SETUP/meson_build.sh
 
   sed -i "s/\/\/phydi_init_mlog_stats/phydi_init_mlog_stats/" $FLEXRAN_L1_SW//source/nr5g/gnb_main/gnb_main.c
@@ -45,6 +49,6 @@ then
 fi
 
 
-cd $BASE
+cd $SETUP_DIR
 echo "---------bind MBC--------------"
 $SETUP/mbc_vc_setup.sh MBC
