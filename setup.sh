@@ -1,5 +1,6 @@
 #!/bin/bash
 
+BASE=$PWD
 
 if [ $# -ne 3 ];then
    echo "
@@ -31,7 +32,8 @@ then
     then
     rm -rf build
   fi
-  cd $RTE_SDK/../
+
+  cd $BASE
   $SETUP/meson_build.sh
 
   sed -i "s/\/\/phydi_init_mlog_stats/phydi_init_mlog_stats/" $FLEXRAN_L1_SW//source/nr5g/gnb_main/gnb_main.c
@@ -42,5 +44,7 @@ then
   ./flexran_build.sh -r 5gnr -m all
 fi
 
+
+cd $BASE
 echo "---------bind MBC--------------"
 $SETUP/mbc_vc_setup.sh MBC
