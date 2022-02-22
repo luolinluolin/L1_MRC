@@ -25,12 +25,12 @@ mac1="setcore 0xF81F0"
 xRANThread="10, 96, 0"
 xRANWorker="0x800, 96, 0"
 
-phy_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/gnb/
+phy_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_32x32/gnb/
 testmac_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac/
 dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/
 ####################################
 cd $base
-cp $phy_path/testmac_clxsp_mu1_100mhz_hton_oru.cfg $testmac_path/
+cp $phy_path/testmac_icxsp_mu1_100mhz_32x32_hton_oru.cfg $testmac_path/
 #########
 ##########l1.sh
 sed -i '/dpdk.sh/d'   ${phy_path}l1.sh
@@ -69,5 +69,5 @@ sed -i "s#\(ethDevice5=\)\S*#\1$d5#" ${dpdk_path}dpdk.sh
 sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
 ####################################
 ##
-sed -i "s#.*phystart.*#$mac0#"     $testmac_path/testmac_clxsp_mu1_100mhz_hton_oru.cfg
-# sed -i "s#\(setcore \)\S*#$mac1#"  $testmac_path/testmac_clxsp_mu1_100mhz_hton_oru.cfg
+sed -i "s#.*phystart.*#$mac0#"     $testmac_path/testmac_icxsp_mu1_100mhz_32x32_hton_oru.cfg
+# sed -i "s#\(setcore \)\S*#$mac1#"  $testmac_path/testmac_icxsp_mu1_100mhz_32x32_hton_oru.cfg
