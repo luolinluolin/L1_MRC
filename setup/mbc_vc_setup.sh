@@ -1,7 +1,7 @@
 #!/bin/bash
 BASE=$FLEXRAN_L1_SW/../
 dpdk_v=$RTE_SDK
-
+CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
 if [ $# -ne 1 ];then
    echo "!!!!!!!!!!please input correct parmeter !!!!!!!!!!!!!"
@@ -46,7 +46,18 @@ then
    deviceid=`lspci |grep 0d8f |awk '{print $1}'`
 elif [ $1 = "MBC" ]
 then  
-  deviceid=`lspci |grep 0d5c |awk '{print $1}'`
+#   deviceid=`lspci |grep 0d5c |awk '{print $1}'`
+
+  deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
+  if [ ! -n "$deviceid" ]; then
+    echo "---------create vf MBC---------"
+    $CURRENT_DIR/create_pml_queues_vf.sh
+    deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
+  fi
+  if [ ! -n "$deviceid" ]; then
+    echo "----error create vf MBC failed----"
+    exit 0;
+  fi
 else
  echo "input correct value"
 fi
@@ -106,7 +117,7 @@ then
 elif [ $1 = "MBC" ]
 then  
   echo "start to bind MBC card driver"
-  cd $BASE/pf-bb-config/;./pf_bb_config ACC100 -c ./acc100/acc100_config_vf.cfg
+  cd $BASE/pf-bb-config/;./pf_bb_config ACC100 -c ./acc100/acc100_config_vf_5g.cfg
 else
  echo "input correct value"
 fi
