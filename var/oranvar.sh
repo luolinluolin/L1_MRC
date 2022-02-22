@@ -20,7 +20,6 @@ DU_PTP_PORT=`sed '/^du_ptp_port=/!d;s/.*=//' $cfg_file`
 WORK_DIR=`sed '/^work_dir=/!d;s/.*=//' $cfg_file`
 RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
 
-export pipline_results_dir=$ORAN_DIR/../$RESULT_SUDIR/oran/
 
 
 # source /opt/intel/oneapi/setvars.sh

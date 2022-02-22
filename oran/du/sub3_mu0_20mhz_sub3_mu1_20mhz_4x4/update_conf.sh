@@ -5,12 +5,12 @@ base=$PWD
 
 PCIE_BUS=` lspci |grep -E "${NIC}" |head -1|awk '{print $1}'|awk -F: '{print $1}' `
 
-d0="0000:${PCIE_BUS}:02.0"
-d1="0000:${PCIE_BUS}:02.1"
-d2="0000:${PCIE_BUS}:02.2"
-d3="0000:${PCIE_BUS}:02.3"
-d4="0000:${PCIE_BUS}:02.4"
-d5="0000:${PCIE_BUS}:02.5"
+d0="0000:${PCIE_BUS}:$DU_PCIE_DEVICE_ID.0"
+d1="0000:${PCIE_BUS}:$DU_PCIE_DEVICE_ID.1"
+d2="0000:${PCIE_BUS}:$DU_PCIE_DEVICE_ID.2"
+d3="0000:${PCIE_BUS}:$DU_PCIE_DEVICE_ID.3"
+d4="0000:${PCIE_BUS}:$DU_PCIE_DEVICE_ID.4"
+d5="0000:${PCIE_BUS}:$DU_PCIE_DEVICE_ID.5"
 #deviceid="20:00.0"
 
 dst0="00:11:22:33:00:02"

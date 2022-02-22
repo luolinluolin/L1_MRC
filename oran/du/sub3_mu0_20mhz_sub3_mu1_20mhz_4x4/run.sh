@@ -1,14 +1,18 @@
 #!/bin/bash
 
-work_path=$FLEXRAN_L1_SW
-./update_conf.sh
-rm -rf $PWD/*.log
 
-./l1_5.ex $PWD &
+./update_conf.sh
+BASE=$PWD
+l1_sw=$FLEXRAN_L1_SW
+
+rm -rf $BASE/*.log
+
+./l1_5.ex $BASE $l1_sw&
 
 sleep 20
 
-./l2_5.ex $PWD 
+./l2_5.ex $BASE $l1_sw
 
-# ./kill.ex $PWD
+# ./kill.ex $work_path
+
 echo "this DU run script  is done "
