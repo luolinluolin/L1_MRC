@@ -6,6 +6,8 @@ echo'-----------oran.conf------------------'
 cat $cfg_file
 
 export NIC=`sed '/^nic_name=/!d;s/.*=//' $cfg_file`
+export RU_PCIE_DEVICE_ID=`sed '/^ru_pcie_device_id=/!d;s/.*=//' $cfg_file`
+export DU_PCIE_DEVICE_ID=`sed '/^du_pcie_device_id=/!d;s/.*=//' $cfg_file`
 export ORANISA=`sed '/^isa=/!d;s/.*=//' $cfg_file`
 #---------------RU------------
 RU_NIC_PORT=`sed '/^ru_nic_port=/!d;s/.*=//' $cfg_file`

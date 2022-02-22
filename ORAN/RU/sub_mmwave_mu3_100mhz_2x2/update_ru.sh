@@ -3,14 +3,14 @@
 base=$PWD
 
 
-NIC_40=` lspci |grep -E "${NIC}" |head -1|awk '{print $1}'|awk -F: '{print $1}' `
+PCIE_BUS=` lspci |grep -E "${NIC}" |head -1|awk '{print $1}'|awk -F: '{print $1}' `
 
-d0="0000:${NIC_40}:02.0"
-d1="0000:${NIC_40}:02.1"
-d2="0000:${NIC_40}:02.2"
-d3="0000:${NIC_40}:02.3"
-d4="0000:${NIC_40}:02.4"
-d5="0000:${NIC_40}:02.5"
+d0="0000:${PCIE_BUS}:02.0"
+d1="0000:${PCIE_BUS}:02.1"
+d2="0000:${PCIE_BUS}:02.2"
+d3="0000:${PCIE_BUS}:02.3"
+d4="0000:${PCIE_BUS}:02.4"
+d5="0000:${PCIE_BUS}:02.5"
 d6="1"
 d7="1"
 ####################################
