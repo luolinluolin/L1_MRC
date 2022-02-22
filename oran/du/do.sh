@@ -21,7 +21,7 @@ source ../oranenv.sh
 
 sleep 5
 ###########
-cd $base;./mbc_vc_setup.sh MBC
+cd $base;../../setup/mbc_vc_setup.sh MBC
 
 sleep 2
 ###########

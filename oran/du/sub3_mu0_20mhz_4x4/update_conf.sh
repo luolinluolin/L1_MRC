@@ -36,7 +36,7 @@ sed -i '/dpdk.sh/d'   ${phy_path}l1.sh
 sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<\/dpdkBasebandFecMode>/g'  ${phy_path}phycfg_xran.xml
 # sed -i 's/<dpdkMemorySize>.*<\/dpdkMemorySize>/<dpdkMemorySize>8192<\/dpdkMemorySize>/g'  ${phy_path}phycfg_xran.xml
 
-deviceid=`lspci |grep 0d5c |awk '{print $1}'`
+deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${phy_path}phycfg_xran.xml
 
 ######### 
@@ -61,6 +61,8 @@ sed -i "s#\(ethDevice4=\)\S*#\1$d4#" ${dpdk_path}dpdk.sh
 sed -i "s#\(ethDevice5=\)\S*#\1$d5#" ${dpdk_path}dpdk.sh
 ##
 sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
+
+sed -i "s#\(igbuioMode=\)\S*#\10#" ${dpdk_path}dpdk.sh
 ####################################
 ##
 sed -i "s#.*phystart.*#$mac0#"     $testmac_path/testmac_clxsp_mu0_20mhz_hton_oru.cfg 

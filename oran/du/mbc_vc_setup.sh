@@ -106,7 +106,7 @@ then
 elif [ $1 = "MBC" ]
 then  
   echo "start to bind MBC card driver"
-  cd $BASE/pf-bb-config/;./pf_bb_config ACC100 -c ./acc100/acc100_config_pf.cfg
+  cd $BASE/pf-bb-config/;./pf_bb_config ACC100 -c ./acc100/acc100_config_vf.cfg
 else
  echo "input correct value"
 fi
