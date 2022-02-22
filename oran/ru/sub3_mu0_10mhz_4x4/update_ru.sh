@@ -3,6 +3,7 @@
 base=$PWD
 l1sw=$1
 
+
 echo "--------------------------------------------$l1sw"
 
 PCIE_BUS=` lspci |grep -E "${NIC}" |head -1|awk '{print $1}'|awk -F: '{print $1}' `
@@ -21,8 +22,8 @@ ru_path=$l1sw/bin/nr5g/gnb/l1/orancfg/sub3_mu0_10mhz_4x4/oru
 
 ##########
 
-sed -i "s#0000.[0-9]{2}.[0-9]{2}.0#$d0#" ${ru_path}/run_o_ru.sh
-sed -i "s#0000.[0-9]{2}.[0-9]{2}.1#$d1#" ${ru_path}/run_o_ru.sh
+sed -i "s/0000:[0-9]\{2\}:[0-9]\{2\}.0/$d0/" ${ru_path}/run_o_ru.sh
+sed -i "s/0000:[0-9]\{2\}:[0-9]\{2\}.1/$d1/" ${ru_path}/run_o_ru.sh
 
 # sed -i "s/0000.[0-9]{2}.[0-9]{2}.[0-9],0000.[0-9]{2}.[0-9]{2}.[0-9]/$d0,$d1/" ${ru_path}/run_o_ru.sh
 ####################################

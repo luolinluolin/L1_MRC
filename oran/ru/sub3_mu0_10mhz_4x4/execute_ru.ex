@@ -7,7 +7,7 @@ log_file ./sub3_mu0_10mhz_4x4.log
 spawn su - root
 
 expect "*#"
-send "cd $work_path/;./update_ru.sh $l1sw\r"
+send "cd $work_path/;source ../../oranenv.sh;./update_ru.sh $l1sw\r"
 
 expect "*#"
 send "cd $work_path/;source ../../oranenv.sh; cd $l1sw/bin/nr5g/gnb/l1/orancfg/sub3_mu0_10mhz_4x4/oru/;sh ./run_o_ru.sh\r"

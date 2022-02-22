@@ -6,7 +6,7 @@ l1sw=$FLEXRAN_L1_SW
 #cd $work_path/; ./nic_vf_ru.sh 
 #cd $work_path/;source ./setup/env.sh $ORANISA;cd $work_path/flexran_l1_sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/oru; ./dpdk.sh 
 cd $work_path/; rm -rf *.log 
-cd $work_path/; ./update_ru.sh $l1sw
+cd $work_path/;source ../../oranenv.sh; ./update_ru.sh $l1sw
 sleep 2
 
 source /etc/profile

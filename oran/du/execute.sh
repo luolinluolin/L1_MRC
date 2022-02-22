@@ -7,7 +7,8 @@ source ../../var/oranvar.sh
 
 # for i in `ls -d ./sub*`
 # do
-  i=sub3_mu0_10mhz_4x4
+  # i=sub3_mu0_10mhz_4x4
+  i=sub3_mu0_20mhz_4x4
   echo "-----------do test case ${i}-----------------"
   $ru_dir/kill.sh
   ssh $RU_IP "$ru_dir/kill.sh; exit"
