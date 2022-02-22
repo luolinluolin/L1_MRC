@@ -30,11 +30,11 @@ $SETUP/pull.sh $flexran_branch $dpdk_branch
 if [ $OPTION = "build" ]
 then
   echo "---------build dpdk--------------"
-  cd $RTE_SDK
-  if [ -d build ]
-    then
-    rm -rf build
-  fi
+  # cd $RTE_SDK
+  # if [ -d build ]
+  #   then
+  #   rm -rf build
+  # fi
 
   cd $SETUP_DIR
   $SETUP/meson_build.sh
@@ -43,11 +43,14 @@ then
   sed -i "s/SAMPLEAPP=0/SAMPLEAPP=1/" ${XRAN_DIR}/build.sh
 
   echo "---------build flexran--------------"
+  cd $SETUP_DIR
+  source $SETUP/setupenv.sh 
   cd $FLEXRAN_L1_SW
-  ./flexran_build.sh -r 5gnr -m all
+  ./flexran_build.sh -r 5gnr -m all -c
+
 fi
 
 
-cd $SETUP_DIR
-echo "---------bind MBC--------------"
-$SETUP/mbc_vc_setup.sh MBC
+#cd $SETUP_DIR
+#echo "---------bind MBC--------------"
+#$SETUP/mbc_vc_setup.sh MBC
