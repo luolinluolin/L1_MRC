@@ -26,7 +26,7 @@ dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/
 deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
 sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
 sed -i "s#\(igbuioMode=\)\S*#\10#" ${dpdk_path}dpdk.sh
-sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${phy_path}phycfg_timer.xml
+sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${dpdk_path}phycfg_timer.xml
 
 csl_sp_dir=cascade_lake-sp
 icl_sp_dir=icelake-sp
@@ -51,7 +51,7 @@ test_perf() {
         rm -rf l1_mlog_stats.txt
     fi 
 
-    for test_case in ${test_cases[*]}
+    for test_case in $test_cases
     do
         echo "---------------------------run testcase $test_case-------------------------------------"
         cd $l1_dir
