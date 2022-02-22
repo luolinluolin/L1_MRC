@@ -1,5 +1,16 @@
 #!/bin/bash
 
+if [ $# -ne 2 ] || [ $1 = "-h" ];then
+    echo "
+         example : ./do.sh  cslsp prod_r21.11
+         example : ./do.sh  iclsp prod_r21.11
+     "
+   exit 0
+fi
+
+platform=$1
+version=$2
+
 base=$PWD
 
 source ../oranenv.sh
@@ -10,7 +21,7 @@ source ../oranenv.sh
 
 sleep 5
 ###########
-# cd $base;./mbc_vc_setup.sh MBC
+cd $base;./mbc_vc_setup.sh MBC
 
 sleep 2
 ###########
@@ -24,4 +35,4 @@ sed -i "s#\(^igbuioMode=\)\S*#\11#"  $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/dpdk.sh
 ###########
 cd $base
 find ./sub* -name *.log |xargs rm -rf
-cd $base;./execute.sh
+cd $base;./execute.sh $platform $version

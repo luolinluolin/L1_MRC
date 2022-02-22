@@ -1,18 +1,37 @@
 #!/bin/bash
 
+platform=$1
+version=$2
+
 du_dir=$PWD
 ru_dir=$du_dir/../ru
 source ../../var/oranvar.sh
 
 
-# for i in `ls -d ./sub*`
-# do
+echo "---platform: $platform----"
+echo "---version: $version----"
+
+if [ $platform = "cslsp" ]
+then
+   echo "------------casecade lake sp test------------------"
+   test_cases=$oran_case_csl_sp
+
+fi
+if [ $platform = "iclsp" ]
+then
+   echo "------------ice lake sp test------------------"
+   test_cases=$oran_case_icl_sp
+fi
+echo "-------test_cases: $test_cases---------------"
+
+for i in $test_cases 
+do
   # i=sub3_mu0_10mhz_4x4
   # i=sub3_mu0_20mhz_4x4
   # i=sub3_mu0_20mhz_sub3_mu1_20mhz_4x4
   # i=sub6_mu1_100mhz_4x4
 
-  i=sub6_mu1_100mhz_32x32
+  # i=sub6_mu1_100mhz_32x32
   echo "-----------do test case ${i}-----------------"
   $ru_dir/kill.sh
   ssh $RU_IP "$ru_dir/kill.sh; exit"
@@ -49,7 +68,7 @@ source ../../var/oranvar.sh
 
 	done
 
-  result_dir=$pipline_results_dir$i
+  result_dir=$pipline_results_dir$platform/$version$i
   echo "------------cp $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt to --------------" 
   echo "------------$result_dir --------------" 
   if [ ! -d $result_dir ]; then
@@ -67,7 +86,7 @@ source ../../var/oranvar.sh
 
 #############################
 
-# done
+done
 
 ssh $RU_IP "$ru_dir/kill.sh"
 echo "execute.sh script is done"

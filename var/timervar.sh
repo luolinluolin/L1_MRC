@@ -7,9 +7,14 @@ echo'-----------timer.conf------------------'
 ORANISA=`sed '/^isa=/!d;s/.*=//' $cfg_file`
 WORK_DIR=`sed '/^work_dir=/!d;s/.*=//' $cfg_file`
 RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
+RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
+
+
+timer_case_csl_sp=`sed '/^timer_case_csl_sp=/!d;s/.*=//' $cfg_file`
+timer_case_icl_sp=`sed '/^timer_case_icl_sp=/!d;s/.*=//' $cfg_file`
+timer_case_icl_d=`sed '/^timer_case_icl_d=/!d;s/.*=//' $cfg_file`
+
 
 pipline_results_dir=$TIMER_DIR/../$RESULT_SUDIR/pipline_results/timer
 sdk_results_dir=$TIMER_DIR/../$RESULT_SUDIR/sdk_results
 
-
-# source $MRC_VAR_DIR/icx.sh

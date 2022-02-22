@@ -24,25 +24,9 @@ csl_sp_dir=cascade_lake-sp
 icl_sp_dir=icelake-sp
 icl_d_dir=icelake-d
 
-case_sp=(
-icxsp_mu0_10mhz_4x4_hton.cfg
-icxsp_mu0_20mhz_4x4_hton.cfg
-icxsp_mu0_20mhz_4x4_hton_multi_numerology.cfg
-icxsp_mu1_100mhz_4x4_hton.cfg
-icxsp_mu1_100mhz_mmimo_32x32_hton.cfg
-icxsp_mu1_100mhz_mmimo_64x64_8stream_hton.cfg
-icxsp_mu3_100mhz_2x2_hton.cfg
-)
-
-case_icl_sp=(
-icxsp_mu1_100mhz_mmimo_64x64_16stream_hton.cfg
-)
-
-case_icl_d=(
-icxd_mu1_100mhz_2x2_hton.cfg
-icxd_mu1_100mhz_4x4_hton.cfg
-icxd_mu3_100mhz_hton.cfg
-)
+case_csl_sp=$timer_case_csl_sp
+case_icl_sp=$timer_case_icl_sp
+case_icl_d=$timer_case_icl_d
 
 
 test_perf() {
@@ -80,13 +64,13 @@ test_perf() {
 if [ $platform = "cslsp" ]
 then
    echo "------------casecade lake sp test------------------"
-   test_perf $csl_sp_dir $case_sp
+   test_perf $csl_sp_dir $case_csl_sp
 fi
 
 if [ $platform = "iclsp" ]
 then
    echo "------------ice lake sp test------------------"
-   test_perf $icl_sp_dir $case_sp
+   test_perf $icl_sp_dir $case_csl_sp
    test_perf $icl_sp_dir $case_icl_sp
 fi
 
