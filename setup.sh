@@ -46,7 +46,7 @@ then
   cd $SETUP_DIR
   source $SETUP/setupenv.sh 
   cd $FLEXRAN_L1_SW
-  ./flexran_build.sh -r 5gnr -m all -c
+  ./flexran_build.sh -r 5gnr -m all
 
 fi
 
