@@ -7,6 +7,8 @@
 
 #export PTP_DIR=/root/linuxptp
 source ../oranenv.sh
+echo "-----------$RU_PTP_PORT"
+echo "-----------$PTP_DIR"
 # source ../../var/oranvar.sh
 
 if [ -z "$PTP_DIR" ]

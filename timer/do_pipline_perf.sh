@@ -31,7 +31,7 @@ if [ ! -n "$deviceid" ]; then
   exit 0
 fi
 sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
-sed -i "s#\(igbuioMode=\)\S*#\10#" ${dpdk_path}dpdk.sh
+sed -i "s#\(^igbuioMode=\)\S*#\11#"  ${dpdk_path}dpdk.sh
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${dpdk_path}phycfg_timer.xml
 
 

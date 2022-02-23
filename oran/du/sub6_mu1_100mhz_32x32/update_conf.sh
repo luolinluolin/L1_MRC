@@ -74,7 +74,7 @@ sed -i "s#\(ethDevice5=\)\S*#\1$d5#" ${dpdk_path}dpdk.sh
 ##
 sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
 
-sed -i "s#\(igbuioMode=\)\S*#\10#" ${dpdk_path}dpdk.sh
+# sed -i "s#\(igbuioMode=\)\S*#\10#" ${dpdk_path}dpdk.sh
 ####################################
 ##
 sed -i "s#.*phystart.*#$mac0#"     $testmac_path/testmac_icxsp_mu1_100mhz_32x32_hton_oru.cfg
