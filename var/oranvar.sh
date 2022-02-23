@@ -25,6 +25,8 @@ RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
 oran_case_csl_sp=`sed '/^oran_case_csl_sp=/!d;s/.*=//' $cfg_file`
 oran_case_icl_sp=`sed '/^oran_case_icl_sp=/!d;s/.*=//' $cfg_file`
 
+export PTP_DIR=`sed '/^ptp_dir=/!d;s/.*=//' $cfg_file`
+
 export pipline_results_dir=$MRC_VAR_DIR/../$RESULT_SUDIR/oran/
 # source /opt/intel/oneapi/setvars.sh
 # export PATH=$PATH:/opt/intel/oneapi/compiler/2022.0.1/linux/bin-llvm/

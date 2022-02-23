@@ -6,10 +6,10 @@
 #!/bin/bash
 
 #export PTP_DIR=/root/linuxptp
-source ../oranenv.sh
+# source ../oranenv.sh
+source ../../var/oranvar.sh
 echo "-----------$RU_PTP_PORT"
 echo "-----------$PTP_DIR"
-# source ../../var/oranvar.sh
 
 if [ -z "$PTP_DIR" ]
 then
