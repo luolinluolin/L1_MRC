@@ -13,7 +13,7 @@ ip link set ${data_nic} vf 1 mac 00:11:22:33:00:10 vlan 2
 ip link set ${data_nic} vf 2 mac 00:11:22:33:00:20 vlan 3
 ip link set ${data_nic} vf 3 mac 00:11:22:33:00:30 vlan 4
 
-ip link set ${data_nic} vf 4 mac 00:11:22:33:01:40 vlan 5
-ip link set ${data_nic} vf 5 mac 00:11:22:33:01:50 vlan 6
+ip link set ${data_nic} vf 4 mac 00:11:22:33:00:40 vlan 5
+ip link set ${data_nic} vf 5 mac 00:11:22:33:00:50 vlan 6
 
 ip link  show
