@@ -13,10 +13,12 @@ d4="0000:${PCIE_BUS}:$DU_PCIE_DEVICE_ID.4"
 d5="0000:${PCIE_BUS}:$DU_PCIE_DEVICE_ID.5"
 #deviceid="20:00.0"
 
-dst0="00:11:22:33:00:02"
-dst1="00:11:22:33:00:12"
-dst2="00:11:22:33:00:22"
-dst3="00:11:22:33:00:32"
+dst0="00:11:22:33:00:01"
+dst1="00:11:22:33:00:11"
+dst2="00:11:22:33:00:21"
+dst3="00:11:22:33:00:31"
+dst4="00:11:22:33:00:41"
+dst5="00:11:22:33:00:51"
 
 mac0="phystart 4 0 150000"
 mac1="setcore 0xF81F0"
@@ -44,14 +46,18 @@ sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:
 ##########xrancfg_sub6_oru.xml
 sed -i "s#<PciBusAddoRu0Vf0>.*<\/PciBusAddoRu0Vf0>#<PciBusAddoRu0Vf0>${d0}<\/PciBusAddoRu0Vf0>#g"  ${phy_path}xrancfg_sub6_oru.xml
 sed -i "s#<PciBusAddoRu0Vf1>.*<\/PciBusAddoRu0Vf1>#<PciBusAddoRu0Vf1>${d1}<\/PciBusAddoRu0Vf1>#g"  ${phy_path}xrancfg_sub6_oru.xml
-sed -i "s#<PciBusAddoRu0Vf2>.*<\/PciBusAddoRu0Vf2>#<PciBusAddoRu0Vf2>${d2}<\/PciBusAddoRu0Vf2>#g"  ${phy_path}xrancfg_sub6_oru.xml
-sed -i "s#<PciBusAddoRu0Vf3>.*<\/PciBusAddoRu0Vf3>#<PciBusAddoRu0Vf3>${d3}<\/PciBusAddoRu0Vf3>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<PciBusAddoRu1Vf0>.*<\/PciBusAddoRu1Vf0>#<PciBusAddoRu1Vf0>${d2}<\/PciBusAddoRu1Vf0>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<PciBusAddoRu1Vf1>.*<\/PciBusAddoRu1Vf1>#<PciBusAddoRu1Vf1>${d3}<\/PciBusAddoRu1Vf1>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<PciBusAddoRu2Vf0>.*<\/PciBusAddoRu2Vf0>#<PciBusAddoRu2Vf0>${d2}<\/PciBusAddoRu2Vf0>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<PciBusAddoRu2Vf1>.*<\/PciBusAddoRu2Vf1>#<PciBusAddoRu2Vf1>${d3}<\/PciBusAddoRu2Vf1>#g"  ${phy_path}xrancfg_sub6_oru.xml
 
 
 sed -i "s#<oRuRem0Mac0>.*<\/oRuRem0Mac0>#<oRuRem0Mac0>${dst0}<\/oRuRem0Mac0>#g"  ${phy_path}xrancfg_sub6_oru.xml
 sed -i "s#<oRuRem0Mac1>.*<\/oRuRem0Mac1>#<oRuRem0Mac1>${dst1}<\/oRuRem0Mac1>#g"  ${phy_path}xrancfg_sub6_oru.xml
-sed -i "s#<oRuRem0Mac2>.*<\/oRuRem0Mac2>#<oRuRem0Mac2>${dst2}<\/oRuRem0Mac2>#g"  ${phy_path}xrancfg_sub6_oru.xml
-sed -i "s#<oRuRem0Mac3>.*<\/oRuRem0Mac3>#<oRuRem0Mac3>${dst3}<\/oRuRem0Mac3>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<oRuRem1Mac0>.*<\/oRuRem1Mac0>#<oRuRem1Mac0>${dst2}<\/oRuRem1Mac0>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<oRuRem1Mac1>.*<\/oRuRem1Mac1>#<oRuRem1Mac1>${dst3}<\/oRuRem1Mac1>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<oRuRem2Mac0>.*<\/oRuRem2Mac0>#<oRuRem2Mac0>${dst4}<\/oRuRem2Mac0>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<oRuRem2Mac1>.*<\/oRuRem2Mac1>#<oRuRem2Mac1>${dst5}<\/oRuRem2Mac1>#g"  ${phy_path}xrancfg_sub6_oru.xml
 ########## 
 ##########dpdk.sh
 sed -i "s#\(ethDevice0=\)\S*#\1$d0#" ${dpdk_path}dpdk.sh
