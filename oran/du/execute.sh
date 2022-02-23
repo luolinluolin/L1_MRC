@@ -3,9 +3,9 @@
 platform=$1
 version=$2
 
-du_dir=$PWD
+du_dir=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 ru_dir=$du_dir/../ru
-source ../../var/oranvar.sh
+source $du_dir/../../var/oranvar.sh
 
 
 echo "---platform: $platform----"
@@ -83,7 +83,7 @@ do
 
   cp -rf $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt $result_dir
 
-
+  $du_dir/../../utils/scptodst.sh $ANALYSE_IP $result_dir
 #############################
 
 done

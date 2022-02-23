@@ -48,4 +48,6 @@ do
 	cd ..
 done
 
+$CURRENT_DIR../utils/scptodst.sh $ANALYSE_IP $sdk_results
+
 cd -

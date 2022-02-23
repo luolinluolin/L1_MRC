@@ -11,13 +11,14 @@ fi
 platform=$1
 version=$2
 
-base=$PWD
 
-source ../oranenv.sh
+base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+
+source $base/../oranenv.sh
 
 
 ############
-# cd $base;./nic_vf_du.sh
+cd $base;./nic_vf_du.sh
 
 sleep 5
 ###########
@@ -25,7 +26,7 @@ cd $base;../../setup/mbc_vc_setup.sh MBC
 
 sleep 2
 ###########
-# cd $base;./ptp_screen_du.sh
+cd $base;./ptp_screen_du.sh
 
 #############
 # cd $base;./build.sh

@@ -4,6 +4,7 @@ cfg_file=$MRC_VAR_DIR/mrc.conf
 
 echo '-----------timer.conf------------------'
 
+export ANALYSE_IP=`sed '/^analyse_ip=/!d;s/.*=//' $cfg_file`
 ORANISA=`sed '/^isa=/!d;s/.*=//' $cfg_file`
 WORK_DIR=`sed '/^work_dir=/!d;s/.*=//' $cfg_file`
 RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`

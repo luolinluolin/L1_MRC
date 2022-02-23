@@ -38,7 +38,7 @@ ethDevice12=
 ethDevice13=
 ethDevice14=
 ethDevice15=
-fecDevice0=0000:8a:00.0
+fecDevice0=0000:8b:00.0
 fecDevice1=
 
 if [ ${RTE_SDK} == '' ]; then
@@ -137,10 +137,8 @@ load_vfio_module()
 
 # Use IGB_UIO. Change this to 0 for VFIO-PCI
 igbuioMode=1
-echo igbuioMode=$igbuioMode
+echo igbuioMode=0
 
-
-echo"--------------------------$RTE_SDK-------------------------------------------------"
 $RTE_SDK/usertools/dpdk-devbind.py --status
 
 #IGB-UIO Mode
@@ -265,6 +263,5 @@ else
     fi
 fi
 
-echo"--------------------------$RTE_SDK-------------------------------------------------"
 $RTE_SDK/usertools/dpdk-devbind.py --status
 

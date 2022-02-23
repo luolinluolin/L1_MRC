@@ -77,17 +77,20 @@ if [ $platform = "cslsp" ]
 then
    echo "------------casecade lake sp test------------------"
    test_perf cascade_lake-sp "${case_csl_sp}"
+   $CURRENT_DIR../utils/scptodst.sh $ANALYSE_IP cascade_lake-sp
 fi
 
 if [ $platform = "iclsp" ]
 then
    echo "------------ice lake sp test $case_icl_sp------------------"
    test_perf icelake-sp "${case_icl_sp}"
+   $CURRENT_DIR../utils/scptodst.sh $ANALYSE_IP icelake-sp
 fi
 
 if [ $platform = "icld" ]
 then
    echo "------------ice lake d test------------------"
    test_perf icelake-d "${case_icl_d}"
+   $CURRENT_DIR../utils/scptodst.sh $ANALYSE_IP icelake-d
 fi
 

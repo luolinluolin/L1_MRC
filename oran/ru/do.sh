@@ -1,10 +1,11 @@
 #!/bin/bash
 
-base=$PWD
+CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+base=$CURRENT_DIR
 
 source /etc/profile
 
-source ../oranenv.sh
+source $base/../oranenv.sh
 
 ###########################
 cd $base;./nic_vf_ru.sh
