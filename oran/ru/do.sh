@@ -5,6 +5,9 @@ base=$CURRENT_DIR
 
 source /etc/profile
 
+ru_dir=$base/../ru
+$ru_dir/kill.sh
+
 source $base/../oranenv.sh
 
 ###########################

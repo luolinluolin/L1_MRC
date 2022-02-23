@@ -11,8 +11,11 @@ fi
 platform=$1
 version=$2
 
-
 base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+
+ru_dir=$base/../ru
+$ru_dir/kill.sh
+ssh $RU_IP "$ru_dir/kill.sh; exit"
 
 source $base/../oranenv.sh
 
