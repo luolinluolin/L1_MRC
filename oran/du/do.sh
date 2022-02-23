@@ -15,6 +15,7 @@ base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
 ru_dir=$base/../ru
 $ru_dir/kill.sh
+kill -9 $(ps -aux|grep ptp|awk '{print $2}')
 ssh $RU_IP "$ru_dir/kill.sh; exit"
 
 source $base/../oranenv.sh

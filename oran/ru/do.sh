@@ -7,6 +7,7 @@ source /etc/profile
 
 ru_dir=$base/../ru
 $ru_dir/kill.sh
+kill -9 $(ps -aux|grep ptp|awk '{print $2}')
 
 source $base/../oranenv.sh
 

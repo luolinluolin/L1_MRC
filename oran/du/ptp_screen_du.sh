@@ -2,7 +2,10 @@
 
 base=$PWD
 
-kill -9 $(ps -aux|grep ptp|awk '{print $2}')
+# kill -9 $(ps -aux|grep ptp|awk '{print $2}')
+# ps -aux|grep ptp|awk '{print $2}'|xargs kill -9
+
+sleep 4
 
 cd $base; screen -d -m bash -c "./ptp.sh master phc2sys"
 cd $base; screen -d -m bash -c "./ptp.sh master ptp4l"

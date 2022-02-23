@@ -6,7 +6,6 @@ source $MRC_DIR/var/oranvar.sh
 
 env_file=$MRC_DIR/var/env.sh
 
-export PTP_DIR=/opt/utils/linuxptp
 echo "------------env--------------"
 source $env_file $ORANISA
 

@@ -2,7 +2,7 @@
 
 base=$PWD
 
-kill -9 $(ps -aux|grep ptp|awk '{print $2}')
+# kill -9 $(ps -aux|grep ptp|awk '{print $2}')
 cd $base; screen -d -m bash -c "./ptp.sh client ptp4l"
 cd $base; screen -d -m bash -c "./ptp.sh client phc2sys"
 
