@@ -43,7 +43,7 @@ case_icl_d=$timer_case_icl_d
 test_perf() {
     case_dir=$1
     test_cases=$2
-    pipline_result=$pipline_results_dir$case_dir/
+    pipline_result=$pipline_results_dir/$test_ver/$case_dir/
     if [ ! -d $pipline_result ]; then
         mkdir -p $pipline_result
     fi 

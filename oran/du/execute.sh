@@ -68,7 +68,7 @@ do
 
 	done
 
-  result_dir=$pipline_results_dir$platform
+  result_dir=$pipline_results_dir/$platform/$version
   echo "------------cp $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt to --------------" 
   echo "------------$result_dir --------------" 
   if [ ! -d $result_dir ]; then
