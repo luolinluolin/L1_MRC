@@ -6,8 +6,8 @@
 #!/bin/bash
 
 #export PTP_DIR=/root/linuxptp
-export PTP_DIR=/opt/linuxptp-2.0
-source ../../var/oranvar.sh
+source ../oranenv.sh
+# source ../../var/oranvar.sh
 
 if [ -z "$PTP_DIR" ]
 then

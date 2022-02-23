@@ -2,7 +2,7 @@
 MRC_VAR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 cfg_file=$MRC_VAR_DIR/mrc.conf
 
-echo'-----------oran.conf------------------'
+echo '-----------oran.conf------------------'
 cat $cfg_file
 
 export NIC=`sed '/^nic_name=/!d;s/.*=//' $cfg_file`
