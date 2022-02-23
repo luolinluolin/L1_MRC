@@ -19,7 +19,6 @@ l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac	
 echo "--------$l1_dir---------------"
 echo "--------$l2_dir---------------"
-
 #-----setup MBC-----
 ../setup/mbc_vc_setup.sh MBC
 dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/
@@ -51,14 +50,15 @@ test_perf() {
         rm -rf l1_mlog_stats.txt
     fi 
 
-    for test_case in $test_cases
+    echo "--------------------------- testcases $test_cases-------------------------------------"
+    for test_case in ${test_cases}
     do
         echo "---------------------------run testcase $test_case-------------------------------------"
         cd $l1_dir
         ./l1.sh -e&
         sleep 10
         cd $l2_dir
-        ./l2.sh --testfile=./$case_dir/$test_case&
+        ./l2.sh --testfile=./$case_dir/$test_case.cfg&
         sleep 600
         ps -aux|grep testmac|awk '{print $2}'|xargs kill -9
         ps -aux|grep l1app|awk '{print $2}'|xargs kill -9
@@ -69,22 +69,22 @@ test_perf() {
     cp l1_mlog_stats.txt $pipline_results
 }
 
+sh ./test_func.sh $case_csl_sp
 if [ $platform = "cslsp" ]
 then
    echo "------------casecade lake sp test------------------"
-   test_perf $csl_sp_dir $case_csl_sp
+   test_perf $csl_sp_dir "${case_csl_sp}"
 fi
 
 if [ $platform = "iclsp" ]
 then
    echo "------------ice lake sp test------------------"
-   test_perf $icl_sp_dir $case_csl_sp
-   test_perf $icl_sp_dir $case_icl_sp
+   test_perf $icl_sp_dir "{$case_icl_sp}"
 fi
 
 if [ $platform = "icld" ]
 then
    echo "------------ice lake d test------------------"
-   test_perf $icl_d_dir $case_icl_d
+   test_perf $icl_d_dir "${case_icl_d}"
 fi
 
