@@ -1,3 +1,3 @@
-ps -aux|grep l1app|awk '{print $2}'|xargs kill -9
-ps -aux|grep testmac|awk '{print $2}'|xargs kill -9
+#!/bin/bash
 
+kill -9 $(ps -ef |grep -E 'testmac|l1app|sample-app|expect'  |awk '{print$2}')
