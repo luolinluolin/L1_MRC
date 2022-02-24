@@ -16,6 +16,7 @@ cd $base;./nic_vf_ru.sh
 sleep 3
 
 ###########################
+sed -i "s#\(^igbuioMode=\)\S*#\10#"  $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/dpdk.sh
 cd $base;rm -rf $base/dpdk.sh;cp $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/dpdk.sh .; ./update_dpdk_ru.sh
 cd $base; source ../oranenv.sh;./dpdk.sh
 sleep 3

@@ -23,6 +23,5 @@ sed -i "s#\(ethDevice3=\)\S*#\1$d3#" ${base}/dpdk.sh
 sed -i "s#\(ethDevice4=\)\S*#\1$d4#" ${base}/dpdk.sh
 sed -i "s#\(ethDevice5=\)\S*#\1$d5#" ${base}/dpdk.sh
 
-sed -i "s#\(^igbuioMode=\)\S*#\11#"  $base/dpdk.sh
 
 ####################################
