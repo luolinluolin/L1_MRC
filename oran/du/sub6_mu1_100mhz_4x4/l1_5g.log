@@ -1,0 +1,229 @@
+spawn su - root
+Last login: Wed Feb 23 17:54:09 PST 2022 from luolin-mobl.ccr.corp.intel.com on pts/0
+]0;root@csl-npg-bds1-37:~[?1034h[root@csl-npg-bds1-37 ~]# cd /home/luolin/master/L1_MRC/oran/du/sub6_mu1_100mhz_4x4;source ../../oranenv.sh;cd  /home/luolin/master/networking.wireless.flexran.flexran-l1-sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/gnb/; ./l1.sh -oru
+-----------oran.conf------------------
+
+#-----------------------common cfg----------------------
+isa=snc
+work_dir=/home/luolin/master
+result_subdir=/result
+ptp_dir=/opt/utils/linuxptp
+
+analyse_ip=
+#-----------------------oran cfg----------------------
+
+nic_name=E810
+
+ru_ip=10.233.180.204
+
+du_nic_port=enp26s0f0
+du_ptp_port=enp26s0f1
+du_pcie_device_id=01
+
+ru_nic_port=ens786f0
+ru_ptp_port=ens786f1
+ru_pcie_device_id=01
+
+
+
+#-----------------------timer case----------------------
+timer_case_csl_sp=clxsp_mu0_10mhz_4x4_hton clxsp_mu0_20mhz_4x4_hton clxsp_mu1_100mhz_4x4_hton clxsp_mu1_100mhz_mmimo_32x32_hton clxsp_mu1_100mhz_mmimo_64x64_8stream_hton clxsp_mu3_100mhz_2x2_hton clxsp_mu0_20mhz_4x4_hton_multi_numerology
+
+timer_case_icl_sp=icxsp_mu0_10mhz_4x4_hton icxsp_mu0_20mhz_4x4_hton icxsp_mu1_100mhz_4x4_hton icxsp_mu1_100mhz_mmimo_32x32_hton icxsp_mu1_100mhz_mmimo_64x64_8stream_hton icxsp_mu1_100mhz_mmimo_64x64_16stream_hton icxsp_mu3_100mhz_2x2_hton icxsp_mu0_20mhz_4x4_hton_multi_numerology 
+
+timer_case_icl_d=icxd_mu1_100mhz_2x2_hton icxd_mu3_100mhz_hton
+
+#-----------------------oran case----------------------
+
+oran_case_csl_sp=sub3_mu0_10mhz_4x4 sub3_mu0_20mhz_4x4 sub6_mu1_100mhz_4x4 sub3_mu0_20mhz_sub3_mu1_20mhz_4x4
+
+oran_case_icl_sp=sub6_mu1_100mhz_32x32
+------------env--------------
+RTE_SDK=/home/luolin/master/networking.wireless.flexran.wireless-dpdk-ae
+FLEXRAN_L1_SW=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw
+WIRELESS_SDK=/home/luolin/master/networking.wireless.flexran.wireless-sdk
+RTE_TARGET=x86_64-native-linuxapp-icx
+WIRELESS_SDK_TARGET_ISA=snc
+RPE_DIR=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/libs/ferrybridge
+ROE_DIR=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/libs/roe
+CPA_DIR=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/libs/cpa
+XRAN_DIR=/home/luolin/master/networking.wireless.flexran.flexran-xran
+DIR_WIRELESS_SDK_ROOT=/home/luolin/master/networking.wireless.flexran.wireless-sdk
+DIR_WIRELESS_FW=/home/luolin/master/networking.wireless.flexran.wireless-convergence-l1/framework
+DIR_WIRELESS_TEST_4G=/home/luolin/master/flexran_l1_4g_test
+DIR_WIRELESS_TEST_5G=/home/luolin/master/networking.wireless.flexran.flexran-l1-5g-test
+SDK_BUILD=
+DIR_WIRELESS_SDK=/home/luolin/master/networking.wireless.flexran.wireless-sdk/build-snc-icx
+FLEXRAN_SDK=/home/luolin/master/networking.wireless.flexran.wireless-sdk/build-snc-icx/install
+DIR_WIRELESS_TABLE_5G=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/bin/nr5g/gnb/l1/table
+GTEST_ROOT=/opt/gtest/gtest-1.7.0
+RTE_SDK_KMOD=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/../dpdk-kmods
+ 
+:: initializing oneAPI environment ...
+   -bash: BASH_VERSION = 4.2.46(2)-release
+   args: Using "$@" for setvars.sh arguments: snc
+:: advisor -- latest
+:: ccl -- latest
+:: compiler -- latest
+:: dal -- latest
+:: debugger -- latest
+:: dev-utilities -- latest
+:: dnnl -- latest
+:: dpcpp-ct -- latest
+:: dpl -- latest
+:: ipp -- latest
+:: ippcp -- latest
+:: ipp -- latest
+:: mkl -- latest
+:: mpi -- latest
+:: tbb -- latest
+:: vpl -- latest
+:: vtune -- latest
+:: oneAPI environment initialized ::
+ 
+ORANISA=snc
+NIC=E810
+RU_NIC_PORT=ens786f0
+RU_PTP_PORT=ens786f1
+RU_IP=10.233.180.204
+DU_NIC_PORT=enp26s0f0
+DU_PTP_PORT=enp26s0f1
+WORK_DIR=/opt/intel/oneapi/ccl/2021.5.0/env
+pipline_results_dir=/home/luolin/master/L1_MRC/var/..//result/oran/
+oran_case_csl_sp=sub3_mu0_10mhz_4x4 sub3_mu0_20mhz_4x4 sub6_mu1_100mhz_4x4 sub3_mu0_20mhz_sub3_mu1_20mhz_4x4
+oran_case_icl_sp=sub6_mu1_100mhz_32x32
+Radio mode with XRAN - Sub6 100Mhz
+using configuration file phycfg_xran.xml
+using configuration file xrancfg_sub6_oru.xml
+Radio mode with XRAN - Custom Mode
+igbuioMode=0
+
+Network devices using DPDK-compatible driver
+============================================
+0000:1a:01.0 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.1 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.2 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.3 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.4 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.5 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+
+Network devices using kernel driver
+===================================
+0000:1a:00.0 'Ethernet Controller E810-C for QSFP 1592' if=enp26s0f0 drv=ice unused=igb_uio,vfio-pci 
+0000:1a:00.1 'Ethernet Controller E810-C for QSFP 1592' if=enp26s0f1 drv=ice unused=igb_uio,vfio-pci 
+0000:6b:00.0 'Ethernet Connection X722 for 10GBASE-T 37d2' if=eno1 drv=i40e unused=igb_uio,vfio-pci *Active*
+0000:6b:00.1 'Ethernet Connection X722 for 10GBASE-T 37d2' if=eno2 drv=i40e unused=igb_uio,vfio-pci 
+
+Baseband devices using DPDK-compatible driver
+=============================================
+0000:18:00.0 'Device 0d5d' drv=igb_uio unused=vfio-pci
+
+Other Baseband devices
+======================
+0000:17:00.0 'Device 0d5c' unused=igb_uio,vfio-pci
+0000:18:00.1 'Device 0d5d' unused=igb_uio,vfio-pci
+
+Crypto devices using kernel driver
+==================================
+0000:67:00.0 'C62x Chipset QuickAssist Technology 37c8' drv=c6xx unused=qat_c62x,igb_uio,vfio-pci 
+0000:69:00.0 'C62x Chipset QuickAssist Technology 37c8' drv=c6xx unused=qat_c62x,igb_uio,vfio-pci 
+
+No 'Eventdev' devices detected
+==============================
+
+No 'Mempool' devices detected
+=============================
+
+No 'Compress' devices detected
+==============================
+
+Other Misc (rawdev) devices
+===========================
+0000:00:04.0 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.1 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.2 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.3 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.4 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.5 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.6 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.7 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+
+No 'Regex' devices detected
+===========================
+Unloading any existing VFIO module
+Loading VFIO module
+insmod /lib/modules/3.10.0-1160.53.1.rt56.1193.el7.x86_64/kernel/drivers/vfio/vfio.ko.xz 
+insmod /lib/modules/3.10.0-1160.53.1.rt56.1193.el7.x86_64/kernel/drivers/vfio/vfio_iommu_type1.ko.xz 
+insmod /lib/modules/3.10.0-1160.53.1.rt56.1193.el7.x86_64/kernel/drivers/vfio/pci/vfio-pci.ko.xz 
+chmod /dev/vfio
+OK
+8086 0d90
+
+Network devices using DPDK-compatible driver
+============================================
+0000:1a:01.0 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.1 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.2 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.3 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.4 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+0000:1a:01.5 'Ethernet Adaptive Virtual Function 1889' drv=vfio-pci unused=iavf,igb_uio
+
+Network devices using kernel driver
+===================================
+0000:1a:00.0 'Ethernet Controller E810-C for QSFP 1592' if=enp26s0f0 drv=ice unused=igb_uio,vfio-pci 
+0000:1a:00.1 'Ethernet Controller E810-C for QSFP 1592' if=enp26s0f1 drv=ice unused=igb_uio,vfio-pci 
+0000:6b:00.0 'Ethernet Connection X722 for 10GBASE-T 37d2' if=eno1 drv=i40e unused=igb_uio,vfio-pci *Active*
+0000:6b:00.1 'Ethernet Connection X722 for 10GBASE-T 37d2' if=eno2 drv=i40e unused=igb_uio,vfio-pci 
+
+Baseband devices using DPDK-compatible driver
+=============================================
+0000:18:00.0 'Device 0d5d' drv=vfio-pci unused=igb_uio
+
+Other Baseband devices
+======================
+0000:17:00.0 'Device 0d5c' unused=igb_uio,vfio-pci
+0000:18:00.1 'Device 0d5d' unused=igb_uio,vfio-pci
+
+Crypto devices using kernel driver
+==================================
+0000:67:00.0 'C62x Chipset QuickAssist Technology 37c8' drv=c6xx unused=qat_c62x,igb_uio,vfio-pci 
+0000:69:00.0 'C62x Chipset QuickAssist Technology 37c8' drv=c6xx unused=qat_c62x,igb_uio,vfio-pci 
+
+No 'Eventdev' devices detected
+==============================
+
+No 'Mempool' devices detected
+=============================
+
+No 'Compress' devices detected
+==============================
+
+Other Misc (rawdev) devices
+===========================
+0000:00:04.0 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.1 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.2 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.3 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.4 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.5 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.6 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+0000:00:04.7 'Sky Lake-E CBDMA Registers 2021' unused=igb_uio,vfio-pci
+
+No 'Regex' devices detected
+===========================
+DPDK WLS MODE
+kernel.sched_rt_runtime_us = -1
+kernel.shmmax = 2147483648
+kernel.shmall = 2147483648
+Note: Forwarding request to 'systemctl disable irqbalance.service'.
+using configuration file /home/luolin/master/networking.wireless.flexran.flexran-l1-sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/gnb/phycfg_xran.xml
+using configuration file /home/luolin/master/networking.wireless.flexran.flexran-l1-sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/gnb/xrancfg_sub6_oru.xml
+>> Running... taskset -c 2 ./l1app --cfgfile=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/gnb/phycfg_xran.xml --xranfile=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/gnb/xrancfg_sub6_oru.xml
+FlexRAN SDK bblib_layerdemapping_5gnr version #DIRTY#
+FlexRAN SDK bblib_layermapping_5gnr version #DIRTY#
+FlexRAN SDK bblib_cestimate_5gnr_version #DIRTY#
+terminate called after throwing an instance of 'reading_input_file_exception'
+  what():  Input file cannot be read!
+./l1.sh: line 124: 122448 Aborted                 (core dumped) taskset -c 2 ./l1app --cfgfile=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/gnb/phycfg_xran.xml --xranfile=/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/gnb/xrancfg_sub6_oru.xml
+Cleanup after [PID] 122184
+]0;root@csl-npg-bds1-37:/home/luolin/master/networking.wireless.flexran.flexran-l1-sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/gnb[root@csl-npg-bds1-37 gnb]# 

@@ -136,7 +136,7 @@ load_vfio_module()
 }
 
 # Use IGB_UIO. Change this to 0 for VFIO-PCI
-igbuioMode=1
+igbuioMode=0
 echo igbuioMode=0
 
 $RTE_SDK/usertools/dpdk-devbind.py --status
