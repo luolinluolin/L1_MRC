@@ -6,13 +6,14 @@ l1sw=$1
 echo "--------------------------------------------$l1sw"
 
 PCIE_BUS=` lspci |grep -E "${NIC}" |head -1|awk '{print $1}'|awk -F: '{print $1}' `
+DEVICE_ID=`lspci |grep -E "Intel Corporation Ethernet Adaptive Virtual Function" |head -1|awk '{print $1}'|awk -F:  '{print $2}'|awk -F. '{print $1}'`
 
-d0="0000:${PCIE_BUS}:$RU_PCIE_DEVICE_ID.0"
-d1="0000:${PCIE_BUS}:$RU_PCIE_DEVICE_ID.1"
-d2="0000:${PCIE_BUS}:$RU_PCIE_DEVICE_ID.2"
-d3="0000:${PCIE_BUS}:$RU_PCIE_DEVICE_ID.3"
-d4="0000:${PCIE_BUS}:$RU_PCIE_DEVICE_ID.4"
-d5="0000:${PCIE_BUS}:$RU_PCIE_DEVICE_ID.5"
+d0="0000:${PCIE_BUS}:$DEVICE_ID.0"
+d1="0000:${PCIE_BUS}:$DEVICE_ID.1"
+d2="0000:${PCIE_BUS}:$DEVICE_ID.2"
+d3="0000:${PCIE_BUS}:$DEVICE_ID.3"
+d4="0000:${PCIE_BUS}:$DEVICE_ID.4"
+d5="0000:${PCIE_BUS}:$DEVICE_ID.5"
 
 ####################################
 cd $base
