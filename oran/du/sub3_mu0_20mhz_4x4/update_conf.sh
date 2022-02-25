@@ -22,7 +22,7 @@ dst4="00:11:22:33:00:41"
 dst5="00:11:22:33:00:51"
 
 mac0="phystart 4 0 150000"
-mac1="setcore 0x7ff007ff0"
+mac1="setcore 0xfff00fff0"
 
 
 phy_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/sub3_mu0_20mhz_4x4/gnb/
