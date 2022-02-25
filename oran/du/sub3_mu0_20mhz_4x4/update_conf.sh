@@ -21,7 +21,7 @@ dst4="00:11:22:33:00:41"
 dst5="00:11:22:33:00:51"
 
 mac0="phystart 4 0 150000"
-mac1="setcore 0xF81F0"
+mac1="setcore 0x7ff007ff0"
 
 
 phy_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/sub3_mu0_20mhz_4x4/gnb/
@@ -31,6 +31,7 @@ dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/
 testmac_cfg=$phy_path/testmac_clxsp_mu0_20mhz_hton_oru.cfg
 context=`cat $testmac_cfg|grep ebbu_pool_num_context|awk '{print $3}'`
 sed -i "s#\(ebbu_pool_max_context_fetch[ \t]\)\S*#\1$context#" $testmac_cfg
+sed -i "s#\(setcore \)\S*#$mac1#" $testmac_cfg
 cd $base
 cp $testmac_cfg $testmac_path/
 ######### 

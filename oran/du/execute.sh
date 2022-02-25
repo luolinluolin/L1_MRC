@@ -34,10 +34,10 @@ echo "-------test_cases: $test_cases---------------"
 
 # for i in $test_cases 
 # do
-  # i=sub3_mu0_10mhz_4x4
-  # i=sub3_mu0_20mhz_4x4 // can not pass
+  # i=sub3_mu0_10mhz_4x4 //ok
+  i=sub3_mu0_20mhz_4x4
   # i=sub3_mu0_20mhz_sub3_mu1_20mhz_4x4
-  i=sub6_mu1_100mhz_4x4
+  # i=sub6_mu1_100mhz_4x4 //ok
 
   # i=sub6_mu1_100mhz_32x32
   echo "-----------do test case ${i}-----------------"
