@@ -28,8 +28,11 @@ phy_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/sub3_mu0_20mhz_sub3_mu1_20mhz_4x
 testmac_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac/
 dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/
 ####################################
+testmac_cfg=$phy_path/testmac_clxsp_multi_numerology_oru.cfg
+context=`cat $testmac_cfg|grep ebbu_pool_num_context|awk '{print $3}'`
+sed -i "s#\(ebbu_pool_max_context_fetch[ \t]\)\S*#\1$context#" $testmac_cfg
 cd $base
-cp $phy_path/testmac_clxsp_multi_numerology_oru.cfg $testmac_path/
+cp $testmac_cfg $testmac_path/
 ######### 
 ##########l1.sh
 sed -i '/dpdk.sh/d'   ${phy_path}l1.sh

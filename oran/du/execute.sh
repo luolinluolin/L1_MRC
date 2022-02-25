@@ -11,6 +11,14 @@ source $du_dir/../../var/oranvar.sh
 echo "---platform: $platform----"
 echo "---version: $version----"
 
+
+echo "-----------revomve src old file-----------------"
+result=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt
+if [ -f result ]
+then
+  rm -rf result
+fi
+
 if [ $platform = "cslsp" ]
 then
    echo "------------casecade lake sp test------------------"
@@ -24,10 +32,10 @@ then
 fi
 echo "-------test_cases: $test_cases---------------"
 
-for i in $test_cases 
-do
+# for i in $test_cases 
+# do
   # i=sub3_mu0_10mhz_4x4
-  # i=sub3_mu0_20mhz_4x4
+  # i=sub3_mu0_20mhz_4x4 // can not pass
   # i=sub3_mu0_20mhz_sub3_mu1_20mhz_4x4
   i=sub6_mu1_100mhz_4x4
 
@@ -35,20 +43,13 @@ do
   echo "-----------do test case ${i}-----------------"
   $ru_dir/kill.sh
   ssh $RU_IP "$ru_dir/kill.sh; exit"
-
-  echo "-----------revomve src old file-----------------"
-  result=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt
-  if [ -f result ]
-  then
-    rm -rf result
-  fi
-
   
   sleep 2
 
   cd $du_dir/${i}/;./run.sh  &
 
 	num=1
+  sleep 10
 
 	while [ $num -le 50 ]
 	do
@@ -86,7 +87,7 @@ do
   $du_dir/../../utils/scptodst.sh $ANALYSE_IP $result_dir
 #############################
 
-done
+# done
 
 ssh $RU_IP "$ru_dir/kill.sh"
 echo "execute.sh script is done"
