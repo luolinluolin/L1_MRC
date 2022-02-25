@@ -31,6 +31,7 @@ if [ ! -d   $FLEXRAN_L1_SW ];then
    exit 0
 fi
 
+
 export   http_proxy=http://proxy-prc.intel.com:911/
 export   ftp_proxy=ftp://proxy-prc.intel.com:911/
 export   https_proxy=https://proxy-prc.intel.com:911/
@@ -58,6 +59,8 @@ then
     echo "----error create vf MBC failed----"
     exit 0;
   fi
+  sed -i "s#\(^igbuioMode=\)\S*#\10#"  $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/dpdk.sh
+  $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/dpdk.sh
 else
  echo "input correct value"
 fi
