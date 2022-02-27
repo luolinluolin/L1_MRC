@@ -26,7 +26,7 @@ source $CURRENT_DIR/timerenv.sh
 
 
 echo "---------------sdk_results_dir $sdk_results_dir-----------"
-sdk_results=$sdk_results_dir/$test_ver/
+sdk_results=$sdk_results_dir/$platform/$test_ver/
 
 if [ ! -d $sdk_results ]; then
     mkdir -p $sdk_results
