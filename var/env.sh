@@ -52,6 +52,7 @@ export MLOG_DIR=$FLEXRAN_L1_SW/libs/mlog
 export MESON_BUILD=1 
 
 export RTE_SDK_KMOD=$FLEXRAN_L1_SW/../dpdk-kmods
+export PKG_CONFIG_PATH=$DIR_WIRELESS_SDK/pkgconfig:$PKG_CONFIG_PATH
 
 echo RTE_SDK=${RTE_SDK}
 echo FLEXRAN_L1_SW=${FLEXRAN_L1_SW}
