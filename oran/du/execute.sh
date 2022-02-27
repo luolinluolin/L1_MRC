@@ -32,12 +32,14 @@ then
 fi
 echo "-------test_cases: $test_cases---------------"
 
-# for i in $test_cases 
-# do
+for i in $test_cases 
+do
   # i=sub3_mu0_10mhz_4x4
-  i=sub3_mu0_20mhz_4x4
+  # i=sub3_mu0_20mhz_4x4
   # i=sub3_mu0_20mhz_sub3_mu1_20mhz_4x4
   # i=sub6_mu1_100mhz_4x4
+
+  # i=sub3_mu0_20mhz_sub6_mu1_100mhz_4x4
 
   # i=sub6_mu1_100mhz_32x32
   echo "-----------do test case ${i}-----------------"
@@ -49,7 +51,7 @@ echo "-------test_cases: $test_cases---------------"
   cd $du_dir/${i}/;./run.sh  &
 
 	num=1
-  sleep 10
+  sleep 40
 
 	while [ $num -le 50 ]
 	do
@@ -87,7 +89,7 @@ echo "-------test_cases: $test_cases---------------"
   $du_dir/../../utils/scptodst.sh $ANALYSE_IP $result_dir
 #############################
 
-# done
+done
 
 ssh $RU_IP "$ru_dir/kill.sh"
 echo "execute.sh script is done"
