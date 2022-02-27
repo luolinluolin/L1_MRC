@@ -87,3 +87,5 @@ alias testcase="cd $DIR_WIRELESS_TEST_5G/ul/mu1_100mhz"
 source /opt/intel/oneapi/setvars.sh
 export PATH=$PATH:/opt/intel/oneapi/compiler/2022.0.1/linux/bin-llvm/
 source /opt/rh/devtoolset-8/enable
+
+export WORK_DIR=$BASE
