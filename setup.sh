@@ -51,6 +51,14 @@ then
 fi
 
 
+echo "---------build sdk--------------"
+
+cd $WIRELESS_SDK
+./create-makefiles-linux.sh
+cd $DIR_WIRELESS_SDK
+make -j32
+make install
+
 #cd $SETUP_DIR
 #echo "---------bind MBC--------------"
 #$SETUP/mbc_vc_setup.sh MBC
