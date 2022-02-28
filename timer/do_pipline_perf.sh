@@ -15,6 +15,7 @@ test_mode=$3
 
 
 CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+$CURRENT_DIR/../kill.sh
 
 source $CURRENT_DIR/timerenv.sh
 l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
@@ -39,7 +40,6 @@ case_csl_sp=$timer_case_csl_sp
 case_icl_sp=$timer_case_icl_sp
 case_icl_d=$timer_case_icl_d
 
-
 test_perf() {
     case_dir=$1
     test_cases=$2
@@ -52,18 +52,32 @@ test_perf() {
     for test_case in ${test_cases}
     do
         echo "---------------------------run testcase $test_case-------------------------------------"
+        rm -rf $CURRENT_DIR/*.log
+        $CURRENT_DIR/../kill.sh
+        kill -9 $(ps -ef |grep -E 'l1.ex|l2.ex|expect'  |awk '{print$2}')
         cd $l1_dir
         if [ -f l1_mlog_stats.txt ]
         then
             rm -rf l1_mlog_stats.txt
         fi        
-        ./l1.sh -e&
-        sleep 10
-        cd $l2_dir
-        ./l2.sh --testfile=./$case_dir/$test_case.cfg&
-        sleep 600
-        ps -aux|grep testmac|awk '{print $2}'|xargs kill -9
-        ps -aux|grep l1app|awk '{print $2}'|xargs kill -9
+
+        # ./l1.sh -e&
+        # sleep 10
+        # cd $l2_dir
+        # ./l2.sh --testfile=./$case_dir/$test_case.cfg&
+        # sleep 600
+
+        # cd $CURRENT_DIR
+        # chmod +x l1.ex l2.ex
+        # ./l1.ex $CURRENT_DIR $FLEXRAN_L1_SW&
+
+        # sleep 20
+
+        # ./l2.ex 
+
+        cd $CURRENT_DIR 
+        ./run.sh $CURRENT_DIR ./$case_dir/$test_case.cfg
+
         echo "-----------copy result to $pipline_result--------------" 
         dst_result=$pipline_result/$test_case.txt
         if [ -f dst_result ]
