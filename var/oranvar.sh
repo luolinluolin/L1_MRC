@@ -20,8 +20,12 @@ WORK_DIR=`sed '/^work_dir=/!d;s/.*=//' $cfg_file`
 RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
 
 
-oran_case_csl_sp=`sed '/^oran_case_csl_sp=/!d;s/.*=//' $cfg_file`
-oran_case_icl_sp=`sed '/^oran_case_icl_sp=/!d;s/.*=//' $cfg_file`
+# oran_case_csl_sp=`sed '/^oran_case_csl_sp=/!d;s/.*=//' $cfg_file`
+# oran_case_icl_sp=`sed '/^oran_case_icl_sp=/!d;s/.*=//' $cfg_file`
+
+source $MRC_VAR_DIR/test_case.sh
+oran_case_csl_sp=$oran_csl_sp_case
+oran_case_icl_sp=$oran_icl_sp_case
 
 export PTP_DIR=`sed '/^ptp_dir=/!d;s/.*=//' $cfg_file`
 
