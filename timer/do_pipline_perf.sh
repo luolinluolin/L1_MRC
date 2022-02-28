@@ -48,17 +48,15 @@ test_perf() {
         mkdir -p $pipline_result
     fi 
 
-    cd $l1_dir
-    if [ -f l1_mlog_stats.txt ]
-    then
-        rm -rf l1_mlog_stats.txt
-    fi 
-
     echo "--------------------------- testcases $test_cases-------------------------------------"
     for test_case in ${test_cases}
     do
         echo "---------------------------run testcase $test_case-------------------------------------"
         cd $l1_dir
+        if [ -f l1_mlog_stats.txt ]
+        then
+            rm -rf l1_mlog_stats.txt
+        fi        
         ./l1.sh -e&
         sleep 10
         cd $l2_dir
@@ -66,11 +64,15 @@ test_perf() {
         sleep 600
         ps -aux|grep testmac|awk '{print $2}'|xargs kill -9
         ps -aux|grep l1app|awk '{print $2}'|xargs kill -9
+        echo "-----------copy result to $pipline_result--------------" 
+        dst_result=$result_dir/$test_case.txt
+        if [ -f dst_result ]
+        then
+            rm -rf dst_result
+        fi
+        mv $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt $dst_result
     done
     
-    echo "-----------copy result to $pipline_result--------------" 
-    cd $l1_dir
-    cp l1_mlog_stats.txt $pipline_result
 }
 
 if [ $platform = "cslsp" ]
