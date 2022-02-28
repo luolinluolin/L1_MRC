@@ -65,7 +65,7 @@ test_perf() {
         ps -aux|grep testmac|awk '{print $2}'|xargs kill -9
         ps -aux|grep l1app|awk '{print $2}'|xargs kill -9
         echo "-----------copy result to $pipline_result--------------" 
-        dst_result=$result_dir/$test_case.txt
+        dst_result=$pipline_result/$test_case.txt
         if [ -f dst_result ]
         then
             rm -rf dst_result
