@@ -14,7 +14,7 @@
         ],
         "timer_icl_sp_info":
         [
-            {"case": "sub3_mu0_10mhz_4x4", "info": "ICXSP Hton ACC100 Sub3 10Mhz 4X4", "cfile": "ref_icxsp_hton_acc100_sub3_10mhz_4x4"},
+            {"case": "icxsp_mu0_10mhz_4x4_hton", "info": "ICXSP Hton ACC100 Sub3 10Mhz 4X4", "cfile": "ref_icxsp_hton_acc100_sub3_10mhz_4x4"},
             {"case": "icxsp_mu0_20mhz_4x4_hton", "info": "ICXSP Hton ACC100 Sub3 20Mhz 4X4", "cfile": "ref_icxsp_hton_acc100_sub3_20mhz_4x4"},
             {"case": "icxsp_mu1_100mhz_4x4_hton", "info": "ICXSP Hton ACC100 Sub6 100Mhz 4X4", "cfile": "ref_icxsp_hton_acc100_sub6_100mhz_4x4"},
             {"case": "icxsp_mu1_100mhz_mmimo_32x32_hton", "info": "ICXSP Hton ACC100 Mmimo 100Mhz 32X32", "cfile": "ref_icxsp_hton_acc100_mmimo_100mhz_32x32"},
