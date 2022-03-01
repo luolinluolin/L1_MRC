@@ -21,13 +21,7 @@ DU_PTP_PORT=`sed '/^du_ptp_port=/!d;s/.*=//' $cfg_file`
 WORK_DIR=`sed '/^work_dir=/!d;s/.*=//' $cfg_file`
 RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
 
-
-# oran_case_csl_sp=`sed '/^oran_case_csl_sp=/!d;s/.*=//' $cfg_file`
-# oran_case_icl_sp=`sed '/^oran_case_icl_sp=/!d;s/.*=//' $cfg_file`
-
 source $MRC_VAR_DIR/test_case.sh
-# oran_case_csl_sp=$oran_csl_sp_case
-# oran_case_icl_sp=$oran_icl_sp_case
 
 if [ $platform = "cslsp" ]
 then
@@ -44,8 +38,3 @@ fi
 export PTP_DIR=`sed '/^ptp_dir=/!d;s/.*=//' $cfg_file`
 
 export pipline_results_dir=$MRC_VAR_DIR/../$RESULT_SUDIR/oran/
-# source /opt/intel/oneapi/setvars.sh
-# export PATH=$PATH:/opt/intel/oneapi/compiler/2022.0.1/linux/bin-llvm/
-
-# source /opt/intel/oneapi/setvars.sh
-# export PATH=$PATH:/opt/intel/oneapi/compiler/2022.0.1/linux/bin-llvm/
