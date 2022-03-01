@@ -9,7 +9,7 @@ cat $cfg_file
 
 export NIC=`sed '/^nic_name=/!d;s/.*=//' $cfg_file`
 export ORANISA=`sed '/^isa=/!d;s/.*=//' $cfg_file`
-export ANALYSE_IP=`sed '/^analyse_ip=/!d;s/.*=//' $cfg_file`
+ANALYSE_IP=`sed '/^analyse_ip=/!d;s/.*=//' $cfg_file`
 #---------------RU------------
 RU_NIC_PORT=`sed '/^ru_nic_port=/!d;s/.*=//' $cfg_file`
 RU_PTP_PORT=`sed '/^ru_ptp_port=/!d;s/.*=//' $cfg_file`
@@ -25,16 +25,16 @@ source $MRC_VAR_DIR/test_case.sh
 
 if [ $platform = "cslsp" ]
 then
-   echo "------------casecade lake sp test $oran_csl_sp_case------------------"
-   test_cases=$oran_csl_sp_case
+   echo "------------casecade lake sp test $oran_cslsp_case------------------"
+   test_cases=$oran_cslsp_case
 fi
 
 if [ $platform = "iclsp" ]
 then
-   echo "------------ice lake sp test $oran_icl_sp_case------------------"
-   test_cases=$oran_icl_sp_case
+   echo "------------ice lake sp test $oran_iclsp_case------------------"
+   test_cases=$oran_iclsp_case
 fi
 
-export PTP_DIR=`sed '/^ptp_dir=/!d;s/.*=//' $cfg_file`
+PTP_DIR=`sed '/^ptp_dir=/!d;s/.*=//' $cfg_file`
 
-export pipline_results_dir=$MRC_VAR_DIR/../$RESULT_SUDIR/oran/
+pipline_results_dir=$MRC_VAR_DIR/../$RESULT_SUDIR/oran/
