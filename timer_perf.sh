@@ -6,7 +6,8 @@ if [ $# -ne 2 ] || [ $1 = "-h" ];then
      "
    exit 0
 fi
+platform=$1
+version=$2
 
-
-./timer/do_sdk_perf.sh cslsp prod_r21.11
-./timer/do_pipline_perf.sh cslsp prod_r21.11
+./timer/do_sdk_perf.sh $platform $version
+./timer/do_pipline_perf.sh $platform $version
