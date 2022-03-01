@@ -1,7 +1,7 @@
 
 if [ $# -ne 1 ] || [ $1 = "-h" ];then
     echo "
-         example : ./genc_pipline_ver.sh  prod_r21.11
+         example : ./1ver_pipline_gen_c.sh prod_r21.11
      "
    exit 0
 fi

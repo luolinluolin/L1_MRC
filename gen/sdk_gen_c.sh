@@ -1,7 +1,7 @@
 
 if [ $# -ne 1 ] || [ $1 = "-h" ];then
     echo "
-         example : ./genc_sdk.sh  prod_r21.11
+         example : ./sdk_gen_c.sh  prod_r21.11
      "
    exit 0
 fi
@@ -26,7 +26,7 @@ if [ ! -d $output_dir ]; then
 fi
 gen_c_common() {
     platform=$1
-    info=$2
+    info=${2}
     cfile=$3
     cd $sdk_tool_dir;
     if [ -f $result ]
@@ -34,11 +34,13 @@ gen_c_common() {
         rm -rf $result
     fi  
     ./sdk_results_parse $SDK_RESULTS/$platform/$version 0
-    $perf_report sdk ${sdk_tool_dir}/${result} $info $output_dir/$cfile.c
+    chmod +x ${sdk_tool_dir}/${result}
+    echo "-------$perf_report sdk 1 ${sdk_tool_dir}/${result} "$info" $output_dir/$cfile"
+    $perf_report sdk 1 ${sdk_tool_dir}/${result} "$info" $output_dir/$cfile
 }
 
 
 
-gen_c_common "cslsp" $version "CLXSP Sdk" "ref_clxsp_sdk"
-gen_c_common "iclsp" $version "ICXSP Sdk" "ref_icxsp_sdk"
-gen_c_common "icld" $version "ICXD Sdk" "ref_icxd_sdk"
+gen_c_common "cslsp" "CLXSP Sdk" "ref_clxsp_sdk"
+gen_c_common "iclsp" "ICXSP Sdk" "ref_icxsp_sdk"
+gen_c_common "icld" "ICXD Sdk" "ref_icxd_sdk"
