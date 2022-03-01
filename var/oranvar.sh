@@ -37,4 +37,4 @@ fi
 
 PTP_DIR=`sed '/^ptp_dir=/!d;s/.*=//' $cfg_file`
 
-pipline_results_dir=$MRC_VAR_DIR/../$RESULT_SUDIR/oran/
+pipline_results_dir=$MRC_VAR_DIR/..$RESULT_SUDIR/oran/

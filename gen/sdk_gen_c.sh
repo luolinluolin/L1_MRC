@@ -36,7 +36,7 @@ gen_c_common() {
     ./sdk_results_parse $SDK_RESULTS/$platform/$version 0
     chmod +x ${sdk_tool_dir}/${result}
     echo "-------$perf_report sdk 1 ${sdk_tool_dir}/${result} "$info" $output_dir/$cfile"
-    $perf_report sdk 1 ${sdk_tool_dir}/${result} "$info" $output_dir/$cfile
+    $perf_report sdk 1 ${sdk_tool_dir}/${result} \"$info\" $output_dir/$cfile
 }
 
 

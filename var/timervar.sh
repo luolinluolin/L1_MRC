@@ -10,7 +10,6 @@ ANALYSE_IP=`sed '/^analyse_ip=/!d;s/.*=//' $cfg_file`
 ORANISA=`sed '/^isa=/!d;s/.*=//' $cfg_file`
 WORK_DIR=`sed '/^work_dir=/!d;s/.*=//' $cfg_file`
 RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
-RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
 
 source $MRC_VAR_DIR/test_case.sh
 
@@ -35,6 +34,6 @@ then
    case_dir=icelake-d
 fi
 
-pipline_results_dir=$MRC_VAR_DIR/../$RESULT_SUDIR/timer
-sdk_results_dir=$MRC_VAR_DIR/../$RESULT_SUDIR/sdk_results
+pipline_results_dir=$MRC_VAR_DIR/..$RESULT_SUDIR/timer
+sdk_results_dir=$MRC_VAR_DIR/..$RESULT_SUDIR/sdk_results
 
