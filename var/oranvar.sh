@@ -1,4 +1,6 @@
 
+platform=$1
+
 MRC_VAR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 cfg_file=$MRC_VAR_DIR/mrc.conf
 
@@ -24,8 +26,20 @@ RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
 # oran_case_icl_sp=`sed '/^oran_case_icl_sp=/!d;s/.*=//' $cfg_file`
 
 source $MRC_VAR_DIR/test_case.sh
-oran_case_csl_sp=$oran_csl_sp_case
-oran_case_icl_sp=$oran_icl_sp_case
+# oran_case_csl_sp=$oran_csl_sp_case
+# oran_case_icl_sp=$oran_icl_sp_case
+
+if [ $platform = "cslsp" ]
+then
+   echo "------------casecade lake sp test $oran_csl_sp_case------------------"
+   test_cases=$oran_csl_sp_case
+fi
+
+if [ $platform = "iclsp" ]
+then
+   echo "------------ice lake sp test $oran_icl_sp_case------------------"
+   test_cases=$oran_icl_sp_case
+fi
 
 export PTP_DIR=`sed '/^ptp_dir=/!d;s/.*=//' $cfg_file`
 

@@ -5,24 +5,12 @@ version=$2
 
 du_dir=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 ru_dir=$du_dir/../ru
-source $du_dir/../../var/oranvar.sh
+source $du_dir/../../var/oranvar.sh $platform
+
 
 
 echo "---platform: $platform----"
 echo "---version: $version----"
-
-
-if [ $platform = "cslsp" ]
-then
-   echo "------------casecade lake sp test------------------"
-   test_cases=$oran_case_csl_sp
-
-fi
-if [ $platform = "iclsp" ]
-then
-   echo "------------ice lake sp test------------------"
-   test_cases=$oran_case_icl_sp
-fi
 echo "-------test_cases: $test_cases---------------"
 
 
