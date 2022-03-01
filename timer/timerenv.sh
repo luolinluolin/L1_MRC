@@ -1,8 +1,9 @@
 
+platform=$1
 #---------------used NIC------------
 MRC_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)/../
 
-source $MRC_DIR/var/timervar.sh
+source $MRC_DIR/var/timervar.sh $platform
 
 env_file=$MRC_DIR/var/env.sh
 
@@ -12,8 +13,7 @@ source $env_file $ORANISA
 
 echo ORANISA=$ORANISA
 echo WORK_DIR=$WORK_DIR
-echo timer_case_csl_sp=$timer_case_csl_sp
-echo timer_case_icl_sp=$timer_case_icl_sp
-echo timer_case_icl_d=$timer_case_icl_d
+echo test_cases=$test_cases
+echo case_dir=$case_dir
 echo sdk_results_dir=$sdk_results_dir
 echo pipline_results_dir=$pipline_results_dir

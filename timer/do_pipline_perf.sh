@@ -24,7 +24,7 @@ echo "--------$l1_dir---------------"
 echo "--------$l2_dir---------------"
 #-----setup MBC-----
 $CURRENT_DIR/../setup/mbc_vc_setup.sh MBC
-dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/
+dpdk_path=$l1_dir/
 deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
 
 if [ ! -n "$deviceid" ]; then
@@ -34,11 +34,6 @@ fi
 sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
 sed -i "s#\(^igbuioMode=\)\S*#\11#"  ${dpdk_path}dpdk.sh
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${dpdk_path}phycfg_timer.xml
-
-
-case_csl_sp=$timer_case_csl_sp
-case_icl_sp=$timer_case_icl_sp
-case_icl_d=$timer_case_icl_d
 
 test_perf() {
     case_dir=$1
@@ -84,29 +79,10 @@ test_perf() {
         then
             rm -rf dst_result
         fi
-        mv $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt $dst_result
+        mv $l1_dir/l1_mlog_stats.txt $dst_result
     done
     
 }
 
-if [ $platform = "cslsp" ]
-then
-   echo "------------casecade lake sp test------------------"
-   test_perf cascade_lake-sp "${case_csl_sp}"
-   $CURRENT_DIR../utils/scptodst.sh $ANALYSE_IP cascade_lake-sp
-fi
-
-if [ $platform = "iclsp" ]
-then
-   echo "------------ice lake sp test $case_icl_sp------------------"
-   test_perf icelake-sp "${case_icl_sp}"
-   $CURRENT_DIR../utils/scptodst.sh $ANALYSE_IP icelake-sp
-fi
-
-if [ $platform = "icld" ]
-then
-   echo "------------ice lake d test------------------"
-   test_perf icelake-d "${case_icl_d}"
-   $CURRENT_DIR../utils/scptodst.sh $ANALYSE_IP icelake-d
-fi
-
+echo "------------test_cases $test_cases"
+test_perf $case_dir "${test_cases}"
