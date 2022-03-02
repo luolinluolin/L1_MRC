@@ -33,9 +33,6 @@ if [ ! -d $sdk_results ]; then
 fi 
 
 testfolder=${WIRELESS_SDK}/${SDK_BUILD_DIR}/test/phy/
-if [ ! -d $sdk_results ]; then
-  mkdir $sdk_results
-fi
 
 cd $testfolder
 for test_dir in test_*
