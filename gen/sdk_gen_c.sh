@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if [ $# -ne 1 ] || [ $1 = "-h" ];then
     echo "
@@ -12,7 +13,7 @@ CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 source $CUR_DIR/genenv.sh
 source $CUR_DIR/../var/timervar.sh
 
-perf_report=$mrc_perf_dir/perf_report
+# perf_report=$mrc_perf_dir/perf_report
 TEST_RESULT=$pipline_results_dir/../
 output_dir=$CFILE_RESULTS
 
@@ -35,8 +36,13 @@ gen_c_common() {
     fi  
     ./sdk_results_parse $SDK_RESULTS/$platform/$version 0
     chmod +x ${sdk_tool_dir}/${result}
-    echo "-------$perf_report sdk 1 ${sdk_tool_dir}/${result} "$info" $output_dir/$cfile"
-    $perf_report sdk 1 ${sdk_tool_dir}/${result} \"$info\" $output_dir/$cfile
+    rm -rf $mrc_perf_dir/${result}
+    cp ${sdk_tool_dir}/${result} $mrc_perf_dir/
+    cd $mrc_perf_dir 
+    ./perf_report sdk 1 ${result} "\"$info\"" $cfile
+    # ./perf_report sdk 1 ${result} "CLXSP Sdk" $cfile
+    mv $cfile.c $output_dir/
+    echo "-------./perf_report sdk 1 ${result} \"${info}\" $cfile"
 }
 
 
