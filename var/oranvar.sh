@@ -19,7 +19,7 @@ RU_IP=`sed '/^ru_ip=/!d;s/.*=//' $cfg_file`
 DU_NIC_PORT=`sed '/^du_nic_port=/!d;s/.*=//' $cfg_file`
 DU_PTP_PORT=`sed '/^du_ptp_port=/!d;s/.*=//' $cfg_file`
 WORK_DIR=`sed '/^work_dir=/!d;s/.*=//' $cfg_file`
-RESULT_SUDIR=`sed '/^result_subdir=/!d;s/.*=//' $cfg_file`
+RESULT_DIR=`sed '/^result_dir=/!d;s/.*=//' $cfg_file`
 
 source $MRC_VAR_DIR/test_case.sh
 
@@ -37,4 +37,4 @@ fi
 
 PTP_DIR=`sed '/^ptp_dir=/!d;s/.*=//' $cfg_file`
 
-pipline_results_dir=$MRC_VAR_DIR/..$RESULT_SUDIR/oran/
+pipline_results_dir=$RESULT_DIR/oran/
