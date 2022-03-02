@@ -18,6 +18,10 @@ result_dir=$pipline_results_dir/$platform/$version
 if [ ! -d $result_dir ]; then
   mkdir -p $result_dir
 fi
+pipline_log_dir=$pipline_results_dir/$platform/$version/log
+if [ ! -d $pipline_log_dir ]; then
+    mkdir -p $pipline_log_dir
+fi 
 
 for i in $test_cases 
 do
@@ -74,6 +78,8 @@ do
     rm -rf dst_result
   fi
   mv $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt $dst_result
+  mv $du_dir/${i}/l1_5g.log $pipline_log_dir/l1_${i}.txt
+  mv $du_dir/${i}/l2_5g.log $pipline_log_dir/l2_${i}.txt
 
   $du_dir/../../utils/scptodst.sh $ANALYSE_IP $result_dir
 #############################

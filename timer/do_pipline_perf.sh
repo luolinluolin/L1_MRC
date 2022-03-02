@@ -42,6 +42,10 @@ test_perf() {
     if [ ! -d $pipline_result ]; then
         mkdir -p $pipline_result
     fi 
+    pipline_log_dir=$pipline_results_dir/$platform/$test_ver/log
+    if [ ! -d $pipline_log_dir ]; then
+        mkdir -p $pipline_log_dir
+    fi 
 
     echo "--------------------------- testcases $test_cases-------------------------------------"
     for test_case in ${test_cases}
@@ -80,6 +84,8 @@ test_perf() {
             rm -rf dst_result
         fi
         mv $l1_dir/l1_mlog_stats.txt $dst_result
+        mv $CURRENT_DIR/l1_5g.log $pipline_log_dir/l1_${test_case}.txt
+        mv $CURRENT_DIR/l2_5g.log $pipline_log_dir/l2_${test_case}.txt
     done
     
 }
