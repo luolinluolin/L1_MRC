@@ -12,7 +12,7 @@ source $CUR_DIR/genenv.sh
 source $CUR_DIR/../var/timervar.sh
 
 # perf_report=$mrc_perf_dir/perf_report
-result_dir=$pipline_results_dir/..
+result_dir=$RESULT_DIR
 output_dir=$CFILE_RESULTS
 
 cd $mrc_perf_dir;chmod +x build.sh;./build.sh
