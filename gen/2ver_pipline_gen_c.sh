@@ -1,5 +1,5 @@
 
-if [ $# -ne 1 ] || [ $1 = "-h" ];then
+if [ $# -ne 2 ] || [ $1 = "-h" ];then
     echo "
          example : ./2ver_pipline_gen_c.sh prod_r21.11 master
      "
@@ -27,7 +27,7 @@ fi
 gen_c_common() {
     input_dir=$1
     cases=$2
-    cases_inf=$3
+    cases_inf=($3)
     cfiles_name=($4)
     type=$5
 
@@ -39,9 +39,9 @@ gen_c_common() {
         echo "-----------pipline $platform, $version1 $version2 $case-------------"
         echo "-----------cases_inf ${cases_inf}-------------"
         echo "-----------cfiles_name ${cfiles_name[$num]}-------------"
+
         # cases_inf=`echo ${cases_inf}|awk -F "\" \"" '{print $num}'|sed "s/\"//g"`
-        case_inf=`echo ${cases_inf}|cut -d \| -f $num|sed "s/\(\" \"\|\"\)//"`
-        case_inf=\"$case_inf\"
+        case_inf=${cases_inf[$num]}
         echo "------num $num-----case_inf ${case_inf}-------------"
         
         rm -rf $mrc_perf_dir/${case}_$version1.txt
@@ -50,8 +50,16 @@ gen_c_common() {
         cp $input_dir/$version1/${case}.txt ./${case}_$version1.txt
         cp $input_dir/$version2/${case}.txt ./${case}_$version2.txt
         echo "./perf_report ${type} 1 ${case}.txt "\"${case_inf}\"" ${cfiles_name[${num}]}"
-        ./perf_report ${type} 2 ${case}_$version1.txt ./${case}_$version2.txt "\"${case_inf}${html_name_diff}\"" ${cfiles_name[${num}]}${cfile_name_diff}
-        mv ${cfiles_name[${num}]}.c ${output_dir}
+
+        output_cfile_name=${cfiles_name[${num}]}_${repo_version1}_vs_${repo_version2}
+        rm ${output_cfile_name}.c
+        string1=${case_inf}_${repo_version1}
+        string2=${case_inf}_${repo_version2}
+        echo "-----------------output_html_info: $output_html_info--"
+        output_html_info=`echo $output_html_info|sed "s/\"//g"`
+        echo "-----------------output_html_info: $output_html_info--"
+        ./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name}
+        mv ${output_cfile_name}.c ${output_dir}
         echo "mv ${cfiles_name[${num}]}.c ${output_dir}"
         num=$(( $num + 1 ))
         # $perf_report ${type} 1 $input_dir/${case}.txt ${case_inf} ${output_dir}/${cfiles_name[${num}]}

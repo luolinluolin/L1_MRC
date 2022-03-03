@@ -24,7 +24,7 @@ fi
 gen_c_common() {
     input_dir=$1
     cases=$2
-    cases_inf=$3
+    cases_inf=($3)
     cfiles_name=($4)
     type=$5
 
@@ -34,18 +34,20 @@ gen_c_common() {
     for case in $cases
     do
         echo "-----------pipline $platform, $version $case-------------"
-        echo "-----------cases_inf ${cases_inf}-------------"
+        echo "-----------cases_inf ${cases_inf[$num]}-------------"
         echo "-----------cfiles_name ${cfiles_name[$num]}-------------"
         # cases_inf=`echo ${cases_inf}|awk -F "\" \"" '{print $num}'|sed "s/\"//g"`
-        case_inf=`echo ${cases_inf}|cut -d \| -f $num|sed "s/\(\" \"\|\"\)//"`
-        case_inf=\"$case_inf\"
+        # case_inf=`echo ${cases_inf}|cut -d \| -f $num|sed "s/\(\" \"\|\"\)//"`
+        # case_inf=\"$case_inf\"
+        case_inf=${cases_inf[$num]}
         echo "------num $num-----case_inf ${case_inf}-------------"
-        
+
+        rm -rf ${cfiles_name[${num}]}.c 
         rm -rf $mrc_perf_dir/${case}.txt
         cd $mrc_perf_dir
         cp $input_dir/${case}.txt ./
         echo "./perf_report ${type} 1 ${case}.txt "\"${case_inf}\"" ${cfiles_name[${num}]}"
-        ./perf_report ${type} 1 ${case}.txt "\"${case_inf}\"" ${cfiles_name[${num}]}
+        ./perf_report ${type} 1 ${case}.txt ${case_inf} ${cfiles_name[${num}]}
         mv ${cfiles_name[${num}]}.c ${output_dir}
         echo "mv ${cfiles_name[${num}]}.c ${output_dir}"
         num=$(( $num + 1 ))
