@@ -50,6 +50,7 @@ then
 #   deviceid=`lspci |grep 0d5c |awk '{print $1}'`
 
   deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
+  deviceid1=`lspci |grep 0d5d |awk '{print $1}'|sed -n '2p'`
   if [ ! -n "$deviceid" ]; then
     echo "---------create vf MBC---------"
     $CURRENT_DIR/create_pml_queues_vf.sh
@@ -59,8 +60,11 @@ then
     echo "----error create vf MBC failed----"
     exit 0;
   fi
-  sed -i "s#\(^igbuioMode=\)\S*#\10#"  $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/dpdk.sh
-  $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/dpdk.sh
+  dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
+  sed -i "s#\(^igbuioMode=\)\S*#\10#"  ${dpdk_path}/dpdk.sh
+  sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}/dpdk.sh
+  sed -i "s#\(fecDevice1=\)\S*#\10000:${deviceid1}#" ${dpdk_path}/dpdk.sh
+  ${dpdk_path}/dpdk.sh
 else
  echo "input correct value"
 fi
@@ -73,6 +77,8 @@ bbdev_config=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/phycfg_timer.xml
 
 echo "----------dpdkbasebanddevice old value--------------------"
 grep  dpdkBasebandDevice $bbdev_config
+dpdkBasebandMode
+sed -i "s#<dpdkBasebandMode>.*<\/dpdkBasebandMode>#<dpdkBasebandMode>1<\/dpdkBasebandMode>#g"  $bbdev_config
 #deviceid=`lspci |grep 0d5c |awk '{print $1}'`
 echo "-------HW vc card pci device id is $deviceid------------"
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  $bbdev_config
