@@ -5,6 +5,10 @@ source ../../var/oranvar.sh
 data_nic=$RU_NIC_PORT
 
 NID=` ethtool -i ${data_nic}|grep bus-info|cut -c16-26|awk -F: '{print $1}' `
+if [ ! $NID ]; then
+echo "pls config RU_NIC_PORT in mrc.conf correctly"
+exit 0
+fi
 
 echo "this is NIC NID number ==${NID}"
 

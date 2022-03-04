@@ -5,6 +5,10 @@ base=$PWD
 
 PCIE_BUS=` lspci |grep -E "$NIC" |head -1|awk '{print $1}'|awk -F: '{print $1}' `
 DEVICE_ID=`lspci |grep -E "Intel Corporation Ethernet Adaptive Virtual Function" |head -1|awk '{print $1}'|awk -F:  '{print $2}'|awk -F. '{print $1}'`
+if [ ! $PCIE_BUS ]; then
+echo "pls config NIC in mrc.conf correctly"
+exit 0
+fi
 
 d0="0000:${PCIE_BUS}:$DEVICE_ID.0"
 d1="0000:${PCIE_BUS}:$DEVICE_ID.1"

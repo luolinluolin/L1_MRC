@@ -4,6 +4,12 @@ source ../../var/oranvar.sh
 #data_nic=enp34s0f0
 data_nic=$DU_NIC_PORT
 NID=` ethtool -i ${data_nic}|grep bus-info|cut -c16-26|awk -F: '{print $1}' `
+
+if [ ! $NID ]; then
+echo "pls config DU_NIC_PORT in mrc.conf correctly"
+exit 0
+fi
+
 echo "this is NIC NID number ==${NID}"
 echo 6 > /sys/bus/pci/devices/0000\:${NID}\:00.0/sriov_numvfs
 
