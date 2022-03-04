@@ -62,8 +62,8 @@ sed -i "s#<oRuRem0Mac1>.*<\/oRuRem0Mac1>#<oRuRem0Mac1>${dst1}<\/oRuRem0Mac1>#g" 
 sed -i "s#<oRuRem0Mac2>.*<\/oRuRem0Mac2>#<oRuRem0Mac2>${dst2}<\/oRuRem0Mac2>#g"  ${phy_path}xrancfg_sub6_oru.xml
 sed -i "s#<oRuRem0Mac3>.*<\/oRuRem0Mac3>#<oRuRem0Mac3>${dst3}<\/oRuRem0Mac3>#g"  ${phy_path}xrancfg_sub6_oru.xml
 
-sed -i "s#<xRANThread>.*<\/xRANThread>#<xRANThread>${xRANThread}<\/xRANThread>#g"  ${phy_path}xrancfg_sub6_oru.xml
-sed -i "s#<xRANWorker>.*<\/xRANWorker>#<xRANWorker>${xRANWorker}<\/xRANWorker>#g"  ${phy_path}xrancfg_sub6_oru.xml
+# sed -i "s#<xRANThread>.*<\/xRANThread>#<xRANThread>${xRANThread}<\/xRANThread>#g"  ${phy_path}xrancfg_sub6_oru.xml
+# sed -i "s#<xRANWorker>.*<\/xRANWorker>#<xRANWorker>${xRANWorker}<\/xRANWorker>#g"  ${phy_path}xrancfg_sub6_oru.xml
 ##########
 ##########dpdk.sh
 sed -i "s#\(ethDevice0=\)\S*#\1$d0#" ${dpdk_path}dpdk.sh
