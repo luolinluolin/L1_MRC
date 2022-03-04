@@ -42,20 +42,21 @@ gen_c_common() {
         case_inf=${cases_inf[$num]}
         echo "------num $num-----case_inf ${case_inf}-------------"
 
-        rm -rf ${cfiles_name[${num}]}.c 
-        rm -rf $mrc_perf_dir/${case}.txt
+        cfile=${cfiles_name[${num}]}.c
+        mlog=${mrc_perf_dir}/${case}.txt
+        rm -rf $cfile
+        rm -rf ${mlog}
         cd $mrc_perf_dir
         cp $input_dir/${case}.txt ./
         echo "./perf_report ${type} 1 ${case}.txt "\"${case_inf}\"" ${cfiles_name[${num}]}"
         ./perf_report ${type} 1 ${case}.txt ${case_inf} ${cfiles_name[${num}]}
-        mv ${cfiles_name[${num}]}.c ${output_dir}
-        echo "mv ${cfiles_name[${num}]}.c ${output_dir}"
+        mv ${cfile} ${output_dir}
+        echo "mv ${cfile} ${output_dir}"
         num=$(( $num + 1 ))
         # $perf_report ${type} 1 $input_dir/${case}.txt ${case_inf} ${output_dir}/${cfiles_name[${num}]}
     done
 }
 
-sleep 10
 gen_c_common  ${result_dir}/timer/cslsp/$version "${timer_cslsp_case}" "${timer_cslsp_info}" "${timer_cslsp_cfile}" pipeline
 gen_c_common  ${result_dir}/timer/iclsp/$version "${timer_iclsp_case}" "${timer_iclsp_info}" "${timer_iclsp_cfile}" pipeline
 gen_c_common  ${result_dir}/timer/icld/$version "${timer_iclsp_case}" "${timer_iclsp_info}" "${timer_icld_cfile}" pipeline

@@ -45,8 +45,6 @@ gen_c_common() {
     echo "-------------mv $cfile.c $output_dir/"
 }
 
-
-
 gen_c_common "cslsp" "CLXSP Sdk" "ref_clxsp_sdk"
 gen_c_common "iclsp" "ICXSP Sdk" "ref_icxsp_sdk"
 gen_c_common "icld" "ICXD Sdk" "ref_icxd_sdk"

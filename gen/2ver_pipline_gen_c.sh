@@ -49,16 +49,15 @@ gen_c_common() {
         cd $mrc_perf_dir
         cp $input_dir/$version1/${case}.txt ./${case}_$version1.txt
         cp $input_dir/$version2/${case}.txt ./${case}_$version2.txt
-        echo "./perf_report ${type} 1 ${case}.txt "\"${case_inf}\"" ${cfiles_name[${num}]}"
 
         output_cfile_name=${cfiles_name[${num}]}_${repo_version1}_vs_${repo_version2}
         rm ${output_cfile_name}.c
         string1=${case_inf}_${repo_version1}
         string2=${case_inf}_${repo_version2}
-        echo "-----------------output_html_info: $output_html_info--"
-        output_html_info=`echo $output_html_info|sed "s/\"//g"`
-        echo "-----------------output_html_info: $output_html_info--"
+
+        echo "./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name}"
         ./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name}
+        
         mv ${output_cfile_name}.c ${output_dir}
         echo "mv ${cfiles_name[${num}]}.c ${output_dir}"
         num=$(( $num + 1 ))
@@ -66,7 +65,6 @@ gen_c_common() {
     done
 }
 
-sleep 10
 gen_c_common  ${result_dir}/timer/cslsp "${timer_cslsp_case}" "${timer_cslsp_info}" "${timer_cslsp_cfile}" pipeline
 gen_c_common  ${result_dir}/timer/iclsp "${timer_iclsp_case}" "${timer_iclsp_info}" "${timer_iclsp_cfile}" pipeline
 gen_c_common  ${result_dir}/timer/icld "${timer_iclsp_case}" "${timer_iclsp_info}" "${timer_icld_cfile}" pipeline
