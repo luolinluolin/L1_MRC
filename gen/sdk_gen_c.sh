@@ -41,7 +41,8 @@ gen_c_common() {
     echo "-------./perf_report sdk 1 ${result} \"${info}\" $cfile"
     ./perf_report sdk 1 ${result} "\"$info\"" $cfile
     # ./perf_report sdk 1 ${result} "CLXSP Sdk" $cfile
-    mv $cfile.c $output_dir/
+    rm -rf $output_dir/${cfile}.c
+    mv ${cfile}.c $output_dir/
     echo "-------------mv $cfile.c $output_dir/"
 }
 

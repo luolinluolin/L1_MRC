@@ -50,6 +50,8 @@ gen_c_common() {
         cp $input_dir/${case}.txt ./
         echo "./perf_report ${type} 1 ${case}.txt "\"${case_inf}\"" ${cfiles_name[${num}]}"
         ./perf_report ${type} 1 ${case}.txt ${case_inf} ${cfiles_name[${num}]}
+
+        rm -rf ${output_dir}/${cfile}
         mv ${cfile} ${output_dir}
         echo "mv ${cfile} ${output_dir}"
         num=$(( $num + 1 ))

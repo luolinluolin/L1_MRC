@@ -30,6 +30,7 @@ gen_c_common() {
     cases_inf=($3)
     cfiles_name=($4)
     type=$5
+    summary=$6
 
     echo "cases_inf: ${cases_inf}"
     echo "cfiles_name: ${cfiles_name}"
@@ -51,13 +52,14 @@ gen_c_common() {
         cp $input_dir/$version2/${case}.txt ./${case}_$version2.txt
 
         output_cfile_name=${cfiles_name[${num}]}_${repo_version1}_vs_${repo_version2}
-        rm ${output_cfile_name}.c
+        rm -rf ${output_cfile_name}.c
         string1=${case_inf}_${repo_version1}
         string2=${case_inf}_${repo_version2}
 
         echo "./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name}"
-        ./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name}
+        ./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name} $summary
         
+        rm -rf ${output_dir}/${cfiles_name[${num}]}.c
         mv ${output_cfile_name}.c ${output_dir}
         echo "mv ${cfiles_name[${num}]}.c ${output_dir}"
         num=$(( $num + 1 ))
@@ -65,9 +67,31 @@ gen_c_common() {
     done
 }
 
-gen_c_common  ${result_dir}/timer/cslsp "${timer_cslsp_case}" "${timer_cslsp_info}" "${timer_cslsp_cfile}" pipeline
-gen_c_common  ${result_dir}/timer/iclsp "${timer_iclsp_case}" "${timer_iclsp_info}" "${timer_iclsp_cfile}" pipeline
-gen_c_common  ${result_dir}/timer/icld "${timer_iclsp_case}" "${timer_iclsp_info}" "${timer_icld_cfile}" pipeline
+summary_pre_proc() {
+    summary_file=$1
 
-gen_c_common  ${result_dir}/oran/cslsp "${oran_cslsp_case}" "${oran_cslsp_info}" "${oran_cslsp_cfile}" pipeline
-gen_c_common  ${result_dir}/oran/iclsp "${oran_iclsp_case}" "${oran_iclsp_info}" "${oran_iclsp_cfile}" pipeline
+    cd $mrc_perf_dir
+    rm -rf ${summary_file}.c
+}
+summary_post_proc() {
+    summary_file=$1
+    echo "**/" >> $summary_file.c
+    rm -rf ${output_dir}/${summary_file}.c
+    mv ${summary_file}.c ${output_dir}
+}
+
+summary_pre_proc $cslsp_q2q_summary
+gen_c_common  ${result_dir}/timer/cslsp "${timer_cslsp_case}" "${timer_cslsp_info}" "${timer_cslsp_cfile}" pipeline $cslsp_q2q_summary
+summary_post_proc $cslsp_q2q_summary
+
+summary_pre_proc $iclsp_q2q_summary
+gen_c_common  ${result_dir}/timer/iclsp "${timer_iclsp_case}" "${timer_iclsp_info}" "${timer_iclsp_cfile}" pipeline $iclsp_q2q_summary
+summary_post_proc $iclsp_q2q_summary
+
+gen_c_common  ${result_dir}/timer/icld "${timer_icld_case}" "${timer_icld_info}" "${timer_icld_cfile}" pipeline
+
+
+summary_pre_proc $oran_q2q_summary
+gen_c_common  ${result_dir}/oran/cslsp "${oran_cslsp_case}" "${oran_cslsp_info}" "${oran_cslsp_cfile}" pipeline $oran_q2q_summary
+gen_c_common  ${result_dir}/oran/iclsp "${oran_iclsp_case}" "${oran_iclsp_info}" "${oran_iclsp_cfile}" pipeline $oran_q2q_summary
+summary_post_proc $oran_q2q_summary
