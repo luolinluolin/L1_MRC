@@ -78,14 +78,25 @@ test_perf() {
         ./run.sh $CURRENT_DIR ./$case_dir/$test_case.cfg
 
         echo "-----------copy result to $pipline_result--------------" 
-        dst_result=$pipline_result/$test_case.txt
-        if [ -f dst_result ]
+        $dst_result=$pipline_result/$test_case.txt
+        if [ -f $dst_result ]
         then
-            rm -rf dst_result
+            rm -rf $dst_result
         fi
         mv $l1_dir/l1_mlog_stats.txt $dst_result
-        mv $CURRENT_DIR/l1_5g.log $pipline_log_dir/l1_${test_case}.txt
-        mv $CURRENT_DIR/l2_5g.log $pipline_log_dir/l2_${test_case}.txt
+
+        l1_log=$pipline_log_dir/l1_${test_case}.txt
+        l2_log=$pipline_log_dir/l2_${test_case}.txt
+        if [ -f $l1_log ]
+        then
+            rm -rf $l1_log
+        fi
+        if [ -f $l2_log ]
+        then
+            rm -rf $l2_log
+        fi
+        mv $CURRENT_DIR/l1_5g.log $l1_log
+        mv $CURRENT_DIR/l2_5g.log $l2_log
     done
     
 }

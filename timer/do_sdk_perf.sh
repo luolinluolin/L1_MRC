@@ -41,6 +41,7 @@ do
 	cd $testfolder${test_dir}
 	./unittests --gtest_filter=*Perf*
 	echo "----$sdk_results-----"
+        rm -rf $sdk_results/$test_dir.xml
         cp test_results.xml $sdk_results/$test_dir.xml
 	cd ..
 done

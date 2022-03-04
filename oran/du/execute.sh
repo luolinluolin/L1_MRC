@@ -73,13 +73,24 @@ do
   echo "------------$result_dir --------------" 
   echo "-----------revomve dst old file-----------------"
   dst_result=$result_dir/$i.txt
-  if [ -f dst_result ]
+  if [ -f $dst_result ]
   then
-    rm -rf dst_result
+    rm -rf $dst_result
   fi
   mv $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt $dst_result
-  mv $du_dir/${i}/l1_5g.log $pipline_log_dir/l1_${i}.txt
-  mv $du_dir/${i}/l2_5g.log $pipline_log_dir/l2_${i}.txt
+
+  l1_log=$pipline_log_dir/l1_${i}.txt
+  l2_log=$pipline_log_dir/l2_${i}.txt
+  if [ -f $l1_log ]
+  then
+    rm -rf $l1_log
+  fi
+  if [ -f $l2_log ]
+  then
+    rm -rf $l2_log
+  fi
+  mv $du_dir/${i}/l1_5g.log $l1_log
+  mv $du_dir/${i}/l2_5g.log $l2_log
 
   $du_dir/../../utils/scptodst.sh $ANALYSE_IP $result_dir
 #############################
