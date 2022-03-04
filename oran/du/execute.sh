@@ -23,10 +23,10 @@ if [ ! -d $pipline_log_dir ]; then
     mkdir -p $pipline_log_dir
 fi 
 
-# for i in $test_cases 
-# do
+for i in $test_cases 
+do
   # i=sub3_mu0_10mhz_4x4
-  i=sub3_mu0_20mhz_4x4
+  # i=sub3_mu0_20mhz_4x4
   # i=sub3_mu0_20mhz_sub3_mu1_20mhz_4x4
   # i=sub6_mu1_100mhz_4x4
 
@@ -46,7 +46,9 @@ fi
   
   sleep 2
 
+  echo "-----------------launch du--------------------"
   cd $du_dir/${i}/;./run.sh  &
+  echo "-----------------launch ru--------------------"
 
 	num=1
   sleep 40
@@ -95,7 +97,7 @@ fi
   $du_dir/../../utils/scptodst.sh $ANALYSE_IP $result_dir
 #############################
 
-# done
+done
 
 ssh $RU_IP "$ru_dir/kill.sh"
 echo "execute.sh script is done"
