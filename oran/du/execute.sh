@@ -67,6 +67,7 @@ do
          else
               echo "will start RU($RU_IP) DIR(${ru_dir}/${i}) server to test....."
     	      ssh $RU_IP "source /etc/profile; cd $ru_dir; source ../oranenv.sh; cd ${ru_dir}/${i}/; chmod +x execute_ru.ex; ./execute_ru.ex ${ru_dir}/${i} $FLEXRAN_L1_SW"
+       	    num=$(( $num + 50 ))
 	      fi
 
 	done
