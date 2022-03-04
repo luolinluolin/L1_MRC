@@ -16,21 +16,22 @@ send "cd $workpath;source ../../oranenv.sh;cd  $l1sw/bin/nr5g/gnb/testmac/; ./l2
 
 ####################################################################
 
-expect "*Completed*"
-send "\r"
+
+
+expect "*Mlog Print successful"
+send "---Mlog Print successful\r"
 
 sleep 5
 
-expect "TESTMAC*"
+expect "*Completed*"
+send "---Completed\r"
+
+expect "All Tests Completed*"
+send "---All Tests Completed\r"
 send "exit\r"
 
-expect "*#"
-send "\r"
-
-expect "*#"
-send "\r"
-
-expect "*#"
+expect "wls_mac_print_stats*"
+send "---wls_mac_print_stats\r"
 send "exit\r"
 
 interact

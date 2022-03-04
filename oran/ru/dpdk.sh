@@ -22,12 +22,12 @@ fi
 
 
 # Set all the PCIE address for devices to load. If it is left blank, then things are not loaded
-ethDevice0=0000:51:01.0
-ethDevice1=0000:51:01.1
-ethDevice2=0000:51:01.2
-ethDevice3=0000:51:01.3
-ethDevice4=0000:51:01.4
-ethDevice5=0000:51:01.5
+ethDevice0=0000:1a:01.0
+ethDevice1=0000:1a:01.1
+ethDevice2=0000:1a:01.2
+ethDevice3=0000:1a:01.3
+ethDevice4=0000:1a:01.4
+ethDevice5=0000:1a:01.5
 ethDevice6=
 ethDevice7=
 ethDevice8=
@@ -38,8 +38,8 @@ ethDevice12=
 ethDevice13=
 ethDevice14=
 ethDevice15=
-fecDevice0=0000:8b:00.0
-fecDevice1=
+fecDevice0=0000:18:00.0
+fecDevice1=0000:18:00.1
 
 if [ ${RTE_SDK} == '' ]; then
     echo RTE_SDK is not set. Please set this to valid DPDK path
@@ -137,7 +137,7 @@ load_vfio_module()
 
 # Use IGB_UIO. Change this to 0 for VFIO-PCI
 igbuioMode=0
-echo igbuioMode=0
+echo igbuioMode=$igbuioMode
 
 $RTE_SDK/usertools/dpdk-devbind.py --status
 
