@@ -14,7 +14,7 @@ send "cd $work_path/;source ../../oranenv.sh; cd $l1sw/bin/nr5g/gnb/l1/orancfg/s
 
 ####################################################################
 expect "*quit"
-set timeout 400
+set timeout 200
 expect {
    -re "non-existent" {
    send "check\n"

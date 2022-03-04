@@ -36,7 +36,8 @@ dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/
 testmac_cfg=$phy_path/testmac_clxsp_mu0_20mhz_hton_oru.cfg
 context=`cat $testmac_cfg|grep ebbu_pool_num_context|awk '{print $3}'`
 sed -i "s#\(ebbu_pool_max_context_fetch[ \t]\)\S*#\1$context#" $testmac_cfg
-sed -i "s#\(setcore \)\S*#$mac1#" $testmac_cfg
+# sed -i "s#\(setcore \)\S*#$mac1#" $testmac_cfg
+sed -i "s#.*phystart.*#$mac0#"     $testmac_cfg 
 cd $base
 cp $testmac_cfg $testmac_path/
 ######### 
@@ -77,5 +78,4 @@ sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
 # sed -i "s#\(igbuioMode=\)\S*#\10#" ${dpdk_path}dpdk.sh
 ####################################
 ##
-# sed -i "s#.*phystart.*#$mac0#"     $testmac_path/testmac_clxsp_mu0_20mhz_hton_oru.cfg 
 #sed -i "s#\(setcore \)\S*#$mac1#"  $testmac_path/testmac_clxsp_mu0_20mhz_hton_oru.cfg
