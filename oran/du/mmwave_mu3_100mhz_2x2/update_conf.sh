@@ -38,7 +38,7 @@ sed -i '/dpdk.sh/d'   ${phy_path}l1.sh
 
 ###########phycfg_xran.xml
 # sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<\/dpdkBasebandFecMode>/g'  ${phy_path}phycfg_xran.xml
-sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandMode>1<\/dpdkBasebandMode>/g'  ${phy_path}phycfg_xran.xml
+sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<\/dpdkBasebandFecMode>/g'  ${phy_path}phycfg_xran.xml
 # sed -i 's/<dpdkMemorySize>.*<\/dpdkMemorySize>/<dpdkMemorySize>8192<\/dpdkMemorySize>/g'  ${phy_path}phycfg_xran.xml
 
 deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
