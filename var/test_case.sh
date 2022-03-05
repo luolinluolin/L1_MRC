@@ -7,6 +7,11 @@ cfgfile=$CUR_DIR/test_case.json
 repo_version1=`cat $cfgfile |$JQ '.[0]|.version1' |sed 's/\"//g'`
 repo_version2=`cat $cfgfile |$JQ '.[0]|.version2' |sed 's/\"//g'`
 
+
+cslsp_q2q_summary=`cat $cfgfile |$JQ '.[0]|.cslsp_q2q_summary' |sed 's/\"//g'`
+iclsp_q2q_summary=`cat $cfgfile |$JQ '.[0]|.iclsp_q2q_summary' |sed 's/\"//g'`
+oran_q2q_summary=`cat $cfgfile |$JQ '.[0]|.oran_q2q_summary' |sed 's/\"//g'`
+
 #parse test case
 timer_cslsp_case=`(cat $cfgfile |$JQ '.[0]|.timer_cslsp_info|.[]|.case' |sed 's/\"//g')`
 timer_cslsp_info=`(cat $cfgfile |$JQ '.[0]|.timer_cslsp_info|.[]|.info' |sed 's/\"//g')`

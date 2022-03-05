@@ -59,7 +59,7 @@ gen_c_common() {
         echo "./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name}"
         ./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name} $summary
         
-        rm -rf ${output_dir}/${cfiles_name[${num}]}.c
+        rm -rf ${output_dir}/${output_cfile_name}.c
         mv ${output_cfile_name}.c ${output_dir}
         echo "mv ${cfiles_name[${num}]}.c ${output_dir}"
         num=$(( $num + 1 ))

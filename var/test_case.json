@@ -2,6 +2,9 @@
     {
         "version1": "2111",
         "version2": "master",
+        "cslsp_q2q_summary": "ref_clxsp_hton_acc100_q2q_summary",
+        "iclsp_q2q_summary": "ref_icxsp_hton_acc100_q2q_summary",
+        "oran_q2q_summary": "ref_oran_mode_summary",
         "timer_cslsp_info":
         [
             {"case":"clxsp_mu0_10mhz_4x4_hton", "info":"CLXSP_HTON_ACC100_SUB3_10MHZ_4X4", "cfile": "ref_clxsp_hton_acc100_sub3_10mhz_4x4"},
