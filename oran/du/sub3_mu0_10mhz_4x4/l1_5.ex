@@ -14,6 +14,7 @@ send "cd $workpath;source ../../oranenv.sh;cd  $l1sw/bin/nr5g/gnb/l1/orancfg/sub
 expect "*welcome"
 send "\r"
 
+expect "exit stop waiting for ever"
 expect "mem_mgr_display_size:"
 send "checking"
 

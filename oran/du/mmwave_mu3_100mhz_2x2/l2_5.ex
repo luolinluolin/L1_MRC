@@ -16,22 +16,11 @@ send "cd $workpath/../;source ./ORAN/env.sh $oranisa;cd  $workpath//bin/nr5g/gnb
 
 ####################################################################
 
-
-
-expect "*Mlog Print successful"
-send "---Mlog Print successful\r"
-
-sleep 5
-
-expect "*Completed*"
-send "---Completed\r"
-
 expect "All Tests Completed*"
-send "---All Tests Completed\r"
-send "exit\r"
+send "$workpath/../kill.sh"
+send "---All Tests Completed*\r"
 
-expect "wls_mac_print_stats*"
-send "---wls_mac_print_stats\r"
+sleep 20
 send "exit\r"
 
 interact

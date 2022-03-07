@@ -11,8 +11,8 @@ spawn su - root
 expect "*#"
 send "cd $workpath;source ./timerenv.sh;cd  $l1sw/bin/nr5g/gnb/l1/; ./l1.sh -e\r"
 
-expect "Mlog Print successful"
-send "\r"
+expect "exit stop waiting for ever"
+send "----------------timer_main_thread exiting\r"
 
 expect "mem_mgr_display_size:"
 send "checking"
@@ -20,10 +20,10 @@ send "checking"
 expect "mem_mgr_display_size:"
 send "\r"
 
-expect "PHY>"
-send "exit\r"
-
 expect "wls_layer_close:Done"
 send "exit\r"
+
+#expect "wls_layer_close:Done"
+#send "exit\r"
 
 expect eof
