@@ -38,7 +38,7 @@ sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:
 test_perf() {
     case_dir=$1
     test_cases=$2
-    pipline_result=$pipline_results_dir/$platform/$test_ver/
+    pipline_result=$pipline_results_dir/$platform/$test_ver
     if [ ! -d $pipline_result ]; then
         mkdir -p $pipline_result
     fi 
@@ -78,11 +78,12 @@ test_perf() {
         ./run.sh $CURRENT_DIR ./$case_dir/$test_case.cfg
 
         echo "-----------copy result to $pipline_result--------------" 
-        $dst_result=$pipline_result/$test_case.txt
+        dst_result=$pipline_result/$test_case.txt
         if [ -f $dst_result ]
         then
             rm -rf $dst_result
         fi
+        echo "mv $l1_dir/l1_mlog_stats.txt $dst_result"
         mv $l1_dir/l1_mlog_stats.txt $dst_result
 
         l1_log=$pipline_log_dir/l1_${test_case}.txt
