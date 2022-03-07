@@ -17,10 +17,8 @@ send "cd $workpath/../;source ./ORAN/env.sh $oranisa;cd  $workpath//bin/nr5g/gnb
 ####################################################################
 
 expect "All Tests Completed*"
-send "$workpath/../kill.sh"
-send "---All Tests Completed*\r"
-
 sleep 20
 send "exit\r"
-
+send "$workpath/../kill.sh"
+send "---All Tests Completed*\r"
 interact

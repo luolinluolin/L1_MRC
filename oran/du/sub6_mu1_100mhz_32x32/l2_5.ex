@@ -16,13 +16,9 @@ send "cd $workpath;source ../../oranenv.sh;cd  $l1sw/bin/nr5g/gnb/testmac/; ./l2
 
 ####################################################################
 
-
-
 expect "All Tests Completed*"
-send "$workpath/../kill.sh"
-send "---All Tests Completed*\r"
-
 sleep 20
 send "exit\r"
-
+send "$workpath/../kill.sh"
+send "---All Tests Completed*\r"
 interact

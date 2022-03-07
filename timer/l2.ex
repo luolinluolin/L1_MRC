@@ -18,11 +18,8 @@ send "cd $workpath;source ./timerenv.sh;cd  $l1sw/bin/nr5g/gnb/testmac/; ./l2.sh
 ####################################################################
 
 expect "All Tests Completed*"
-send "$workpath/../kill.sh"
-send "---All Tests Completed*\r"
-
 sleep 20
 send "exit\r"
-
+send "$workpath/../kill.sh"
+send "---All Tests Completed*\r"
 interact
-#expect eof
