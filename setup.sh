@@ -27,6 +27,10 @@ source $SETUP/setupenv.sh
 echo "---------update repo--------------"
 $SETUP/pull.sh $flexran_branch $dpdk_branch
 
+
+sed -i "s/\/\/phydi_init_mlog_stats/phydi_init_mlog_stats/" $FLEXRAN_L1_SW//source/nr5g/gnb_main/gnb_main.c
+sed -i "s/SAMPLEAPP=0/SAMPLEAPP=1/" ${XRAN_DIR}/build.sh
+
 if [ $OPTION = "build" ]
 then
   echo "---------build dpdk--------------"
@@ -38,9 +42,6 @@ then
 
   cd $SETUP_DIR
   $SETUP/meson_build.sh
-
-  sed -i "s/\/\/phydi_init_mlog_stats/phydi_init_mlog_stats/" $FLEXRAN_L1_SW//source/nr5g/gnb_main/gnb_main.c
-  sed -i "s/SAMPLEAPP=0/SAMPLEAPP=1/" ${XRAN_DIR}/build.sh
 
   echo "---------build flexran--------------"
   cd $SETUP_DIR
