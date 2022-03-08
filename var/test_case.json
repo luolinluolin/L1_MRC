@@ -4,6 +4,7 @@
         "version2": "master",
         "cslsp_q2q_summary": "ref_clxsp_hton_acc100_q2q_summary",
         "iclsp_q2q_summary": "ref_icxsp_hton_acc100_q2q_summary",
+        "icld_q2q_summary": "ref_icxd_hton_acc100_q2q_summary",
         "oran_q2q_summary": "ref_oran_mode_summary",
         "timer_cslsp_info":
         [

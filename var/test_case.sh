@@ -10,6 +10,7 @@ repo_version2=`cat $cfgfile |$JQ '.[0]|.version2' |sed 's/\"//g'`
 
 cslsp_q2q_summary=`cat $cfgfile |$JQ '.[0]|.cslsp_q2q_summary' |sed 's/\"//g'`
 iclsp_q2q_summary=`cat $cfgfile |$JQ '.[0]|.iclsp_q2q_summary' |sed 's/\"//g'`
+icld_q2q_summary=`cat $cfgfile |$JQ '.[0]|.icld_q2q_summary' |sed 's/\"//g'`
 oran_q2q_summary=`cat $cfgfile |$JQ '.[0]|.oran_q2q_summary' |sed 's/\"//g'`
 
 #parse test case
