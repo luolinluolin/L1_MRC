@@ -48,16 +48,14 @@ then
   cd $FLEXRAN_L1_SW
   ./flexran_build.sh -r 5gnr -m all
 
+  echo "---------build sdk--------------"
+
+  cd $WIRELESS_SDK
+  ./create-makefiles-linux.sh
+  cd $DIR_WIRELESS_SDK
+  make -j32
+  make install
 fi
-
-
-echo "---------build sdk--------------"
-
-cd $WIRELESS_SDK
-./create-makefiles-linux.sh
-cd $DIR_WIRELESS_SDK
-make -j32
-make install
 
 #cd $SETUP_DIR
 #echo "---------bind MBC--------------"
