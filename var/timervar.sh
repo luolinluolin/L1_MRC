@@ -30,7 +30,7 @@ fi
 if [ $platform = "icld" ]
 then
    echo "------------ice lake d test $timer_icld_case------------------"
-   test_cases=$case_icld
+   test_cases=$timer_icld_case
    case_dir=icelake-d
 fi
 
