@@ -35,10 +35,6 @@ if [ $OPTION = "build" ]
 then
   echo "---------build dpdk--------------"
   # cd $RTE_SDK
-  # if [ -d build ]
-  #   then
-  #   rm -rf build
-  # fi
 
   cd $SETUP_DIR
   $SETUP/meson_build.sh
