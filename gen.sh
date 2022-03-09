@@ -30,3 +30,8 @@ doxgenfolder=$FLEXRAN_L1_SW/doxygen/nr5g
 cd ${doxgenfolder}
 sh gen_doxygen_perf.sh
 cd -
+
+perf_file_name=`date|sed 's/ /_/g'`
+perf_file_name=perf_$perf_file_name.tar.gz
+echo "----------------/usr/bin/mv $doxgenfolder/perf.tar.gz $RESULT_DIR/$perf_file_name---------------------"
+/usr/bin/mv $doxgenfolder/perf.tar.gz $RESULT_DIR/$perf_file_name

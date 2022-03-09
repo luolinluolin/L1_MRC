@@ -61,7 +61,7 @@ gen_c_common() {
 
 gen_c_common  ${result_dir}/timer/cslsp/$version "${timer_cslsp_case}" "${timer_cslsp_info}" "${timer_cslsp_cfile}" pipeline
 gen_c_common  ${result_dir}/timer/iclsp/$version "${timer_iclsp_case}" "${timer_iclsp_info}" "${timer_iclsp_cfile}" pipeline
-gen_c_common  ${result_dir}/timer/icld/$version "${timer_iclsp_case}" "${timer_iclsp_info}" "${timer_icld_cfile}" pipeline
+gen_c_common  ${result_dir}/timer/icld/$version "${timer_icld_case}" "${timer_icld_info}" "${timer_icld_cfile}" pipeline
 
 gen_c_common  ${result_dir}/oran/cslsp/$version "${oran_cslsp_case}" "${oran_cslsp_info}" "${oran_cslsp_cfile}" pipeline
 gen_c_common  ${result_dir}/oran/iclsp/$version "${oran_iclsp_case}" "${oran_iclsp_info}" "${oran_iclsp_cfile}" pipeline
