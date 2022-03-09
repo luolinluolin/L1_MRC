@@ -1,7 +1,7 @@
 [
     {
         "version1": "2111",
-        "version2": "master",
+        "version2": "2203",
         "cslsp_q2q_summary": "ref_clxsp_hton_acc100_q2q_summary",
         "iclsp_q2q_summary": "ref_icxsp_hton_acc100_q2q_summary",
         "icld_q2q_summary": "ref_icxd_hton_acc100_q2q_summary",

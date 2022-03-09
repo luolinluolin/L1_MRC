@@ -79,6 +79,8 @@ echo RTE_SDK_KMOD=${RTE_SDK_KMOD}
 
 alias l1sw="cd $FLEXRAN_L1_SW"
 alias master="cd $FLEXRAN_L1_SW/../"
+alias phy="cd $FLEXRAN_L1_SW"
+alias sdk="cd $DIR_WIRELESS_SDK_ROOT"
 alias l1="cd $FLEXRAN_L1_SW/bin/nr5g/gnb/l1"
 alias l2="cd $FLEXRAN_L1_SW/bin/nr5g/gnb/testmac"
 alias buildphy="../../../../build/nr5g/gnb/l1app/build_phy.sh SUB6 BBDEV_FEC_ACCL_NR5G"

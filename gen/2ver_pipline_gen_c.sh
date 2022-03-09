@@ -89,7 +89,7 @@ gen_c_common  ${result_dir}/timer/iclsp "${timer_iclsp_case}" "${timer_iclsp_inf
 summary_post_proc $iclsp_q2q_summary
 
 summary_pre_proc $icld_q2q_summary
-gen_c_common  ${result_dir}/timer/icld "${timer_icld_case}" "${timer_icld_info}" "${timer_icld_cfile}" pipeline
+gen_c_common  ${result_dir}/timer/icld "${timer_icld_case}" "${timer_icld_info}" "${timer_icld_cfile}" pipeline $icld_q2q_summary
 summary_post_proc $icld_q2q_summary
 
 
