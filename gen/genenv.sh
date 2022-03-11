@@ -1,5 +1,5 @@
 MRC_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)/..
-export path= $path:/opt/utils/doxygen-1.8.12/bin
+export path=$path:/opt/utils/doxygen-1.8.12/bin
 
 source $MRC_DIR/var/timervar.sh
 
