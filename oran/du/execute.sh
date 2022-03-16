@@ -22,6 +22,7 @@ pipline_log_dir=$pipline_results_dir/$platform/$version/log
 if [ ! -d $pipline_log_dir ]; then
     mkdir -p $pipline_log_dir
 fi 
+l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 
 for i in $test_cases 
 do
@@ -34,7 +35,7 @@ do
 
   # i=sub6_mu1_100mhz_32x32
   echo "-----------revomve src old file-----------------"
-  result=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt
+  result=$l1_dir/l1_mlog_stats.txt
   if [ -f result ]
   then
     rm -rf result
@@ -73,7 +74,7 @@ do
 
 	done
 
-  echo "------------cp $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt to --------------" 
+  echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
   echo "------------$result_dir --------------" 
   echo "-----------revomve dst old file-----------------"
   dst_result=$result_dir/$i.txt
@@ -81,7 +82,15 @@ do
   then
     rm -rf $dst_result
   fi
-  mv $FLEXRAN_L1_SW/bin/nr5g/gnb/l1/l1_mlog_stats.txt $dst_result
+  mv $l1_dir/l1_mlog_stats.txt $dst_result
+
+  log_dir=$pipline_log_dir/${i}
+  if [ ! -d $log_dir ]; then
+      mkdir -p $log_dir
+  else
+      rm -rf $log_dir/*
+  fi
+  /usr/bin/mv -rf $l1_dir/l1mlog* ${log_dir}
 
   l1_log=$pipline_log_dir/l1_${i}.txt
   l2_log=$pipline_log_dir/l2_${i}.txt

@@ -24,16 +24,16 @@ echo "--------$l1_dir---------------"
 echo "--------$l2_dir---------------"
 #-----setup MBC-----
 $CURRENT_DIR/../setup/mbc_vc_setup.sh MBC
-dpdk_path=$l1_dir/
+dpdk_path=$l1_dir
 deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
 
 if [ ! -n "$deviceid" ]; then
   echo "-------pls setup vf mode MBC------"
   exit 0
 fi
-sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}dpdk.sh
-sed -i "s#\(^igbuioMode=\)\S*#\11#"  ${dpdk_path}dpdk.sh
-sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${dpdk_path}phycfg_timer.xml
+sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}/dpdk.sh
+sed -i "s#\(^igbuioMode=\)\S*#\11#"  ${dpdk_path}/dpdk.sh
+sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${dpdk_path}/phycfg_timer.xml
 
 test_perf() {
     case_dir=$1
@@ -86,6 +86,14 @@ test_perf() {
         echo "mv $l1_dir/l1_mlog_stats.txt $dst_result"
         mv $l1_dir/l1_mlog_stats.txt $dst_result
 
+        log_dir=$pipline_log_dir/${test_case}
+        if [ ! -d $log_dir ]; then
+            mkdir -p $log_dir
+        else
+            rm -rf $log_dir/*
+        fi
+        /usr/bin/mv -rf $l1_dir/l1mlog* ${log_dir}
+
         l1_log=$pipline_log_dir/l1_${test_case}.txt
         l2_log=$pipline_log_dir/l2_${test_case}.txt
         if [ -f $l1_log ]
@@ -96,8 +104,8 @@ test_perf() {
         then
             rm -rf $l2_log
         fi
-        mv $CURRENT_DIR/l1_5g.log $l1_log
-        mv $CURRENT_DIR/l2_5g.log $l2_log
+        /usr/bin/mv -rf $CURRENT_DIR/l1_5g.log $l1_log
+        /usr/bin/mv -rf $CURRENT_DIR/l2_5g.log $l2_log
     done
     
 }
