@@ -54,8 +54,8 @@ sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:
 ##########xrancfg_sub6_oru.xml
 sed -i "s#<PciBusAddoRu0Vf0>.*<\/PciBusAddoRu0Vf0>#<PciBusAddoRu0Vf0>${d0}<\/PciBusAddoRu0Vf0>#g"  ${phy_path}xrancfg_sub6_oru.xml
 sed -i "s#<PciBusAddoRu0Vf1>.*<\/PciBusAddoRu0Vf1>#<PciBusAddoRu0Vf1>${d1}<\/PciBusAddoRu0Vf1>#g"  ${phy_path}xrancfg_sub6_oru.xml
-sed -i "s#<PciBusAddoRu0Vf2>.*<\/PciBusAddoRu0Vf2>#<PciBusAddoRu0Vf2>${d2}<\/PciBusAddoRu0Vf2>#g"  ${phy_path}xrancfg_sub6_oru.xml
-sed -i "s#<PciBusAddoRu0Vf3>.*<\/PciBusAddoRu0Vf3>#<PciBusAddoRu0Vf3>${d3}<\/PciBusAddoRu0Vf3>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<PciBusAddoRu1Vf0>.*<\/PciBusAddoRu1Vf0>#<PciBusAddoRu1Vf0>${d2}<\/PciBusAddoRu1Vf0>#g"  ${phy_path}xrancfg_sub6_oru.xml
+sed -i "s#<PciBusAddoRu1Vf1>.*<\/PciBusAddoRu1Vf1>#<PciBusAddoRu1Vf1>${d3}<\/PciBusAddoRu1Vf1>#g"  ${phy_path}xrancfg_sub6_oru.xml
 
 
 sed -i "s#<oRuRem0Mac0>.*<\/oRuRem0Mac0>#<oRuRem0Mac0>${dst0}<\/oRuRem0Mac0>#g"  ${phy_path}xrancfg_sub6_oru.xml
