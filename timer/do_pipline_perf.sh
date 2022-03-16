@@ -92,7 +92,7 @@ test_perf() {
         else
             rm -rf $log_dir/*
         fi
-        /usr/bin/mv -rf $l1_dir/l1mlog* ${log_dir}
+        /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
 
         l1_log=$pipline_log_dir/l1_${test_case}.txt
         l2_log=$pipline_log_dir/l2_${test_case}.txt
@@ -104,8 +104,8 @@ test_perf() {
         then
             rm -rf $l2_log
         fi
-        /usr/bin/mv -rf $CURRENT_DIR/l1_5g.log $l1_log
-        /usr/bin/mv -rf $CURRENT_DIR/l2_5g.log $l2_log
+        /usr/bin/mv -f $CURRENT_DIR/l1_5g.log $l1_log
+        /usr/bin/mv -f $CURRENT_DIR/l2_5g.log $l2_log
     done
     
 }

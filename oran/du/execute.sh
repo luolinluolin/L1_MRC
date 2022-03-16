@@ -90,7 +90,7 @@ do
   else
       rm -rf $log_dir/*
   fi
-  /usr/bin/mv -rf $l1_dir/l1mlog* ${log_dir}
+  /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
 
   l1_log=$pipline_log_dir/l1_${i}.txt
   l2_log=$pipline_log_dir/l2_${i}.txt
