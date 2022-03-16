@@ -73,7 +73,7 @@ test_perf() {
         cd $CURRENT_DIR 
         ./run.sh $CURRENT_DIR ./$case_dir/$test_case.cfg
 
-        log_dir=$pipline_result/${i}
+        log_dir=$pipline_result/${test_case}
         if [ ! -d $log_dir ]; then
             mkdir -p $log_dir
         else
