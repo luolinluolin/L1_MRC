@@ -42,10 +42,6 @@ test_perf() {
     if [ ! -d $pipline_result ]; then
         mkdir -p $pipline_result
     fi 
-    pipline_log_dir=$pipline_results_dir/$platform/$test_ver/log
-    if [ ! -d $pipline_log_dir ]; then
-        mkdir -p $pipline_log_dir
-    fi 
 
     echo "--------------------------- testcases $test_cases-------------------------------------"
     for test_case in ${test_cases}
@@ -77,22 +73,17 @@ test_perf() {
         cd $CURRENT_DIR 
         ./run.sh $CURRENT_DIR ./$case_dir/$test_case.cfg
 
-        echo "-----------copy result to $pipline_result--------------" 
-        dst_result=$pipline_result/$test_case.txt
-        if [ -f $dst_result ]
-        then
-            rm -rf $dst_result
-        fi
-        echo "mv $l1_dir/l1_mlog_stats.txt $dst_result"
-        mv $l1_dir/l1_mlog_stats.txt $dst_result
-
-        log_dir=$pipline_log_dir/${test_case}
+        log_dir=$pipline_result/${i}
         if [ ! -d $log_dir ]; then
             mkdir -p $log_dir
         else
             rm -rf $log_dir/*
         fi
         /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
+        /usr/bin/mv -f $l1_dir/l1_mlog_stats.txt ${log_dir}
+
+        echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
+        echo "------------$log_dir --------------" 
 
         l1_log=$pipline_log_dir/l1_${test_case}.txt
         l2_log=$pipline_log_dir/l2_${test_case}.txt

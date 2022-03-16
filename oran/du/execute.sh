@@ -14,14 +14,10 @@ echo "---version: $version----"
 echo "-------test_cases: $test_cases---------------"
 
 
-result_dir=$pipline_results_dir/$platform/$version
-if [ ! -d $result_dir ]; then
-  mkdir -p $result_dir
+pipline_result=$pipline_results_dir/$platform/$version
+if [ ! -d $pipline_result ]; then
+  mkdir -p $pipline_result
 fi
-pipline_log_dir=$pipline_results_dir/$platform/$version/log
-if [ ! -d $pipline_log_dir ]; then
-    mkdir -p $pipline_log_dir
-fi 
 l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 
 for i in $test_cases 
@@ -39,6 +35,7 @@ do
   if [ -f result ]
   then
     rm -rf result
+    rm -rf l1mlog*
   fi
 
   echo "-----------do test case ${i}-----------------"
@@ -74,15 +71,6 @@ do
 
 	done
 
-  echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
-  echo "------------$result_dir --------------" 
-  echo "-----------revomve dst old file-----------------"
-  dst_result=$result_dir/$i.txt
-  if [ -f $dst_result ]
-  then
-    rm -rf $dst_result
-  fi
-  mv $l1_dir/l1_mlog_stats.txt $dst_result
 
   log_dir=$pipline_log_dir/${i}
   if [ ! -d $log_dir ]; then
@@ -91,6 +79,10 @@ do
       rm -rf $log_dir/*
   fi
   /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
+  /usr/bin/mv -f $l1_dir/l1_mlog_stats.txt ${log_dir}
+
+  echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
+  echo "------------$log_dir --------------" 
 
   l1_log=$pipline_log_dir/l1_${i}.txt
   l2_log=$pipline_log_dir/l2_${i}.txt
@@ -105,7 +97,7 @@ do
   mv $du_dir/${i}/l1_5g.log $l1_log
   mv $du_dir/${i}/l2_5g.log $l2_log
 
-  $du_dir/../../utils/scptodst.sh $ANALYSE_IP $result_dir
+  $du_dir/../../utils/scptodst.sh $ANALYSE_IP $pipline_result
 #############################
 
 done
