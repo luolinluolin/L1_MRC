@@ -45,19 +45,19 @@ gen_c_common() {
         case_inf=${cases_inf[$num]}
         echo "------num $num-----case_inf ${case_inf}-------------"
         
-        rm -rf $mrc_perf_dir/${case}_$version1.txt
-        rm -rf $mrc_perf_dir/${case}_$version2.txt
+        rm -rf $mrc_perf_dir/$version1.txt
+        rm -rf $mrc_perf_dir/$version2.txt
         cd $mrc_perf_dir
-        cp $input_dir/$version1/${case}.txt ./${case}_$version1.txt
-        cp $input_dir/$version2/${case}.txt ./${case}_$version2.txt
+        cp $input_dir/$version1/${case}/l1_mlog_stats.txt ./$version1.txt
+        cp $input_dir/$version2/${case}/l1_mlog_stats.txt ./$version2.txt
 
         output_cfile_name=${cfiles_name[${num}]}_${repo_version1}_vs_${repo_version2}
         rm -rf ${output_cfile_name}.c
         string1=${case_inf}_${repo_version1}
         string2=${case_inf}_${repo_version2}
 
-        echo "./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name}"
-        ./perf_report ${type} 2 ./${case}_$version1.txt $string1 ./${case}_$version2.txt $string2 ${output_cfile_name} $summary
+        echo "./perf_report ${type} 2 ./$version1.txt $string1 ./$version2.txt $string2 ${output_cfile_name}"
+        ./perf_report ${type} 2 ./$version1.txt $string1 ./$version2.txt $string2 ${output_cfile_name} $summary
         
         rm -rf ${output_dir}/${output_cfile_name}.c
         mv ${output_cfile_name}.c ${output_dir}

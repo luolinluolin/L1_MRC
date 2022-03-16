@@ -43,13 +43,13 @@ gen_c_common() {
         echo "------num $num-----case_inf ${case_inf}-------------"
 
         cfile=${cfiles_name[${num}]}.c
-        mlog=${mrc_perf_dir}/${case}.txt
+        mlog=${mrc_perf_dir}/l1_mlog_stats.txt
         rm -rf $cfile
         rm -rf ${mlog}
         cd $mrc_perf_dir
-        cp $input_dir/${case}.txt ./
+        cp $input_dir/${case}/l1_mlog_stats.txt ./
         echo "./perf_report ${type} 1 ${case}.txt "\"${case_inf}\"" ${cfiles_name[${num}]}"
-        ./perf_report ${type} 1 ${case}.txt ${case_inf} ${cfiles_name[${num}]}
+        ./perf_report ${type} 1 l1_mlog_stats.txt ${case_inf} ${cfiles_name[${num}]}
 
         rm -rf ${output_dir}/${cfile}
         mv ${cfile} ${output_dir}
