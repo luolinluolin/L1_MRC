@@ -84,8 +84,8 @@ do
   echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
   echo "------------$log_dir --------------" 
 
-  l1_log=$pipline_log_dir/l1_${i}.txt
-  l2_log=$pipline_log_dir/l2_${i}.txt
+  l1_log=$log_dir/l1_${i}.txt
+  l2_log=$log_dir/l2_${i}.txt
   if [ -f $l1_log ]
   then
     rm -rf $l1_log
