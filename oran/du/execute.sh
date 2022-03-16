@@ -72,7 +72,7 @@ do
 	done
 
 
-  log_dir=$pipline_log_dir/${i}
+  log_dir=${pipline_result}/${i}
   if [ ! -d $log_dir ]; then
       mkdir -p $log_dir
   else
