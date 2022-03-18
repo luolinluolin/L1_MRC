@@ -24,6 +24,7 @@
             {"case": "icxsp_mu1_100mhz_mmimo_32x32_hton", "info": "ICXSP_HTON_ACC100_MMIMO_100MHZ_32X32", "cfile": "ref_icxsp_hton_acc100_mmimo_100mhz_32x32"},
             {"case": "icxsp_mu1_100mhz_mmimo_64x64_8stream_hton", "info": "ICXSP_HTON_ACC100_MMIMO_100MHZ_64X64_8STREAMS", "cfile": "ref_icxsp_hton_acc100_mmimo_100mhz_64x64_8streams"},
             {"case": "icxsp_mu1_100mhz_mmimo_64x64_16stream_hton", "info": "ICXSP_HTON_ACC100_MMIMO_100MHZ_64X64_16STREAMS", "cfile": "ref_icxsp_hton_acc100_mmimo_100mhz_64x64_16streams"},
+            {"case": "icxsp_mu1_100mhz_mmimo_64x64_16stream_hton_6cell", "info": "ICXSP_HTON_ACC100_MMIMO_100MHZ_64X64_16STREAMS_6CELL", "cfile": "ref_icxsp_hton_acc100_mmimo_100mhz_64x64_16streams_6cell"},
             {"case": "icxsp_mu3_100mhz_2x2_hton", "info": "ICXSP_HTON_ACC100_MMWAVE_100MHZ_2X2", "cfile": "ref_icxsp_hton_acc100_mmwave_100mhz_2x2"},
             {"case": "icxsp_mu0_20mhz_4x4_hton_multi_numerology", "info": "ICXSP_HTON_ACC100_SUB3_20MHZ_4X4_MULTI_NUMEROLOGY", "cfile": "ref_icxsp_hton_acc100_sub3_20mhz_4x4_multi_numerology"}
         ],

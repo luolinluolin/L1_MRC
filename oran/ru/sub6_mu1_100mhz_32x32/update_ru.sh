@@ -26,11 +26,13 @@ ru_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_32x32/oru
 # $ru_path/config_file_o_ru.dat
 ##########
 
-sed -i "s/0000:[0-9]\{2\}:[0-9]\{2\}.0/$d0/" ${ru_path}/run_o_ru.sh
-sed -i "s/0000:[0-9]\{2\}:[0-9]\{2\}.1/$d1/" ${ru_path}/run_o_ru.sh
-sed -i "s/0000:[0-9]\{2\}:[0-9]\{2\}.2/$d2/" ${ru_path}/run_o_ru.sh
-sed -i "s/0000:[0-9]\{2\}:[0-9]\{2\}.3/$d3/" ${ru_path}/run_o_ru.sh
-sed -i "s/0000:[0-9]\{2\}:[0-9]\{2\}.4/$d4/" ${ru_path}/run_o_ru.sh
-sed -i "s/0000:[0-9]\{2\}:[0-9]\{2\}.5/$d5/" ${ru_path}/run_o_ru.sh
+sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.0/$d0/" ${ru_path}/run_o_ru.sh
+sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.1/$d1/" ${ru_path}/run_o_ru.sh
+
+sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.2/$d2/" ${ru_path}/run_o_ru.sh
+sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.3/$d3/" ${ru_path}/run_o_ru.sh
+
+sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.4/$d4/" ${ru_path}/run_o_ru.sh
+sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.5/$d5/" ${ru_path}/run_o_ru.sh
 
 ####################################

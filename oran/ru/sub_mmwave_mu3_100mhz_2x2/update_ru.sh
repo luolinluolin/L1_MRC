@@ -25,8 +25,8 @@ ru_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/mmwave_mu3_100mhz_2x2/oru
 
 ##########
 
-sed -i "s#0000:21:02.0#$d0#" ${ru_path}/run_o_ru.sh
-sed -i "s#0000:21:02.1#$d1#" ${ru_path}/run_o_ru.sh
+sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.0/$d0/" ${ru_path}/run_o_ru.sh
+sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.1/$d1/" ${ru_path}/run_o_ru.sh
 
 
 ####################################
