@@ -6,6 +6,8 @@ if [ $# -ne 2 ] || [ $1 = "-h" ];then
      "
    exit 0
 fi
+platform=$1
+test_ver=$2
 
 CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 source ${CURRENT_DIR}/../timer/timerenv.sh	
@@ -35,5 +37,5 @@ rm -rf $DIR_WIRELESS_TEST_5G/results
 ./c_master.sh rctul 1 1 40
 ./c_master.sh rctul 1 1 100
 
-
-mv $DIR_WIRELESS_TEST_5G/results/*  ${store_result}/
+echo "mv $DIR_WIRELESS_TEST_5G/results/*  ${store_result}/"
+mv $DIR_WIRELESS_TEST_5G/results/*  ${store_result}
