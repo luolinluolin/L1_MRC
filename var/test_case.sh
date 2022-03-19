@@ -33,3 +33,15 @@ oran_cslsp_cfile=`(cat $cfgfile |$JQ '.[0]|.oran_cslsp_info|.[]|.cfile' |sed 's/
 oran_iclsp_case=`(cat $cfgfile |$JQ '.[0]|.oran_iclsp_info|.[]|.case' |sed 's/\"//g')`
 oran_iclsp_info=`(cat $cfgfile |$JQ '.[0]|.oran_iclsp_info|.[]|.info' |sed 's/\"//g')`
 oran_iclsp_cfile=`(cat $cfgfile |$JQ '.[0]|.oran_iclsp_info|.[]|.cfile' |sed 's/\"//g')`
+
+rct_pusch_case=`(cat $cfgfile |$JQ '.[0]|.rct_pusch_info|.[]|.case' |sed 's/\"//g')`
+rct_pusch_info=`(cat $cfgfile |$JQ '.[0]|.rct_pusch_info|.[]|.info' |sed 's/\"//g')`
+rct_pusch_cfile=`(cat $cfgfile |$JQ '.[0]|.rct_pusch_info|.[]|.cfile' |sed 's/\"//g')`
+
+rct_pucch_case=`(cat $cfgfile |$JQ '.[0]|.rct_pucch_info|.[]|.case' |sed 's/\"//g')`
+rct_pucch_info=`(cat $cfgfile |$JQ '.[0]|.rct_pucch_info|.[]|.info' |sed 's/\"//g')`
+rct_pucch_cfile=`(cat $cfgfile |$JQ '.[0]|.rct_pucch_info|.[]|.cfile' |sed 's/\"//g')`
+
+rct_prach_case=`(cat $cfgfile |$JQ '.[0]|.rct_prach_info|.[]|.case' |sed 's/\"//g')`
+rct_prach_info=`(cat $cfgfile |$JQ '.[0]|.rct_prach_info|.[]|.info' |sed 's/\"//g')`
+rct_prach_cfile=`(cat $cfgfile |$JQ '.[0]|.rct_prach_info|.[]|.cfile' |sed 's/\"//g')`
