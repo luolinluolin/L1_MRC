@@ -1,6 +1,6 @@
 if [ $# -ne 2 ] || [ $1 = "-h" ];then
     echo "
-         example : ./gen.sh  prod_r21.11 master
+         example : ./gen.sh  prod_r21.11 prod_r22.03
      "
    exit 0
 fi
@@ -12,6 +12,7 @@ echo "-----------gen c file-----------"
 ./gen/sdk_gen_c.sh $version2
 ./gen/1ver_pipline_gen_c.sh $version2
 ./gen/2ver_pipline_gen_c.sh $version1 $version2
+./gen/rct_gen.sh $version2
 
 echo "-----------gen html repo-----------"
 doxgenfolder=/opt/doxygen-1.8.17/build/bin
