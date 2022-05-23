@@ -11,8 +11,11 @@ then
     mkdir -p docs_perf/html
 fi
 cp -rf ../utils/* docs_perf/html/
+cp ../utils/tables_block_diagrams_formulas.css docs_perf/perf_report/
+cp ../utils/release_history.css docs_perf/perf_report/
+cp ../utils/intel-logo.png docs_perf/perf_report/
 
-tar -zcvf perf.tar.gz docs_perf/html/
+tar -zcvf perf.tar.gz docs_perf/perf_report/
 #clean up
 
 rm -rf src_perf

@@ -46,16 +46,19 @@
         ],
         "rct_pusch_info":
         [
+            {"case": "spree", "info": "PUSCH_SPREE_ACC200", "cfile": "ref_wireless_pusch_spree_acc200"},
             {"case": "cslsp", "info": "PUSCH_CLXSP_ACC100", "cfile": "ref_wireless_pusch_clxsp_acc100"},
             {"case": "iclsp", "info": "PUSCH_ICXSP_ACC100", "cfile": "ref_wireless_pusch_icxsp_acc100"}
         ],
         "rct_pucch_info":
         [
+            {"case": "spree", "info": "PUCCH_SPREE", "cfile": "ref_wireless_pucch_spree"},
             {"case": "cslsp", "info": "PUCCH_ICXSP", "cfile": "ref_wireless_pucch_icxsp"},
             {"case": "iclsp", "info": "PUCCH_CLXSP", "cfile": "ref_wireless_pucch_clxsp"}
         ],
         "rct_prach_info":
         [
+            {"case": "spree", "info": "PRACH_SPREE", "cfile": "ref_wireless_prach_spree"},
             {"case": "cslsp", "info": "PRACH_CLXSP", "cfile": "ref_wireless_prach_clxsp"},
             {"case": "iclsp", "info": "PRACH_ICXSP", "cfile": "ref_wireless_prach_icxsp"}
         ]
