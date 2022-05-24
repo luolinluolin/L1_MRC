@@ -13,7 +13,8 @@ echo "-----------gen c file-----------"
 ./gen/1ver_pipline_gen_c.sh $version2
 ./gen/2ver_pipline_gen_c.sh $version1 $version2
 ./gen/rct_gen.sh $version2
-./gen/rct_gen_2v.sh $version1 $version2
+# ./gen/rct_gen_2v.sh $version1 $version2
+./gen/./rct_gen_2v.sh iclsp $version1 spree $version2
 
 echo "-----------gen html repo-----------"
 doxgenfolder=/opt/doxygen-1.8.17/build/bin
