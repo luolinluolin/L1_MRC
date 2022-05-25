@@ -34,6 +34,12 @@ oran_iclsp_case=`(cat $cfgfile |$JQ '.[0]|.oran_iclsp_info|.[]|.case' |sed 's/\"
 oran_iclsp_info=`(cat $cfgfile |$JQ '.[0]|.oran_iclsp_info|.[]|.info' |sed 's/\"//g')`
 oran_iclsp_cfile=`(cat $cfgfile |$JQ '.[0]|.oran_iclsp_info|.[]|.cfile' |sed 's/\"//g')`
 
+rct_platform1=`cat $cfgfile |$JQ '.[0]|.rct_platform1' |sed 's/\"//g'`
+rct_platform2=`cat $cfgfile |$JQ '.[0]|.rct_platform2' |sed 's/\"//g'`
+rct_pusch_diff_case=`(cat $cfgfile |$JQ '.[0]|.rct_pusch_diff_info|.[]|.case' |sed 's/\"//g')`
+rct_pusch_diff_info=`(cat $cfgfile |$JQ '.[0]|.rct_pusch_diff_info|.[]|.info' |sed 's/\"//g')`
+rct_pusch_diff_cfile=`(cat $cfgfile |$JQ '.[0]|.rct_pusch_diff_info|.[]|.cfile' |sed 's/\"//g')`
+
 rct_pusch_case=`(cat $cfgfile |$JQ '.[0]|.rct_pusch_info|.[]|.case' |sed 's/\"//g')`
 rct_pusch_info=`(cat $cfgfile |$JQ '.[0]|.rct_pusch_info|.[]|.info' |sed 's/\"//g')`
 rct_pusch_cfile=`(cat $cfgfile |$JQ '.[0]|.rct_pusch_info|.[]|.cfile' |sed 's/\"//g')`

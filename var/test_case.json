@@ -44,6 +44,13 @@
         [
             {"case": "sub6_mu1_100mhz_32x32", "info": "ICXSP_HTON_MBC_MMIMO_100MHZ_32X32_ORAN_CVL", "cfile": "ref_icxsp_hton_mbc_mmimo_100mhz_32x32_oran_cvl"}
         ],
+        "rct_platform1": "iclsp",
+        "rct_platform2": "spree",
+        "rct_pusch_diff_info":
+        [
+            {"case": "iclsp_spree", "info": "PUSCH_ICLSP_SPREE_ACC200", "cfile": "ref_wireless_pusch_iclsp_spree_acc100_diff"}
+        ],
+
         "rct_pusch_info":
         [
             {"case": "spree", "info": "PUSCH_SPREE_ACC200", "cfile": "ref_wireless_pusch_spree_acc200"},

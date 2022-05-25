@@ -57,7 +57,7 @@ gen_c_common() {
     cp $input_dir/$platform2/$version2/rctresult.txt ./$version2.txt
 
     
-    output_cfile_name=${cfiles_name[${spreenum}]}_${platform1}_vs_${platform2}_diff
+    output_cfile_name=${cfiles_name[${spreenum}]}
     cfile=${output_cfile_name}.c
     rm -rf ${cfile}
     string1=${case_inf}_${platform1}
@@ -71,6 +71,6 @@ gen_c_common() {
     echo "mv ${cfile} ${output_dir}"
 }
 
-gen_c_common  ${result_dir}/rct  "${rct_pusch_case}" "${rct_pusch_info}" "${rct_pusch_cfile}" wireless_pusch
-gen_c_common  ${result_dir}/rct "${rct_pusch_case}" "${rct_pucch_info}" "${rct_pucch_cfile}" wireless_pucch
-gen_c_common  ${result_dir}/rct "${rct_prach_case}" "${rct_prach_info}" "${rct_prach_cfile}" wireless_prach
+gen_c_common  ${result_dir}/rct  "${rct_pusch_diff_case}" "${rct_pusch_diff_info}" "${rct_pusch_diff_cfile}" wireless_pusch
+# gen_c_common  ${result_dir}/rct "${rct_pusch_case}" "${rct_pucch_info}" "${rct_pucch_cfile}" wireless_pucch
+# gen_c_common  ${result_dir}/rct "${rct_prach_case}" "${rct_prach_info}" "${rct_prach_cfile}" wireless_prach
