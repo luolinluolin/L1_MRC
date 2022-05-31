@@ -98,17 +98,17 @@ fi
 #######################################################################################
 #######################################################################################
 cd $BASE
-bbdev_config=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/phycfg_timer.xml
+phy_config=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/phycfg_timer.xml
 
 echo "----------dpdkbasebanddevice old value--------------------"
-grep  dpdkBasebandDevice $bbdev_config
+grep  dpdkBasebandDevice $phy_config
 dpdkBasebandMode
-sed -i "s#<dpdkBasebandMode>.*<\/dpdkBasebandMode>#<dpdkBasebandMode>1<\/dpdkBasebandMode>#g"  $bbdev_config
+sed -i "s#<dpdkBasebandMode>.*<\/dpdkBasebandMode>#<dpdkBasebandMode>1<\/dpdkBasebandMode>#g"  $phy_config
 #deviceid=`lspci |grep 0d5c |awk '{print $1}'`
 echo "-------HW vc card pci device id is $deviceid1------------"
-sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid1}<\/dpdkBasebandDevice>#g"  $bbdev_config
+sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid1}<\/dpdkBasebandDevice>#g"  $phy_config
 echo "----------dpdkbasebanddevice new value-------------------"
-grep  dpdkBasebandDevice $bbdev_config
+grep  dpdkBasebandDevice $phy_config
 echo "----------dpdkbasebanddevice new value-------------------"
 
 
@@ -137,9 +137,11 @@ then
   echo "start to bind MBC card driver"
   deviceid1=`lspci |grep acc |awk '{print $1}'|sed -n '2p'`
   if [ ${ACC} = "ACC100" ]; then
-    cd $BASE/pf-bb-config/;./pf_bb_config ACC100 -c ./acc100/acc100_config_vf_5g.cfg
+    echo "cd ${bbdev_config};./pf_bb_config ACC100 -c ./acc100/acc100_config_1vf_5g.cfg"
+    cd ${bbdev_config};./pf_bb_config ACC100 -c ./acc100/acc100_config_1vf_5g.cfg
   elif [ ${ACC} = "ACC200" ]; then
-    cd $BASE/pf-bb-config/;./pf_bb_config ACC200 -c acc200/acc200_config_vf_5g.cfg
+    echo "cd ${bbdev_config};./pf_bb_config ACC200 -c ./acc200/acc200_config_vf_5g.cfg"
+    cd ${bbdev_config};./pf_bb_config ACC200 -c ./acc200/acc200_config_vf_5g.cfg
   fi
 else
  echo "input correct value"
