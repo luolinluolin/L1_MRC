@@ -1,4 +1,7 @@
 #!/bin/bash
+CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+
+source ${CURRENT_DIR}/../timer/timerenv.sh
 
 accid=`lspci |grep acc |awk '{print $7}'|sed -n '1p'`
 if [ $accid = "0d5c" ]; then
@@ -11,8 +14,9 @@ fi
 
 BASE=$FLEXRAN_L1_SW/../
 dpdk_v=$RTE_SDK
+echo "dpdk dir $dpdk_v"
+echo "work dir $BASE"
 
-CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 if [ ! -d   $FLEXRAN_L1_SW ];then
    echo "!!!!!!!!!!please check  phy folder !!!!!!!!!!!!!"
    echo "folder: "$FLEXRAN_L1_SW
