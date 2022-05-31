@@ -12,7 +12,7 @@ else
   echo "error pls modified this script to support this acc, or there is no acc in this server pls check."
 fi
 
-BASE=$FLEXRAN_L1_SW/../
+BASE=${WORK_DIR}/..
 dpdk_v=$RTE_SDK
 echo "dpdk dir $dpdk_v"
 echo "work dir $BASE"
