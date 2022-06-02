@@ -35,6 +35,8 @@ sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}/dpdk.sh
 sed -i "s#\(^igbuioMode=\)\S*#\11#"  ${dpdk_path}/dpdk.sh
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${dpdk_path}/phycfg_timer.xml
 
+rm -rf $pipline_results_dir/l2_failed.txt
+
 test_perf() {
     case_dir=$1
     test_cases=$2
@@ -71,7 +73,7 @@ test_perf() {
         # ./l2.ex 
 
         cd $CURRENT_DIR 
-        ./run.sh $CURRENT_DIR ./$case_dir/$test_case.cfg
+        ./run.sh $CURRENT_DIR ./$case_dir/$test_case.cfg $pipline_results_dir
 
         log_dir=$pipline_result/${test_case}
         if [ ! -d $log_dir ]; then
