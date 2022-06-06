@@ -113,9 +113,9 @@ echo "----------dpdkbasebanddevice new value-------------------"
 
 
 echo " ----------phycfg_timer.xml BBDEV original paramter value ------------"
-sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<\/dpdkBasebandFecMode>/g' $bbdev_config
+sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<\/dpdkBasebandFecMode>/g' $phy_config
 echo " -----------change phycfg_timer.xml dpdkBasebandFecMode  paramter value to test BBDEV model--------------"
-grep  dpdkBasebandFecMode $bbdev_config
+grep  dpdkBasebandFecMode $phy_config
 echo "----------------------------------------------------------------------"
 
 
