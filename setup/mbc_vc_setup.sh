@@ -44,6 +44,7 @@ cd ${BASE}/inih/; meson build; cd build; ninja; cp -rf lib* ${bbdev_config}/inih
 cd ${bbdev_config}; make clean;make
 
 #######################################################################################
+cd $BASE
 if [ ! -d dpdk-kmods ];then
   git clone http://dpdk.org/git/dpdk-kmods
 fi
