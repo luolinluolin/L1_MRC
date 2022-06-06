@@ -14,8 +14,10 @@ echo "-----------gen c file-----------"
 ./gen/2ver_pipline_gen_c.sh $version1 $version2
 ./gen/rct_gen.sh $version2
 # ./gen/rct_gen_2v.sh $version1 $version2
+CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 source $CUR_DIR/gen/genenv.sh
-./gen/./rct_gen_2v.sh $rct_platform1 $version1 $rct_platform1 $version2
+echo "------------./gen/rct_gen_2v.sh $rct_platform1 $version1 $rct_platform1 $version2-----------"
+./gen/rct_gen_2v.sh $rct_platform1 $version1 $rct_platform1 $version2
 
 echo "-----------gen html repo-----------"
 doxgenfolder=/opt/doxygen-1.8.17/build/bin
