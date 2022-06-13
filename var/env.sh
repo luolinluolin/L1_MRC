@@ -15,6 +15,7 @@ fi
 githubpre=/networking.wireless.flexran
 export flexran_l1_sw=$githubpre.flexran-l1-sw
 export flexran_l1_5g_test=$githubpre.flexran-l1-5g-test
+export flexran_l1_4g_test=$githubpre.flexran-l1-4g-test
 export wireless_sdk=$githubpre.wireless-sdk
 export wireless_convergence_l1=$githubpre.wireless-convergence-l1
 export wireless_dpdk_ae=$githubpre.wireless-dpdk-ae
@@ -33,7 +34,7 @@ export WIRELESS_SDK=$BASE$wireless_sdk
 export WIRELESS_CONVERGENCE_L1=$BASE$wireless_convergence_l1
 
 export XRAN_DIR=$BASE$flexran_xran
-export DIR_WIRELESS_TEST_4G=$BASE/flexran_l1_4g_test
+export DIR_WIRELESS_TEST_4G=$BASE$flexran_l1_4g_test
 export DIR_WIRELESS_TEST_5G=$BASE$flexran_l1_5g_test
 export DIR_WIRELESS_FW=$WIRELESS_CONVERGENCE_L1/framework
 
