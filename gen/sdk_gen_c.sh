@@ -16,7 +16,9 @@ source $CUR_DIR/../var/timervar.sh
 # perf_report=$mrc_perf_dir/perf_report
 output_dir=$CFILE_RESULTS
 
+echo "cd $mrc_perf_dir;chmod +x build.sh;./build.sh"
 cd $mrc_perf_dir;chmod +x build.sh;./build.sh
+echo "cd $sdk_tool_dir;chmod +x build.sh;./build.sh"
 cd $sdk_tool_dir;chmod +x build.sh;./build.sh
 
 result=results.csv

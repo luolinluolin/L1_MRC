@@ -47,6 +47,7 @@ gen_c_common() {
         rm -rf $cfile
         rm -rf ${mlog}
         cd $mrc_perf_dir
+        echo "cp $input_dir/${case}/l1_mlog_stats.txt ./"
         cp $input_dir/${case}/l1_mlog_stats.txt ./
         echo "./perf_report ${type} 1 ${case}.txt "\"${case_inf}\"" ${cfiles_name[${num}]}"
         ./perf_report ${type} 1 l1_mlog_stats.txt ${case_inf} ${cfiles_name[${num}]}

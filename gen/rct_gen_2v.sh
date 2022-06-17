@@ -54,6 +54,7 @@ gen_c_common() {
     rm -rf $version1.txt $version2.txt
     echo "cp $input_dir/$platform1/$version1/rctresult.txt ./$version1.txt"
     cp $input_dir/$platform1/$version1/rctresult.txt ./$version1.txt
+    echo "cp $input_dir/$platform2/$version2/rctresult.txt ./$version2.txt"
     cp $input_dir/$platform2/$version2/rctresult.txt ./$version2.txt
 
     

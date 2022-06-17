@@ -48,7 +48,9 @@ gen_c_common() {
         rm -rf $mrc_perf_dir/$version1.txt
         rm -rf $mrc_perf_dir/$version2.txt
         cd $mrc_perf_dir
+        echo "cp $input_dir/$version1/${case}/l1_mlog_stats.txt ./$version1.txt"
         cp $input_dir/$version1/${case}/l1_mlog_stats.txt ./$version1.txt
+        echo "cp $input_dir/$version2/${case}/l1_mlog_stats.txt ./$version2.txt"
         cp $input_dir/$version2/${case}/l1_mlog_stats.txt ./$version2.txt
 
         output_cfile_name=${cfiles_name[${num}]}_${repo_version1}_vs_${repo_version2}
