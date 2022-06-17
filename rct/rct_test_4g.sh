@@ -12,6 +12,8 @@ test_ver=$2
 CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 source ${CURRENT_DIR}/../timer/timerenv.sh	
 
+/usr/bin/cp -rf $FLEXRAN_L1_SW/build/lte/testapp/linux/lte_testapp $DIR_WIRELESS_TEST_4G
+
 l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 timer_cfg=${l1_dir}/phycfg_timer.xml
 sed -i 's/<CEInterpMethod>.*<\/CEInterpMethod>/<CEInterpMethod>2<\/CEInterpMethod>/g' ${timer_cfg}
