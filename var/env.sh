@@ -95,10 +95,11 @@ export PATH=$PATH:/opt/intel/oneapi/compiler/2022.0.2/linux/bin-llvm/
 source /opt/rh/devtoolset-8/enable
 
 cmake_dir=/opt/cmake-3.10.3/bin/
-if [-d $cmake_dir]
+if [ -d $cmake_dir ]
+then
   export PATH=$cmake_dir:$PATH
 else
-  echo "pls install /opt/cmake-3.10.3/bin/"
+  echo "pls install $cmake_dir"
   exit
 fi
 
