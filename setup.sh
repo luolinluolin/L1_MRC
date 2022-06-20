@@ -5,6 +5,7 @@ if [ $# -ne 3 ];then
    echo "
      ./setup.sh pull flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
      ./setup.sh build flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
+     ./setup.sh build_noclean flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
      "
    exit 0
 fi
@@ -52,6 +53,15 @@ then
   cd $DIR_WIRELESS_SDK
   make -j32
   make install
+elif [ $OPTION = "build_noclean" ]
+then
+  cd $SETUP_DIR
+  source $SETUP/setupenv.sh
+  cd $FLEXRAN_L1_SW
+  ./flexran_build.sh -r 5gnr -m all -c
+else 
+  echo "wrong build option, pls input build or build_noclean"
+  exit
 fi
 
 #cd $SETUP_DIR
