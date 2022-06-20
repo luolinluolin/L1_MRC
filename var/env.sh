@@ -94,4 +94,14 @@ source /opt/intel/oneapi/setvars.sh
 export PATH=$PATH:/opt/intel/oneapi/compiler/2022.0.2/linux/bin-llvm/
 source /opt/rh/devtoolset-8/enable
 
+cmake_dir=/opt/cmake-3.10.3/bin/
+if [-d $cmake_dir]
+  export PATH=$cmake_dir:$PATH
+else
+  echo "pls install /opt/cmake-3.10.3/bin/"
+  exit
+fi
+
+
+
 export WORK_DIR=$BASE
