@@ -105,3 +105,4 @@ test_perf() {
 
 echo "------------test_cases $test_cases"
 test_perf $case_dir "${test_cases}"
+$CURRENT_DIR/../kill.sh
