@@ -98,11 +98,15 @@ cmake_dir=/opt/cmake-3.10.3/bin/
 if [ -d $cmake_dir ]
 then
   export PATH=$cmake_dir:$PATH
-else
-  echo "pls install $cmake_dir"
-  exit
 fi
-
+CMAKE_EXIST=`which cmake`
+if [[ "$CMAKE_EXIST" = "" ]]
+then
+  echo "cmake is not exist, pls install"
+  exit
+else
+  echo "cmake at: $CMAKE_EXIST"
+fi
 
 
 export WORK_DIR=$BASE
