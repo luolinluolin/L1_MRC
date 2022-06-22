@@ -34,9 +34,15 @@ sed -i "s/SAMPLEAPP=0/SAMPLEAPP=1/" ${XRAN_DIR}/build.sh
 
 if [ $OPTION = "build" ]
 then
-  echo "---------build dpdk--------------"
-  # cd $RTE_SDK
 
+  echo "---------build sdk--------------"
+  cd $WIRELESS_SDK
+  ./create-makefiles-linux.sh
+  cd $DIR_WIRELESS_SDK
+  make -j32
+  make install
+
+  echo "---------build dpdk--------------"
   cd $SETUP_DIR
   $SETUP/meson_build.sh
 
@@ -44,17 +50,17 @@ then
   cd $SETUP_DIR
   source $SETUP/setupenv.sh 
   cd $FLEXRAN_L1_SW
-  ./flexran_build.sh -r 5gnr -m all
+  ./flexran_build.sh -r 5gnr -m bbu -m wls -m mlog -m cpa -m xran -m l1app -m testmac -m testapp
 
-  echo "---------build sdk--------------"
 
-  cd $WIRELESS_SDK
-  ./create-makefiles-linux.sh
-  cd $DIR_WIRELESS_SDK
-  make -j32
-  make install
 elif [ $OPTION = "build_noclean" ]
 then
+
+  echo "---------build dpdk--------------"
+  cd $RTE_SDK/build
+  ninja
+  
+  echo "---------build flexran--------------"
   cd $SETUP_DIR
   source $SETUP/setupenv.sh
   cd $FLEXRAN_L1_SW
