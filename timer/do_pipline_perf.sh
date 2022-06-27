@@ -33,8 +33,12 @@ if [ ! -n "$deviceid" ]; then
 fi
 sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}/dpdk.sh
 sed -i "s#\(^igbuioMode=\)\S*#\11#"  ${dpdk_path}/dpdk.sh
-sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${dpdk_path}/phycfg_timer.xml
 
+timer_cfg=${l1_dir}/phycfg_timer.xml
+sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${timer_cfg}
+sed -i 's/<CEInterpMethod>.*<\/CEInterpMethod>/<CEInterpMethod>0<\/CEInterpMethod>/g' ${timer_cfg}
+sed -i 's/<PuschLinearInterpEnable>.*<\/PuschLinearInterpEnable>/<PuschLinearInterpEnable>0<\/PuschLinearInterpEnable>/g' ${timer_cfg}
+sed -i 's/<PuschLinearInterpGranularityAll>.*<\/PuschLinearInterpGranularityAll>/<PuschLinearInterpGranularityAll>4<\/PuschLinearInterpGranularityAll>/g' ${timer_cfg}
 rm -rf $pipline_results_dir/l2_failed.txt
 
 test_perf() {
