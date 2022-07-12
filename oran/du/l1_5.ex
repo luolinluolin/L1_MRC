@@ -19,11 +19,8 @@ send "checking"
 expect "mem_mgr_display_size:"
 send "\r"
 
-expect "PHY>"
-send "exit\r"
-
-expect "*#"
-send "exit\r"
+#expect "wls_layer_close:Done"
+#send "exit\r"
 
 expect eof
 

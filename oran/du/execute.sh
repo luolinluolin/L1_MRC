@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ $# -le 2 ] || [ $1 = "-h" ];then
+if [ $# -lt 2 ] || [ $1 = "-h" ];then
     echo "
          example : ./execute.sh  cslsp prod_r21.11 sub3_mu0_10mhz_4x4
          example : ./execute.sh  iclsp prod_r21.11 sub3_mu0_10mhz_4x4
@@ -44,13 +44,13 @@ run() {
 
   rm -rf $du_dir/*.log
 
-  # ./l1_5.ex $du_dir $cfg_dir&
+  ./l1_5.ex $du_dir $cfg_dir&
 
   sleep 20
 
   l1_sw=$FLEXRAN_L1_SW
   l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac
-  # ./l2_5.ex $du_dir $l2_dir $testmac_cfg
+  ./l2_5.ex $du_dir $l2_dir $testmac_cfg
 
   # ./kill.ex $work_path
 
@@ -84,7 +84,7 @@ run_all () {
     num=1
     sleep 40
 
-    NUM=1000
+    NUM=100
     while [ $num -le $NUM ]
     do
       echo $num

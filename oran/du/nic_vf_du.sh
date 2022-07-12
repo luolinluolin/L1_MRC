@@ -1,7 +1,7 @@
 #!/bin/bash
 base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
-source ${base}/../oranvar.sh
+source ${base}/../oranenv.sh
 #data_nic=enp34s0f0
 data_nic=$DU_NIC_PORT
 NID=` ethtool -i ${data_nic}|grep bus-info|cut -c16-26|awk -F: '{print $1}' `
