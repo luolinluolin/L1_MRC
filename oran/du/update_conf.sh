@@ -6,7 +6,7 @@ ru_cfg=$3
 base=$PWD
 
 mac0="phystart 4 0 1000000"
-mac1="setcore 0xF81F0"
+# mac1="setcore 0xF81F0"
 
 
 PCIE_BUS=` lspci |grep -E "${NIC}" |head -1|awk '{print $1}'|awk -F: '{print $1}' `
@@ -19,8 +19,8 @@ fi
 testmac_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac/
 dpdk_path=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/
 ################## test mac cfg ##################
-context=`cat $testmac_cfg|grep ebbu_pool_num_context|awk '{print $3}'`
-sed -i "s#\(ebbu_pool_max_context_fetch[ \t]\)\S*#\1$context#" $testmac_cfg
+# context=`cat $testmac_cfg|grep ebbu_pool_num_context|awk '{print $3}'`
+# sed -i "s#\(ebbu_pool_max_context_fetch[ \t]\)\S*#\1$context#" $testmac_cfg
 sed -i "s#.*phystart.*#$mac0#"     $testmac_cfg
 #sed -i "s#\(setcore \)\S*#$mac1#"  $testmac_cfg
 # cd $base
@@ -29,17 +29,23 @@ sed -i "s#.*phystart.*#$mac0#"     $testmac_cfg
 ################## phy cfg ##################
 sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<\/dpdkBasebandFecMode>/g'  $phy_cfg
 # deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
-deviceid1=`lspci |grep acc |awk '{print $1}'|sed -n '2p'`
+deviceid=`lspci |grep acc |awk '{print $1}'|sed -n '2p'`
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  $phy_cfg
 ######### 
 ##########xrancfg_sub6_oru.xml
-vf_dev=lspci |grep "Ethernet Adaptive Virtual" |head -5|awk '{print $1}'
-d0=`echo $vf_dev|sed -n '1p'`
-d1=`echo $vf_dev|sed -n '2p'`
-d2=`echo $vf_dev|sed -n '3p'`
-d3=`echo $vf_dev|sed -n '4p'`
-d4=`echo $vf_dev|sed -n '5p'`
-d5=`echo $vf_dev|sed -n '6p'`
+vf_dev=(`lspci |grep "Ethernet Adaptive Virtual" |head -6|awk '{print $1}'`)
+d0=0000:${vf_dev[0]}
+d1=0000:${vf_dev[1]}
+d2=0000:${vf_dev[2]}
+d3=0000:${vf_dev[3]}
+d4=0000:${vf_dev[4]}
+d5=0000:${vf_dev[5]}
+echo "d0: $d0" 
+echo "d1: $d1" 
+echo "d2: $d2" 
+echo "d3: $d3" 
+echo "d4: $d4" 
+echo "d5: $d5" 
 
 sed -i "s#<PciBusAddoRu0Vf0>.*<\/PciBusAddoRu0Vf0>#<PciBusAddoRu0Vf0>${d0}<\/PciBusAddoRu0Vf0>#g"  $ru_cfg
 sed -i "s#<PciBusAddoRu0Vf1>.*<\/PciBusAddoRu0Vf1>#<PciBusAddoRu0Vf1>${d1}<\/PciBusAddoRu0Vf1>#g"  $ru_cfg

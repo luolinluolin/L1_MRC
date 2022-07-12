@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ $# -le 2 ] || [ $1 = "-h" ];then
     echo "
-         example : ./excute.sh  cslsp prod_r21.11 sub3_mu0_10mhz_4x4
-         example : ./excute.sh  iclsp prod_r21.11 sub3_mu0_10mhz_4x4
+         example : ./execute.sh  cslsp prod_r21.11 sub3_mu0_10mhz_4x4
+         example : ./execute.sh  iclsp prod_r21.11 sub3_mu0_10mhz_4x4
      "
    exit 0
 fi
@@ -13,7 +13,7 @@ manually_case=$3
 
 du_dir=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 ru_dir=$du_dir/../ru
-source $du_dir/../../var/oranvar.sh
+source $du_dir/../oranenv.sh
 
 killall=$du_dir/../../kill.sh
 
@@ -27,28 +27,30 @@ if [ ! -d $pipline_result ]; then
   mkdir -p $pipline_result
 fi
 l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
+echo "---------l1_dir: $l1_dir--------------"
 
 
 run() {
   case=$1
   # phy_cfg=$2
   # ru_cfg=$3
+  echo "---------cfg_dir: $cfg_dir--------------"
   cfg_dir=$l1_dir/orancfg/$case/gnb/
-  testmac_cfg=`find $cfg_dir/gnb/ -name "testmac_*_oru.cfg"`
-  phy_cfg=`find $cfg_dir/gnb/ -name "phycfg*.xml"`
-  ru_cfg=`find $cfg_dir/gnb/ -name "xrancfg*.xml"`
+  testmac_cfg=`find $cfg_dir -name "testmac_*_oru.cfg"`
+  phy_cfg=`find $cfg_dir -name "phycfg*.xml"`
+  ru_cfg=`find $cfg_dir -name "xrancfg*.xml"`
 
   ./update_conf.sh $testmac_cfg $phy_cfg $ru_cfg
 
   rm -rf $du_dir/*.log
 
-  ./l1_5.ex $du_dir $cfg_dir&
+  # ./l1_5.ex $du_dir $cfg_dir&
 
   sleep 20
 
   l1_sw=$FLEXRAN_L1_SW
   l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac
-  ./l2_5.ex $du_dir $l2_dir $testmac_cfg
+  # ./l2_5.ex $du_dir $l2_dir $testmac_cfg
 
   # ./kill.ex $work_path
 
@@ -162,7 +164,7 @@ run_one() {
 }
 
 
-if [ "$manually_case" != "" ] then 
+if [ "$manually_case" != "" ]; then 
   run_one
 else
   run_all
