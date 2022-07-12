@@ -47,7 +47,7 @@ run() {
 
   ./l1_5.ex $du_dir $cfg_dir&
 
-  sleep 20
+  sleep 40
 
   l1_sw=$FLEXRAN_L1_SW
   l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac
@@ -86,27 +86,7 @@ run_all () {
     num=1
     sleep 40
 
-    NUM=100
-    # while [ $num -le $NUM ]
-    # do
-    #   echo $num
-    #         num=$(( $num + 1 ))
-    #         sleep 1
-
-    #       testflag=`grep 'nMLogDelay == 0' l1_5g.log`
-    #       if [ ! $testflag ]
-    #       then
-    #             echo "will start RU($RU_IP) DIR(${ru_dir}/${i}) server to test....."
-    #             echo "waitting DU start up daemon......"
-    #       else
-    #             echo "will start RU($RU_IP) DIR(${ru_dir}/${i}) server to test....."
-    #           ##### config remote ru ######
-    ssh $RU_IP "source /etc/profile; cd $ru_dir; source ../oranenv.sh; cd $base/../ru/; ./setup.sh; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${i} ${ru_dir}"
-              # num=$(( $num + $NUM ))
-    #       fi
-
-    # done
-
+    ssh $RU_IP "source /etc/profile; cd $base/../ru/; ./setup.sh; sleep 20; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${i} ${ru_dir}"
 
     log_dir=${pipline_result}/${i}
     if [ ! -d $log_dir ]; then
