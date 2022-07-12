@@ -17,7 +17,7 @@ echo "-----------gen c file-----------"
 CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 source $CUR_DIR/gen/genenv.sh
 echo "------------./gen/rct_gen_2v.sh $rct_platform1 $version1 $rct_platform1 $version2-----------"
-./gen/rct_gen_2v.sh $rct_platform1 $version1 $rct_platform1 $version2
+./gen/rct_gen_2v.sh $rct_platform1 $version1 $rct_platform2 $version2
 
 echo "-----------gen html repo-----------"
 doxgenfolder=/opt/doxygen-1.8.17/build/bin
