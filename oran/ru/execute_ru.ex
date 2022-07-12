@@ -13,7 +13,7 @@ expect "*#"
 send "source ${base}/../oranenv.sh; cd $ru_dir;sh ./run_o_ru.sh\r"
 
 expect "*quit"
-set timeout 1200
+set timeout 600
 expect {
    -re "non-existent" {
    send "check\n"

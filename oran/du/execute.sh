@@ -47,7 +47,7 @@ run() {
 
   ./l1_5.ex $du_dir $cfg_dir&
 
-  sleep 40
+  sleep 30
 
   l1_sw=$FLEXRAN_L1_SW
   l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac
@@ -79,14 +79,12 @@ run_all () {
     fi
 
     echo "-----------------launch du--------------------"
-    run $i &
+    run $i&
+
     echo "-----------------launch ru--------------------"
+    sleep 30
     l1_ru_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/$i/oru/
-
-    num=1
-    sleep 40
-
-    ssh $RU_IP "source /etc/profile; cd $base/../ru/; ./setup.sh; sleep 20; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${i} ${ru_dir}"
+    ssh $RU_IP "source /etc/profile; cd $ru_dir; ./setup.sh; sleep 20; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${i} ${ru_dir}"
 
     log_dir=${pipline_result}/${i}
     if [ ! -d $log_dir ]; then
