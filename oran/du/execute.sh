@@ -80,30 +80,31 @@ run_all () {
     echo "-----------------launch du--------------------"
     run $i &
     echo "-----------------launch ru--------------------"
+    l1_ru_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/$case/oru/
 
     num=1
     sleep 40
 
     NUM=100
-    while [ $num -le $NUM ]
-    do
-      echo $num
-            num=$(( $num + 1 ))
-            sleep 1
+    # while [ $num -le $NUM ]
+    # do
+    #   echo $num
+    #         num=$(( $num + 1 ))
+    #         sleep 1
 
-          testflag=`grep 'nMLogDelay == 0' l1_5g.log`
-          if [ ! $testflag ]
-          then
-                echo "will start RU($RU_IP) DIR(${ru_dir}/${i}) server to test....."
-                echo "waitting DU start up daemon......"
-          else
-                echo "will start RU($RU_IP) DIR(${ru_dir}/${i}) server to test....."
-              ##### config remote ru ######
-              ssh $RU_IP "source /etc/profile; cd $ru_dir; source ../oranenv.sh; cd $base/../ru/; ./setup.sh; cd ${ru_dir}; ./do_oran_ru.sh ${i}"
-              num=$(( $num + $NUM ))
-          fi
+    #       testflag=`grep 'nMLogDelay == 0' l1_5g.log`
+    #       if [ ! $testflag ]
+    #       then
+    #             echo "will start RU($RU_IP) DIR(${ru_dir}/${i}) server to test....."
+    #             echo "waitting DU start up daemon......"
+    #       else
+    #             echo "will start RU($RU_IP) DIR(${ru_dir}/${i}) server to test....."
+    #           ##### config remote ru ######
+              ssh $RU_IP "source /etc/profile; cd $ru_dir; source ../oranenv.sh; cd $base/../ru/; ./setup.sh; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${i} ${ru_dir}"
+              # num=$(( $num + $NUM ))
+    #       fi
 
-    done
+    # done
 
 
     log_dir=${pipline_result}/${i}
@@ -144,7 +145,7 @@ run_one() {
   fi
 
   echo "-----------------launch du--------------------"
-  run $i &
+  run $i 
   log_dir=${pipline_result}/${i}
   if [ ! -d $log_dir ]; then
       mkdir -p $log_dir

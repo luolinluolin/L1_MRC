@@ -14,6 +14,7 @@ sh $base/../../setup/igb_uio_install.sh
 cd $base;./nic_vf_ru.sh
 sleep 3
 
+sysctl -w kernel.sched_rt_runtime_us=-1
 ###########################
 # cd $base;./build.sh
 # sleep 3
