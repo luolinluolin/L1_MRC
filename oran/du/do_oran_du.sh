@@ -12,6 +12,8 @@ fi
 platform=$1
 version=$2
 
+killall=$base/../../kill.sh
+$killall
 #####setup####
 cd $base
 ./setup.sh

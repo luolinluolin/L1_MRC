@@ -81,7 +81,7 @@ run_all () {
     echo "-----------------launch du--------------------"
     run $i &
     echo "-----------------launch ru--------------------"
-    l1_ru_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/$case/oru/
+    l1_ru_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/$i/oru/
 
     num=1
     sleep 40
