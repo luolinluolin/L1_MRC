@@ -10,6 +10,7 @@ $killall
 source $base/../oranenv.sh
 
 ###########################
+sh $base/../../setup/igb_uio_install.sh
 cd $base;./nic_vf_ru.sh
 sleep 3
 
