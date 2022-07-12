@@ -10,17 +10,17 @@ spawn su - root
 expect "*#"
 send "cd $workpath/../;source ./oranenv.sh; cd  $l1_dir; ./l1.sh -oru\r"
 
-expect "*welcome"
+expect "Received MSG_TYPE_PHY_SHUTDOWN_REQ"
+#send "----------------Received MSG_TYPE_PHY_SHUTDOWN_REQ\r"
+
+expect "Mlog Print successful"
+#send "----------------Mlog Print successful\r"
 send "\r"
+send "exit\r"
+
 
 expect "mem_mgr_display_size:"
-send "checking"
-
-expect "mem_mgr_display_size:"
-send "\r"
-
-#expect "wls_layer_close:Done"
-#send "exit\r"
-
+#send "----------------mem_mgr_display_size:\r"
+send "exit\r"
 expect eof
 

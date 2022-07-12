@@ -26,6 +26,10 @@ echo "d2: $d2"
 echo "d3: $d3" 
 echo "d4: $d4" 
 echo "d5: $d5" 
+if [ $d0 == "" ]; then
+  echo "pls using setup.sh in current dir to setup your nic"
+  exit 0
+fi
 ####################################
 
 sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.0/$d0/" ${runsh}

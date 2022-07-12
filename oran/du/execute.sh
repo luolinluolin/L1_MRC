@@ -16,6 +16,7 @@ ru_dir=$du_dir/../ru
 source $du_dir/../oranenv.sh
 
 killall=$du_dir/../../kill.sh
+$killall
 
 
 echo "---platform: $platform----"
@@ -100,7 +101,7 @@ run_all () {
     #       else
     #             echo "will start RU($RU_IP) DIR(${ru_dir}/${i}) server to test....."
     #           ##### config remote ru ######
-              ssh $RU_IP "source /etc/profile; cd $ru_dir; source ../oranenv.sh; cd $base/../ru/; ./setup.sh; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${i} ${ru_dir}"
+    ssh $RU_IP "source /etc/profile; cd $ru_dir; source ../oranenv.sh; cd $base/../ru/; ./setup.sh; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${i} ${ru_dir}"
               # num=$(( $num + $NUM ))
     #       fi
 

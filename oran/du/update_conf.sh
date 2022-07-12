@@ -30,7 +30,13 @@ sed -i "s#.*phystart.*#$mac0#"     $testmac_cfg
 sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<\/dpdkBasebandFecMode>/g'  $phy_cfg
 # deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
 deviceid=`lspci |grep acc |awk '{print $1}'|sed -n '2p'`
+if [ $deviceid == "" ]; then
+  echo "pls using setup.sh to setup your acc"
+  exit 0
+fi
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  $phy_cfg
+echo "--------------cat $phy_cfg|grep dpdkBasebandDevice--------------------"
+cat $phy_cfg|grep dpdkBasebandDevice
 ######### 
 ##########xrancfg_sub6_oru.xml
 vf_dev=(`lspci |grep "Ethernet Adaptive Virtual" |head -6|awk '{print $1}'`)
@@ -40,6 +46,10 @@ d2=0000:${vf_dev[2]}
 d3=0000:${vf_dev[3]}
 d4=0000:${vf_dev[4]}
 d5=0000:${vf_dev[5]}
+if [ $d0 == "" ]; then
+  echo "pls using setup.sh in current dir to setup your nic"
+  exit 0
+fi
 echo "d0: $d0" 
 echo "d1: $d1" 
 echo "d2: $d2" 
