@@ -28,13 +28,19 @@ ip link set ${data_nic} vf 5 mac 00:11:22:33:00:51 vlan 5
 ip link  show
 
 # bind dpdk
-vf_dev=lspci |grep "Ethernet Adaptive Virtual" |head -5|awk '{print $1}'
-d0=`echo $vf_dev|sed -n '1p'`
-d1=`echo $vf_dev|sed -n '2p'`
-d2=`echo $vf_dev|sed -n '3p'`
-d3=`echo $vf_dev|sed -n '4p'`
-d4=`echo $vf_dev|sed -n '5p'`
-d5=`echo $vf_dev|sed -n '6p'`
+vf_dev=(`lspci |grep "Ethernet Adaptive Virtual" |head -6|awk '{print $1}'`)
+d0=0000:${vf_dev[0]}
+d1=0000:${vf_dev[1]}
+d2=0000:${vf_dev[2]}
+d3=0000:${vf_dev[3]}
+d4=0000:${vf_dev[4]}
+d5=0000:${vf_dev[5]}
+echo "d0: $d0" 
+echo "d1: $d1" 
+echo "d2: $d2" 
+echo "d3: $d3" 
+echo "d4: $d4" 
+echo "d5: $d5" 
 
 dpdk=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/dpdk.sh
 sed -i "s#\(ethDevice0=\)\S*#\1$d0#" $dpdk
