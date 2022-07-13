@@ -1,6 +1,6 @@
 
 
-if [ $# -ne 2 ] || [ $1 = "-h" ];then
+if [ $# -lt 2 ] || [ $1 = "-h" ];then
     echo "
          example : ./do_pipline_perf.sh  cslsp prod_r21.11
          example : ./do_pipline_perf.sh  iclsp prod_r21.11
@@ -11,7 +11,7 @@ fi
 
 platform=$1
 test_ver=$2
-test_mode=$3
+test_one_case=$3
 
 
 CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
@@ -107,6 +107,13 @@ test_perf() {
     
 }
 
-echo "------------test_cases $test_cases"
-test_perf $case_dir "${test_cases}"
+
+if [ "$test_one_case" != "" ]
+then
+    echo "------------test_cases $test_one_case"
+    test_perf $case_dir "${test_one_case}"
+else
+    echo "------------test_cases $test_cases"
+    test_perf $case_dir "${test_cases}"
+fi
 $CURRENT_DIR/../kill.sh
