@@ -92,6 +92,7 @@ run_all () {
     else
         rm -rf $log_dir/*
     fi
+    /usr/bin/mv -f $l1_dir/PhyStats* ${log_dir}
     /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
     /usr/bin/mv -f $l1_dir/l1_mlog_stats.txt ${log_dir}
 
@@ -131,6 +132,7 @@ run_one() {
   else
       rm -rf $log_dir/*
   fi
+  /usr/bin/mv -f $l1_dir/PhyStats* ${log_dir}
   /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
   /usr/bin/mv -f $l1_dir/l1_mlog_stats.txt ${log_dir}
 

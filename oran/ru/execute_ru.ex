@@ -10,7 +10,7 @@ spawn su - root
 
 expect "*#"
 
-send "source ${base}/../oranenv.sh; cd $ru_dir;sh ./run_o_ru.sh\r"
+send "source ${base}/../oranenv.sh; cd $ru_dir; chmod 777 run_o_ru.sh; ./run_o_ru.sh\r"
 
 expect "*quit"
 set timeout 600
