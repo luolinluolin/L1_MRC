@@ -73,10 +73,10 @@ dst5="00:11:22:33:00:51"
 
 sed -i "s#<oRuRem0Mac0>.*<\/oRuRem0Mac0>#<oRuRem0Mac0>${dst0}<\/oRuRem0Mac0>#g"  $ru_cfg
 sed -i "s#<oRuRem0Mac1>.*<\/oRuRem0Mac1>#<oRuRem0Mac1>${dst1}<\/oRuRem0Mac1>#g"  $ru_cfg
-sed -i "s#<oRuRem1Mac0>.*<\/oRuRem1Mac0>#<oRuRem1Mac0>${dst0}<\/oRuRem1Mac0>#g"  $ru_cfg
-sed -i "s#<oRuRem1Mac1>.*<\/oRuRem1Mac1>#<oRuRem1Mac1>${dst1}<\/oRuRem1Mac1>#g"  $ru_cfg
-sed -i "s#<oRuRem2Mac0>.*<\/oRuRem2Mac0>#<oRuRem2Mac0>${dst0}<\/oRuRem2Mac0>#g"  $ru_cfg
-sed -i "s#<oRuRem2Mac1>.*<\/oRuRem2Mac1>#<oRuRem2Mac1>${dst1}<\/oRuRem2Mac1>#g"  $ru_cfg
+sed -i "s#<oRuRem1Mac0>.*<\/oRuRem1Mac0>#<oRuRem1Mac0>${dst2}<\/oRuRem1Mac0>#g"  $ru_cfg
+sed -i "s#<oRuRem1Mac1>.*<\/oRuRem1Mac1>#<oRuRem1Mac1>${dst3}<\/oRuRem1Mac1>#g"  $ru_cfg
+sed -i "s#<oRuRem2Mac0>.*<\/oRuRem2Mac0>#<oRuRem2Mac0>${dst4}<\/oRuRem2Mac0>#g"  $ru_cfg
+sed -i "s#<oRuRem2Mac1>.*<\/oRuRem2Mac1>#<oRuRem2Mac1>${dst5}<\/oRuRem2Mac1>#g"  $ru_cfg
 
 ####################################
 ##
