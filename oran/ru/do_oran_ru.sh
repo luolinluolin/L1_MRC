@@ -12,6 +12,9 @@ base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 source ${base}/../oranenv.sh
 work_path=$base
 
+killall=$base/../../kill.sh
+$killall
+
 #cd $work_path/; ./nic_vf_ru.sh 
 #cd $work_path/;source ./setup/env.sh $ORANISA;cd $work_path/flexran_l1_sw/bin/nr5g/gnb/l1/orancfg/sub6_mu1_100mhz_4x4/oru; ./dpdk.sh 
 cd $work_path/; rm -rf *.log 
