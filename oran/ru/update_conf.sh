@@ -1,5 +1,5 @@
 #!/bin/bash
-runsh=$1\run_o_ru.sh
+runsh=$1/run_o_ru.sh
 rucfg=$2
 
 base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
@@ -32,6 +32,7 @@ if [ $d0 == "" ]; then
 fi
 ####################################
 
+echo "-----${runsh}"
 sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.0/$d0/" ${runsh}
 sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.1/$d1/" ${runsh}
 
