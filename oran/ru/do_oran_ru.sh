@@ -22,7 +22,7 @@ cd $work_path/; rm -rf *.log
 ru_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/$case/oru/
 
 ########## update ru config ###########
-./update_conf.sh $ru_dir
+
 
 ########## run ru ###########
 cd $work_path; ./execute_ru.ex $ru_dir $case $work_path
