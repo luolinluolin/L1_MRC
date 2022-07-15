@@ -5,7 +5,7 @@ ru_cfg=$3
 
 base=$PWD
 
-mac0="phystart 4 0 100000"
+mac0="phystart 4 0 1000000"
 # mac1="setcore 0xF81F0"
 
 
