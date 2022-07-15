@@ -22,6 +22,11 @@ l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac	
 echo "--------$l1_dir---------------"
 echo "--------$l2_dir---------------"
+################################# change phy config ############################
+timer_cfg=${l1_dir}/phycfg_timer.xml
+echo "---------------------------------${CURRENT_DIR}/../utils/change_phy_cfg.sh ${timer_cfg}"
+${CURRENT_DIR}/../utils/change_phy_cfg.sh ${timer_cfg}
+
 #-----setup MBC-----
 $CURRENT_DIR/../setup/mbc_vc_setup.sh MBC
 dpdk_path=$l1_dir
@@ -34,21 +39,7 @@ fi
 sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}/dpdk.sh
 sed -i "s#\(^igbuioMode=\)\S*#\11#"  ${dpdk_path}/dpdk.sh
 
-timer_cfg=${l1_dir}/phycfg_timer.xml
-sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${timer_cfg}
-sed -i 's/<CEInterpMethod>.*<\/CEInterpMethod>/<CEInterpMethod>0<\/CEInterpMethod>/g' ${timer_cfg}
-sed -i 's/<PuschLinearInterpEnable>.*<\/PuschLinearInterpEnable>/<PuschLinearInterpEnable>0<\/PuschLinearInterpEnable>/g' ${timer_cfg}
-sed -i 's/<PuschLinearInterpGranularityAll>.*<\/PuschLinearInterpGranularityAll>/<PuschLinearInterpGranularityAll>4<\/PuschLinearInterpGranularityAll>/g' ${timer_cfg}
 
-echo " ----------phycfg_timer.xml <PucchF0NoiseEstType>0</PucchF0NoiseEstType> paramter value ------------"
-pucchnoise=`grep  'PucchF0NoiseEstType' $timer_cfg`
-if [ "$pucchnoise" != "" ]; then
-  sed -i 's/<PucchF0NoiseEstType>.*<\/PucchF0NoiseEstType>/<PucchF0NoiseEstType>1<\/PucchF0NoiseEstType>/g' $timer_cfg
-  echo " -----------change phycfg_timer.xml PucchF0NoiseEstType  paramter value to test BBDEV model--------------"
-else
-  sed -i '/<PucchSplit>0<\/PucchSplit>/a\            <PucchF0NoiseEstType>1<\/PucchF0NoiseEstType>' $timer_cfg
-fi
-grep  PucchF0NoiseEstType $timer_cfg
 
 rm -rf $pipline_results_dir/l2_failed.txt
 

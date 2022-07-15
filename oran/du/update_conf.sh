@@ -3,7 +3,7 @@ testmac_cfg=$1
 phy_cfg=$2
 ru_cfg=$3
 
-base=$PWD
+base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
 mac0="phystart 4 0 1000000"
 # mac1="setcore 0xF81F0"
@@ -27,27 +27,8 @@ sed -i "s#.*phystart.*#$mac0#"     $testmac_cfg
 # cp $testmac_cfg $testmac_path/
 
 ################## phy cfg ##################
-sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<\/dpdkBasebandFecMode>/g'  $phy_cfg
-# deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
-deviceid=`lspci |grep acc |awk '{print $1}'|sed -n '2p'`
-if [ $deviceid == "" ]; then
-  echo "pls using setup.sh to setup your acc"
-  exit 0
-fi
-sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  $phy_cfg
-echo "--------------cat $phy_cfg|grep dpdkBasebandDevice--------------------"
-cat $phy_cfg|grep dpdkBasebandDevice
+${base}/../../utils/change_phy_cfg.sh ${phy_cfg}
 
-
-echo " ----------phycfg_timer.xml <PucchF0NoiseEstType>0</PucchF0NoiseEstType> paramter value ------------"
-pucchnoise=`grep  'PucchF0NoiseEstType' $phy_cfg`
-if [ "$pucchnoise" != "" ]; then
-  sed -i 's/<PucchF0NoiseEstType>.*<\/PucchF0NoiseEstType>/<PucchF0NoiseEstType>1<\/PucchF0NoiseEstType>/g' $phy_cfg
-  echo " -----------change phycfg_timer.xml PucchF0NoiseEstType  paramter value to test BBDEV model--------------"
-else
-  sed -i '/<PucchSplit>0<\/PucchSplit>/a\            <PucchF0NoiseEstType>1<\/PucchF0NoiseEstType>' $phy_cfg
-fi
-grep  PucchF0NoiseEstType $phy_cfg
 ######### 
 ##########xrancfg_sub6_oru.xml
 vf_dev=(`lspci |grep "Ethernet Adaptive Virtual" |head -6|awk '{print $1}'`)
