@@ -104,14 +104,6 @@ sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<
 echo " -----------change phycfg_timer.xml dpdkBasebandFecMode  paramter value to test BBDEV model--------------"
 grep  dpdkBasebandFecMode $phy_config
 
-
-echo " ----------phycfg_timer.xml <PucchF0NoiseEstType>0</PucchF0NoiseEstType> paramter value ------------"
-sed -i 's/<PucchF0NoiseEstType>.*<\/PucchF0NoiseEstType>/<PucchF0NoiseEstType>1<\/PucchF0NoiseEstType>/g' $phy_config
-echo " -----------change phycfg_timer.xml PucchF0NoiseEstType  paramter value to test BBDEV model--------------"
-grep  PucchF0NoiseEstType $phy_config
-echo "----------------------------------------------------------------------"
-
-
 ##############################
 
 export INIH_PATH=$BASE/pf-bb-config/inih

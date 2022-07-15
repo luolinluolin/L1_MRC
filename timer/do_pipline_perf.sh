@@ -39,6 +39,17 @@ sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:
 sed -i 's/<CEInterpMethod>.*<\/CEInterpMethod>/<CEInterpMethod>0<\/CEInterpMethod>/g' ${timer_cfg}
 sed -i 's/<PuschLinearInterpEnable>.*<\/PuschLinearInterpEnable>/<PuschLinearInterpEnable>0<\/PuschLinearInterpEnable>/g' ${timer_cfg}
 sed -i 's/<PuschLinearInterpGranularityAll>.*<\/PuschLinearInterpGranularityAll>/<PuschLinearInterpGranularityAll>4<\/PuschLinearInterpGranularityAll>/g' ${timer_cfg}
+
+echo " ----------phycfg_timer.xml <PucchF0NoiseEstType>0</PucchF0NoiseEstType> paramter value ------------"
+pucchnoise=`grep  'PucchF0NoiseEstType' $timer_cfg`
+if [ "$pucchnoise" != "" ]; then
+  sed -i 's/<PucchF0NoiseEstType>.*<\/PucchF0NoiseEstType>/<PucchF0NoiseEstType>1<\/PucchF0NoiseEstType>/g' $timer_cfg
+  echo " -----------change phycfg_timer.xml PucchF0NoiseEstType  paramter value to test BBDEV model--------------"
+else
+  sed -i '/<PucchSplit>0<\/PucchSplit>/a\            <PucchF0NoiseEstType>1<\/PucchF0NoiseEstType>' $timer_cfg
+fi
+grep  PucchF0NoiseEstType $timer_cfg
+
 rm -rf $pipline_results_dir/l2_failed.txt
 
 test_perf() {
