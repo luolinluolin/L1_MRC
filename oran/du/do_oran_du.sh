@@ -22,3 +22,5 @@ cd $base
 cd $base
 find ./sub* -name *.log |xargs rm -rf
 cd $base;./execute.sh $platform $version
+
+$killall
