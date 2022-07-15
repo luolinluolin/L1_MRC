@@ -1,0 +1,1 @@
+0 12 * * * /home/disk1/luolin/L1_MRC/build_test.sh cslsp prod_r22.07 prod_r22.07
