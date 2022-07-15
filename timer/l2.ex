@@ -1,7 +1,7 @@
 #!/usr/bin/expect
 
 # 20 minutes
-set timeout 1200
+set timeout -1
 set workpath  [lindex $argv 0]
 set l1sw [lindex $argv 1]
 set test_cfg [lindex $argv 2]

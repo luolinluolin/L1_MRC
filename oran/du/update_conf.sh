@@ -37,6 +37,17 @@ fi
 sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  $phy_cfg
 echo "--------------cat $phy_cfg|grep dpdkBasebandDevice--------------------"
 cat $phy_cfg|grep dpdkBasebandDevice
+
+
+echo " ----------phycfg_timer.xml <PucchF0NoiseEstType>0</PucchF0NoiseEstType> paramter value ------------"
+pucchnoise=`grep  'PucchF0NoiseEstType' $phy_cfg`
+if [ "$pucchnoise" != "" ]; then
+  sed -i 's/<PucchF0NoiseEstType>.*<\/PucchF0NoiseEstType>/<PucchF0NoiseEstType>1<\/PucchF0NoiseEstType>/g' $phy_cfg
+  echo " -----------change phycfg_timer.xml PucchF0NoiseEstType  paramter value to test BBDEV model--------------"
+else
+  sed -i '/<PucchSplit>0<\/PucchSplit>/a\            <PucchF0NoiseEstType>1<\/PucchF0NoiseEstType>' $phy_cfg
+fi
+grep  PucchF0NoiseEstType $phy_cfg
 ######### 
 ##########xrancfg_sub6_oru.xml
 vf_dev=(`lspci |grep "Ethernet Adaptive Virtual" |head -6|awk '{print $1}'`)

@@ -26,8 +26,9 @@ echo "---------source env--------------"
 source $SETUP/setupenv.sh 
 
 echo "---------update repo--------------"
-$SETUP/pull.sh $flexran_branch $dpdk_branch
-
+if [ $OPTION != "build_nopull" ]; then
+  $SETUP/pull.sh $flexran_branch $dpdk_branch
+fi
 
 sed -i "s/\/\/phydi_init_mlog_stats/phydi_init_mlog_stats/" $FLEXRAN_L1_SW//source/nr5g/gnb_main/gnb_main.c
 sed -i "s/SAMPLEAPP=0/SAMPLEAPP=1/" ${XRAN_DIR}/build.sh
@@ -53,7 +54,7 @@ then
   ./flexran_build.sh -r 5gnr -m bbu -m wls -m mlog -m cpa -m xran -m l1app -m testmac -m testapp
 
 
-elif [ $OPTION = "build_noclean" ]
+elif [ $OPTION = "build_noclean" ] || [ $OPTION = "build_nopull" ]
 then
 
   echo "---------build dpdk--------------"
