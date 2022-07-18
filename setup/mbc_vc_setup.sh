@@ -84,26 +84,11 @@ fi
 
 #######################################################################################
 #######################################################################################
+
 cd $BASE
 phy_config=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/phycfg_timer.xml
 
-echo "----------dpdkbasebanddevice old value--------------------"
-grep  dpdkBasebandDevice $phy_config
-dpdkBasebandMode
-sed -i "s#<dpdkBasebandMode>.*<\/dpdkBasebandMode>#<dpdkBasebandMode>1<\/dpdkBasebandMode>#g"  $phy_config
-#deviceid=`lspci |grep 0d5c |awk '{print $1}'`
-echo "-------HW vc card pci device id is $deviceid1------------"
-sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid1}<\/dpdkBasebandDevice>#g"  $phy_config
-echo "----------dpdkbasebanddevice new value-------------------"
-grep  dpdkBasebandDevice $phy_config
-echo "----------dpdkbasebanddevice new value-------------------"
-
-
-echo " ----------phycfg_timer.xml BBDEV original paramter value ------------"
-sed -i 's/<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>/<dpdkBasebandFecMode>1<\/dpdkBasebandFecMode>/g' $phy_config
-echo " -----------change phycfg_timer.xml dpdkBasebandFecMode  paramter value to test BBDEV model--------------"
-grep  dpdkBasebandFecMode $phy_config
-
+$CURRENT_DIR/../utils/change_phy_cfg.sh $phy_config
 ##############################
 
 export INIH_PATH=$BASE/pf-bb-config/inih

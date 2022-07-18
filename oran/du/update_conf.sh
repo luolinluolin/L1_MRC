@@ -27,6 +27,7 @@ sed -i "s#.*phystart.*#$mac0#"     $testmac_cfg
 # cp $testmac_cfg $testmac_path/
 
 ################## phy cfg ##################
+echo "-----------phy_cfg-----------${phy_cfg}"
 ${base}/../../utils/change_phy_cfg.sh ${phy_cfg}
 
 ######### 

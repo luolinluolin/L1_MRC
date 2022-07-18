@@ -4,9 +4,12 @@ cfg=$1
 #   echo "pls input right cfg: the file $cfg is not correct"
 #   exit 0
 # fi
+deviceid1=`lspci |grep acc |awk '{print $1}'|sed -n '2p'`
+deviceid2=`lspci |grep acc |awk '{print $1}'|sed -n '3p'`
 
 ################################# change phy config ############################
-sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid}<\/dpdkBasebandDevice>#g"  ${cfg}
+sed -i "s#<dpdkBasebandDevice>.*<\/dpdkBasebandDevice>#<dpdkBasebandDevice>0000:${deviceid1}<\/dpdkBasebandDevice>#g"  ${cfg}
+grep  dpdkBasebandDevice $cfg
 sed -i 's/<CEInterpMethod>.*<\/CEInterpMethod>/<CEInterpMethod>0<\/CEInterpMethod>/g' ${cfg}
 sed -i 's/<PuschLinearInterpEnable>.*<\/PuschLinearInterpEnable>/<PuschLinearInterpEnable>0<\/PuschLinearInterpEnable>/g' ${cfg}
 sed -i 's/<PuschLinearInterpGranularityAll>.*<\/PuschLinearInterpGranularityAll>/<PuschLinearInterpGranularityAll>4<\/PuschLinearInterpGranularityAll>/g' ${cfg}
