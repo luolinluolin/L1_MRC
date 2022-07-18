@@ -29,29 +29,31 @@ usage() {
     exit
 }
 
-if [ $# -lt 2 ]
-then
+server_type=$1
+echo "-----------------server_type: $server_type"
+
+if [ "$server_type" == "master" -o "$server_type" == "slave" ]; then
+    if [ "$server_type" == "master" ]
+    then
+        # MASTER
+        # PTP4L
+        netInterface=$DU_PTP_PORT
+        echo "$PTP_DIR/ptp4l -i $netInterface -2 -f $PTP_DIR/configs/default.cfg -m"
+        screen -d -m bash -c "$PTP_DIR/ptp4l -i $netInterface -2 -f $PTP_DIR/configs/default.cfg -m"
+        # PHC2SYS
+        echo "$PTP_DIR/phc2sys -s $netInterface -O 0 -m"
+        # screen -d -m bash -c "$PTP_DIR/phc2sys -s CLOCK_REALTIME -c $netInterface -O 0 -m"
+        screen -d -m bash -c "$PTP_DIR/phc2sys -s $netInterface -O 0 -m"
+    else
+        # SLAVE
+        # PTP4L
+        netInterface=$RU_PTP_PORT
+        screen -d -m bash -c "$PTP_DIR/ptp4l -i $netInterface -2 -f $PTP_DIR/configs/default.cfg -s -m"
+        # PHC2SYS
+        echo ""$PTP_DIR/phc2sys -s $netInterface -R 8 -O 0 -m""
+        screen -d -m bash -c "$PTP_DIR/phc2sys -s $netInterface -R 8 -O 0 -m"
+    fi
+else
     usage
     exit
-fi
-
-
-if [ "$1" == "master" ]
-then
-    # MASTER
-    # PTP4L
-    netInterface=$DU_PTP_PORT
-    echo "$PTP_DIR/ptp4l -i $netInterface -2 -f $PTP_DIR/configs/default.cfg -m"
-    screen -d -m bash -c "$PTP_DIR/ptp4l -i $netInterface -2 -f $PTP_DIR/configs/default.cfg -m"
-    # PHC2SYS
-    echo "$PTP_DIR/phc2sys -s $netInterface -O 0 -m"
-    # screen -d -m bash -c "$PTP_DIR/phc2sys -s CLOCK_REALTIME -c $netInterface -O 0 -m"
-    screen -d -m bash -c "$PTP_DIR/phc2sys -s $netInterface -O 0 -m"
-else
-    # SLAVE
-    # PTP4L
-    netInterface=$RU_PTP_PORT
-    screen -d -m bash -c "$PTP_DIR/ptp4l -i $netInterface -2 -f $PTP_DIR/configs/default.cfg -s -m"
-    # PHC2SYS
-    screen -d -m bash -c "$PTP_DIR/phc2sys -s $netInterface -R 8 -O 0 -m"
 fi
