@@ -31,6 +31,28 @@ l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 echo "---------l1_dir: $l1_dir--------------"
 
 
+store_result() {
+  case=$1
+
+  log_dir=${pipline_result}/${case}
+  if [ ! -d $log_dir ]; then
+      mkdir -p $log_dir
+  else
+      rm -rf $log_dir/*
+  fi
+  /usr/bin/mv -f $l1_dir/PhyStats* ${log_dir}
+  /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
+  /usr/bin/mv -f $l1_dir/l1_mlog_stats.txt ${log_dir}
+
+  echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
+  echo "------------$log_dir --------------" 
+
+  mv $du_dir/l1_5g.log ${log_dir}
+  mv $du_dir/l2_5g.log ${log_dir}
+
+  $du_dir/../../utils/scptodst.sh $ANALYSE_IP $pipline_result
+}
+
 run() {
   case=$1
   # phy_cfg=$2
@@ -86,24 +108,7 @@ run_all () {
     l1_ru_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/$i/oru/
     ssh $RU_IP "source /etc/profile; cd $ru_dir; ./setup.sh; sleep 20; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${i} ${ru_dir}"
 
-    log_dir=${pipline_result}/${i}
-    if [ ! -d $log_dir ]; then
-        mkdir -p $log_dir
-    else
-        rm -rf $log_dir/*
-    fi
-    /usr/bin/mv -f $l1_dir/PhyStats* ${log_dir}
-    /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
-    /usr/bin/mv -f $l1_dir/l1_mlog_stats.txt ${log_dir}
-
-    echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
-    echo "------------$log_dir --------------" 
-
-    mv $du_dir/l1_5g.log ${log_dir}
-    mv $du_dir/l2_5g.log ${log_dir}
-
-    $du_dir/../../utils/scptodst.sh $ANALYSE_IP $pipline_result
-  #############################
+    store_result ${i}
 
   done
 
@@ -126,25 +131,11 @@ run_one() {
 
   echo "-----------------launch du--------------------"
   run $i 
-  log_dir=${pipline_result}/${i}
-  if [ ! -d $log_dir ]; then
-      mkdir -p $log_dir
-  else
-      rm -rf $log_dir/*
-  fi
-  /usr/bin/mv -f $l1_dir/PhyStats* ${log_dir}
-  /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
-  /usr/bin/mv -f $l1_dir/l1_mlog_stats.txt ${log_dir}
 
-  echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
-  echo "------------$log_dir --------------" 
-
-  mv $du_dir/l1_5g.log ${log_dir}
-  mv $du_dir/l2_5g.log ${log_dir}
+  store_result ${i}
 
   echo "execute.sh script is done"
 }
-
 
 if [ "$manually_case" != "" ]; then 
   run_one
