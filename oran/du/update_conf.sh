@@ -5,7 +5,7 @@ ru_cfg=$3
 
 base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
-mac0="phystart 4 0 1000000"
+mac0="phystart 4 0 500000"
 # mac1="setcore 0xF81F0"
 
 
