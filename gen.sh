@@ -28,18 +28,26 @@ if [ ! -d $doxgenfolder ]; then
 fi 
 
 CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
-echo "/usr/bin/cp -r -f $CUR_DIR/gen/gen_doxygen_perf.sh $FLEXRAN_L1_SW/doxygen/nr5g"
-/usr/bin/cp -r -f $CUR_DIR/gen/gen_doxygen_perf.sh $FLEXRAN_L1_SW/doxygen/nr5g
 source $CUR_DIR/gen/genenv.sh
 output_dir=$CFILE_RESULTS
 doxgenfolder=$FLEXRAN_L1_SW/doxygen/nr5g
 
-/usr/bin/cp -r -f $output_dir/* $doxgenfolder/doxygen_perf_src/
+echo "/usr/bin/cp -rf $CUR_DIR/gen/gen_doxygen_perf.sh $FLEXRAN_L1_SW/doxygen/nr5g"
+/usr/bin/cp -rf $CUR_DIR/gen/gen_doxygen_perf.sh $FLEXRAN_L1_SW/doxygen/nr5g
+/usr/bin/cp -rf $CUR_DIR/gen/doxygen/*.c ${output_dir}
+/usr/bin/cp -rf $output_dir/* $doxgenfolder/doxygen_perf_src/
+/usr/bin/cp -rf $CUR_DIR/gen/doxygen/*.html $FLEXRAN_L1_SW/doxygen/utils
+
 cd ${doxgenfolder}
 sh gen_doxygen_perf.sh
 cd -
 
+## move to dst folder
 perf_file_name=`date|sed 's/ /_/g'|sed 's/:/_/g'`
 perf_file_name=perf_$perf_file_name.tar.gz
+html_folder=$RESULT_DIR/html
+if [ ! -d $html_folder ]; then
+    mkdir -p $html_folder
+fi 
 echo "----------------/usr/bin/mv $doxgenfolder/perf.tar.gz $RESULT_DIR/$perf_file_name---------------------"
-/usr/bin/mv $doxgenfolder/perf.tar.gz $RESULT_DIR/$perf_file_name
+/usr/bin/mv $doxgenfolder/perf.tar.gz $html_folder/$perf_file_name

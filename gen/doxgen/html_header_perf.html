@@ -1,0 +1,2511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FlexRAN 5GNR Reference Solution 22.07 Performance Report</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="release_history.css" rel="stylesheet" type="text/css"/> 
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<style>
+body, table, div, p, dl {
+    font: 400 14px/22px Roboto,sans-serif;
+}
+
+.tableClass{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 5px;
+}
+
+.tableClass1{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.tableClass2{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	max-width: 750px;
+	text-align: left;
+}
+
+.tableClass3{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.tableBorderClass{
+	border: 2px solid RGB(70,70,70);
+	padding: 0px;
+	margin-left: 10px;
+}
+
+.imageClass{
+	padding: 20px;
+	padding-left: 100px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 30px;
+}
+
+.phycfgTableBorderClass{
+	border: 2px solid RGB(70,70,70);
+	padding: 0px;
+	margin-left: 10px;
+	table-layout: fixed;
+}
+
+.phycfg1{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+}
+
+.phycfg2{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	font-style: italic;
+	max-width: 60px;
+	text-align: center;
+}
+
+.phycfg3{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	font-weight: bold;
+	padding: 7px;
+	text-align: left;
+}
+
+.phycfg4{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	max-width: 60px;
+	text-align: center;
+}
+
+.phycfg5{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	max-width: 750px;
+	text-align: left;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------
+ * For Block Diagrams in the doxygen comments
+ *-------------------------------------------*/
+
+.blockDiagramTable{
+        border: 0px solid RGB(70,70,70);
+}
+
+.blockDiagramRow1{
+        border: 0px solid RGB(70,70,70);
+}
+
+.blockDiagramBlock{
+	border: 5px solid RGB(70,70,70);
+	padding:15px;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------
+ * For Formulas in the doxygen comments
+ *-------------------------------------*/
+
+.tableFormulaClass{
+	border-right: 0px solid RGB(140,140,140);
+	border-left: 0px solid RGB(140,140,140);
+	border-bottom: 0px solid RGB(140,140,140);
+	padding: 0px 5px;
+}
+
+.tableFormulaBorderClass{
+	border: 0px solid RGB(70,70,70);
+	padding: 0px;
+	margin-left: 10px;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+
+
+
+/*-------------------------------------------------------------------------------
+ * For Test Section
+ *------------------------------------------*/
+
+.testTableBorderClass{
+	border: 2px solid RGB(70,70,70);
+	padding: 0px;
+	margin-left: 10px;
+	table-layout: fixed;
+}
+
+.test1{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	background-color: rgb(189,225,224);
+}
+
+.test2{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	max-width: 100px;
+	text-align: center;
+}
+
+.test3{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-family: "courier";
+	font-size: 15px;
+	max-width: 100px;
+	text-align: left;
+}
+
+.test4{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: rgb(189,225,224);
+}
+
+.test5{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+}
+
+.test6{
+	border-top: 2px solid RGB(0,0,140);
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	max-width: 100px;
+	text-align: center;
+}
+
+.test7{
+	border-top: 2px solid RGB(0,0,140);
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-family: "courier";
+	font-size: 15px;
+	max-width: 100px;
+	text-align: left;
+}
+
+.test8{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	max-width: 500px;
+	text-align: left;
+}
+/*-------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------
+ * For Pass Fail Color Scheme
+ *---------------------------*/
+.color1{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #FF0000;
+	font-weight:bold;
+}
+
+.color2{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #FF3300;
+	font-weight:bold;
+}
+
+.color3{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #ff6600;
+	font-weight:bold;
+}
+
+.color4{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #ff9900;
+	font-weight:bold;
+}
+
+.color5{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #FFCC00;
+	font-weight:bold;
+}
+
+.color6{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #FFFF00;
+	font-weight:bold;
+}
+
+.color7{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #ccff00;
+	font-weight:bold;
+}
+
+.color8{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #99ff00;
+	font-weight:bold;
+}
+
+.color9{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #66ff00;
+	font-weight:bold;
+}
+
+.color10{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #33ff00;
+	font-weight:bold;
+}
+
+.color11{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	max-width: 100px;
+	text-align: center;
+	background-color: #00FF00;
+	font-weight:bold;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------
+ * For BBU Pooling
+ *---------------------------*/
+.bbupoola{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(91,155,213);
+	text-align: center;
+}
+.bbupoolb{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(244,176,132);
+	text-align: center;
+}
+.bbupoolc{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(201,201,201);
+	text-align: center;
+}
+.bbupoold{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(255,217,102);
+	text-align: center;
+}
+.bbupoole{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(169,208,142);
+	text-align: center;
+}
+.bbupoolf{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(255,0,0);
+	text-align: center;
+}
+.bbupoolg{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(255,255,0);
+	text-align: center;
+}
+.bbupoolh{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(0,176,80);
+	text-align: center;
+}
+.bbupooli{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(0,176,240);
+	text-align: center;
+}
+.bbupoolj{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(128,96,0);
+	text-align: center;
+}
+.bbupoolk{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(32,55,100);
+	text-align: center;
+}
+.bbupooll{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(55,86,35);
+	text-align: center;
+}
+.bbupoolm{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(192,0,0);
+	text-align: center;
+}
+.bbupooln{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(237,125,49);
+	text-align: center;
+}
+.bbupoolo{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(255,192,0);
+	text-align: center;
+}
+.bbupoolp{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(204,0,204);
+	text-align: center;
+}
+.bbupoolq{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(255,80,80);
+	text-align: center;
+}
+.bbupoolr{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(102,255,51);
+	text-align: center;
+}
+.bbupools{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(55,69,106);
+	text-align: center;
+}
+.bbupoolt{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(222,44,69);
+	text-align: center;
+}
+.bbupoolu{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	background-color: rgb(160,44,89);
+	text-align: center;
+}
+
+.bl{
+	color:blue;
+}
+
+.rd{
+	color:red;
+}
+
+.gr{
+	color:green;
+}
+
+.yw{
+	color:rgb(213,200,36);
+}
+
+.pk{
+	color:rgb(162,30,162);
+}
+
+.lb{
+	color:rgb(133,216,243);
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------
+ * For Code sections in the doxygen comments
+ *------------------------------------------*/
+
+.cbu{
+	color:blue;
+	text-decoration:underline;
+	font-weight:bold;
+}
+
+.cb{
+	color:blue;
+	font-weight:bold;
+}
+
+.cr{
+	color:red;
+	font-weight:bold;
+}
+
+.cg{
+	color:green;
+	font-weight:bold;
+}
+
+.clb{
+	color:#1E90FF;
+}
+
+.co{
+	color:#FFA500;
+	font-weight:bold;
+}
+
+.clg{
+	color:#9ACD32;
+	font-weight:bold;
+}
+/*-------------------------------------------------------------------------------*/
+
+
+.mrcDiv{
+	margin: 10px;
+	font-family: "Tahoma";
+	text-align: left;
+}
+
+.mrcTableBorderClass{
+	border: 4px solid RGB(0,0,0);
+	padding: 0px;
+	margin-left: 10px;
+	table-layout: fixed;
+	font-family: "Tahoma";
+}
+
+.mrcPipelineTableBorderClass{
+	border-right: 4px solid RGB(0,0,0);
+	//border-left: 4px solid RGB(0,0,0);
+	padding: 0px;
+	margin-left: 1px;
+	table-layout: fixed;
+	font-family: "Tahoma";
+}
+
+.mrc0t{
+	border-top: 4px solid RGB(0,0,0);
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding-top: 4px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-bottom: 6px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(190,168,208);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc0tc{
+	border-top: 4px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding-top: 3px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-bottom: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(190,168,208);
+	min-width: 10em;
+	word-wrap: break-word;
+}
+
+.mrc0{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(190,168,208);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc0c{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(190,168,208);
+	min-width: 10em;
+	word-wrap: break-word;
+}
+
+.mrc1t{
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding-top: 4px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-bottom: 6px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(132,151,176);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc1{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(132,151,176);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc1l{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(192,211,236);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+
+
+.mrc1tc{
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding-top: 3px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-bottom: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(132,151,176);
+	font-weight:bold;
+	max-width: 200px;
+	white-space: nowrap;
+}
+
+.mrc1c{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(132,151,176);
+	font-weight:bold;
+	max-width: 200px;
+	white-space: nowrap;
+}
+
+.mrc1lc{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(192,211,236);
+	font-weight:bold;
+	max-width: 200px;
+	white-space: nowrap;
+}
+
+.mrc1rc{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(150,150,150);
+	//background-color:rgb(192,211,236);
+	//background-color:rgb(240,26,68);
+	font-weight:bold;
+	max-width: 200px;
+	white-space: nowrap;
+}
+
+.mrc1lrc{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(200,200,200);
+	//background-color:rgb(192,211,236);
+	//background-color:rgb(250,86,128);
+	font-weight:bold;
+	max-width: 200px;
+	white-space: nowrap;
+}
+
+.mrc2n{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(169,208,142);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc2nc{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(169,208,142);
+}
+
+
+
+.mrc2{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(129,168,102);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc2l{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(129,168,102);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrctt{
+	font-weight: bold;
+	font-family: "Tahoma";
+	display: inline-block;
+}
+
+.mrctt .mrcttt{
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+
+.mrctt:hover .mrcttt {
+	visibility: visible;
+}
+
+
+.mrc2ctt{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	color: blue;
+	text-align: center;
+	background-color:rgb(129,168,102);
+}
+
+.mrc2cltt{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	color: blue;
+	text-align: center;
+	background-color:rgb(129,168,102);
+}
+
+
+.mrc2c{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(129,168,102);
+}
+
+.mrc2cl{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(129,168,102);
+}
+
+
+.mrc5{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(189,215,238);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc5c{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(189,215,238);
+}
+
+.mrc3{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(255,230,153);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc3l{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(255,230,153);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc3c{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(255,230,153);
+}
+
+.mrc3cl{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(255,230,153);
+}
+
+.mrc4{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(244,176,132);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc4t{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	border-top: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(184,116,72);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc4c{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(244,176,132);
+}
+
+
+.mrc6{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(255,255,255);
+	white-space: nowrap;
+}
+
+
+.mrc6tt{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	color: blue;
+	background-color:rgb(255,255,255);
+	//white-space: nowrap;
+}
+
+
+
+.mrc6l{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(255,255,255);
+	//white-space: nowrap;
+}
+
+.mrc6ltt{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	color: blue;
+	background-color:rgb(255,255,255);
+	//white-space: nowrap;
+}
+.mrc6c{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255,255,255);
+	max-width: 200px;
+}
+
+.mrc6ctt{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	color: blue;
+	text-align: center;
+	background-color:rgb(255,255,255);
+	max-width: 200px;
+}
+
+.mrc6ct{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	border-top: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255,255,255);
+	max-width: 200px;
+}
+
+.mrc6cl{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255,255,255);
+	max-width: 200px;
+}
+
+.mrc7b{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	background-color:rgb(255,255,255);
+    position: absolute;
+    width: 514px;
+    left: 10px;
+    padding: 0px;
+}
+
+.mrc7{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	background-color:rgb(255,255,255);
+    padding: 0px;
+}
+
+
+.mrc8{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(224,179,255);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc8l{
+	border-right: 4px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(224,179,255);
+    position: absolute;
+    width: 500px;
+    left: 10px;
+    top: auto;
+}
+
+.mrc8c{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(224,179,255);
+}
+
+.mrc8cl{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(224,179,255);
+}
+
+
+/*-------------------------------------------------------------------------------*/
+/* MRC TESTS Center Align */
+/*-------------------------------------------------------------------------------*/
+.mrc_tests_def{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	background-color:rgb(217, 225, 242);
+}
+
+.mrc_tests_def_l{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 1px solid RGB(0,0,0);
+	padding: 15px;
+	text-align: left;
+	background-color:rgb(255, 255, 255);
+}
+
+.mrc_tests_def_c{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 1px solid RGB(0,0,0);
+	padding: 15px;
+	text-align: center;
+	background-color:rgb(255, 255, 255);
+}
+
+.mrc_tests0{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+	background-color:rgb(255, 255, 255);
+}
+
+.mrc_tests1{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(217, 225, 242);
+}
+
+.mrc_tests2{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrc_tests3{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(201, 201, 201);
+}
+
+.mrc_tests4{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255, 242, 204);
+}
+
+.mrc_tests5{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255, 217, 102);
+}
+
+.mrc_tests6{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(226, 239, 218);
+}
+
+.mrc_tests7{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(169, 208, 142);
+}
+
+.mrc_tests8{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(244, 176, 132);
+}
+
+.mrc_tests9{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(252, 228, 214);
+}
+
+.mrc_tests10{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(206, 196, 226);
+}
+
+.mrc_tests11{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(181, 210, 237);
+}
+
+
+/*-------------------------------------------------------------------------------*/
+/* MRC TESTS Center Align Left Border */
+/*-------------------------------------------------------------------------------*/
+
+
+.mrcll_tests0{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+	background-color:rgb(255, 255, 255);
+}
+
+
+.mrcll_tests1{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(217, 225, 242);
+}
+
+.mrcll_tests2{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrcll_tests3{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(201, 201, 201);
+}
+
+.mrcll_tests4{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255, 242, 204);
+}
+
+.mrcll_tests5{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255, 217, 102);
+}
+
+.mrcll_tests6{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(226, 239, 218);
+}
+
+.mrcll_tests7{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(169, 208, 142);
+}
+
+.mrcll_tests8{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(244, 176, 132);
+}
+
+.mrcll_tests9{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(252, 228, 214);
+}
+
+.mrcll_tests10{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(206, 196, 226);
+}
+
+
+.mrcll_tests11{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(181, 210, 237);
+}
+
+/*-------------------------------------------------------------------------------*/
+/* MRC TESTS Left Align */
+/*-------------------------------------------------------------------------------*/
+
+.mrcl_tests0{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: left;
+	font-weight: bold;
+	font-size: 25px;
+	background-color:rgb(255, 255, 255);
+}
+
+.mrcl_tests1{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(217, 225, 242);
+}
+
+.mrcl_tests2{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrcl_tests3{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(201, 201, 201);
+}
+
+.mrcl_tests4{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(255, 242, 204);
+}
+
+.mrcl_tests5{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(255, 217, 102);
+}
+
+.mrcl_tests6{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(226, 239, 218);
+}
+
+.mrcl_tests7{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(169, 208, 142);
+}
+
+.mrcl_tests8{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(244, 176, 132);
+}
+
+.mrcl_tests9{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(252, 228, 214);
+}
+
+.mrcl_tests10{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(206, 196, 226);
+}
+
+.mrcl_tests11{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: left;
+	background-color:rgb(181, 210, 237);
+}
+
+/*-------------------------------------------------------------------------------*/
+/* MRC Platform */
+/*-------------------------------------------------------------------------------*/
+
+.mrcl_platform_head{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: left;
+	font-weight: bold;
+	font-size: 25px;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrc_platform_head{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrcll_platform_head{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrc_platform_head_small{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrcll_platform_head_small{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 4px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrcl_platform{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: left;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrc_platform{
+	border-left: 1px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255, 255, 255);
+}
+
+.mrcll_platform{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 4px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255, 255, 255);
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.mrcForm{
+	padding: 7px;
+	text-align: left;
+	font-size: 25px;
+	background-color:rgb(255, 255, 255);
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.mrcUlLiTodo{
+	color:red;
+	font-weight:bold;
+}
+
+.mrcUlLiNew{
+	color:green;
+	font-weight:bold;
+}
+
+.mrcUlLi{
+	color:rgb(70, 101, 162);
+	font-weight:bold;
+}
+
+.mrcOlClass {
+  list-style-type: none;
+  counter-reset: item;
+  //border: 2px solid RGB(0,0,0);
+  margin: 0;
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+
+ol {
+  list-style-type: none;
+  counter-reset: item;
+  //border: 2px solid RGB(0,0,0);
+  margin: 0;
+  padding-left: 30px;
+}
+
+ol > li {
+  display: table;
+  //border: 2px solid RGB(0,0,0);
+  counter-increment: item;
+  margin-bottom: 0.2em;
+}
+
+ol > li:before {
+  content: counters(item, ".") ". ";
+  display: table-cell;
+  padding-right: 0.6em;
+}
+
+li ol > li {
+  margin: 0;
+}
+
+li ol > li:before {
+  content: counters(item, ".") " ";
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.tablediv {
+  width: 1000px;
+  overflow-x: scroll;
+  margin-left: 516px;
+  overflow-y: visible;
+  padding: 0;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.mrcMemoryHead{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 3px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	font-size: 17px;
+	text-align: center;
+	background-color:rgb(169,208,142);
+}
+
+.mrcMemory{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 1px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: left;
+	background-color:rgb(255,255,255);
+}
+
+.buttonClass{
+	cursor: pointer;
+ 	font-size: 17px;
+    margin-top: 1rem;
+}
+
+.mrcPipelineChartTableBorderClass{
+	border: 4px solid RGB(0,0,0);
+	padding: 0px;
+	margin-left: 1px;
+	table-layout: fixed;
+	font-family: "Tahoma";
+}
+
+.mrcPipelineChartTableBorderClass{
+	border: 2px solid RGB(0,0,0);
+	//padding-top: 20px;
+	font-weight: bold;
+	text-align: center;
+	//background-color:rgb(169,208,142);
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.mrc_code1 {
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrc_code2 {
+	border-top: 4px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.mrc_code3 {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.mrc_code_item {
+	border-top: 4px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	width: 400px;
+	word-wrap: break-word;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.mrc_perf1 {
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	background-color:rgb(142, 169, 219);
+}
+
+.mrc_perf2 {
+	border-top: 4px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.mrc_perf2a {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.mrc_perf3 {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.mrc_perf3g {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+	background-color:rgb(198,239,206);
+	color:rgb(0,97,0);
+	font-weight: bold;
+}
+
+.mrc_perf1l {
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	background-color:rgb(142, 169, 219);
+}
+.mrc_perf2l {
+	border-top: 4px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.mrc_perf3l {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.mrc_perf3gl {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+	background-color:rgb(198,239,206);
+	color:rgb(0,97,0);
+	font-weight: bold;
+}
+
+.mrc_perf3o {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+	background-color:rgb(245,237,173);
+	color:rgb(0,97,0);
+	font-weight: bold;
+}
+
+.mrc_perf3ol {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+	background-color:rgb(245,237,173);
+	color:rgb(0,97,0);
+	font-weight: bold;
+}
+
+
+.mrc_perf3gr {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+	background-color:rgb(220,220,220);
+}
+
+.mrc_perf3grl {
+	border-top: 2px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+	background-color:rgb(220,220,220);
+}
+
+.mrc_perf2gr {
+	border-top: 4px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+	background-color:rgb(220,220,220);
+}
+
+.mrc_perf2grl {
+	border-top: 4px solid RGB(0,0,0);
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+	font-size: 15px;
+	background-color:rgb(220,220,220);
+}
+
+.turbostat{
+	padding-left: 15px;
+	font-family: "courier";
+	font-size: 12px;
+	text-align: left;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.mrcWireless1{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(132,151,176);
+	font-weight:bold;
+	max-width: 150px;
+	min-width: 50px;
+}
+
+.mrcWireless1l{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(132,151,176);
+	font-weight:bold;
+	max-width: 150px;
+	min-width: 50px;
+}
+
+.mrcWireless2{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(189,215,238);
+	//background-color:rgb(255,230,153);
+}
+
+.mrcWireless3{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	font-weight: bold;
+	text-align: center;
+	background-color:rgb(189,215,238);
+}
+
+.mrcWireless4{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 1px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255,255,255);
+}
+
+.mrcWireless4l{
+	border-right: 1px solid RGB(0,0,0);
+	border-left: 3px solid RGB(0,0,0);
+	border-bottom: 2px solid RGB(0,0,0);
+	padding: 7px;
+	text-align: center;
+	background-color:rgb(255,255,255);
+}
+
+.sdkTestTableBorderClass{
+	border: 4px solid RGB(70,70,70);
+	padding: 0px;
+	margin-left: 10px;
+	table-layout: fixed;
+}
+
+
+.sdk1{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 3px solid RGB(140,140,140);
+	padding: 7px;
+	font-weight: bold;
+	font-style: italic;
+	//text-align: center;
+	min-width: 75px;
+	background-color: rgb(189,225,224);
+}
+
+.sdk2{
+	border-right: 1px solid RGB(140,140,140);
+	border-left: 1px solid RGB(140,140,140);
+	border-bottom: 2px solid RGB(140,140,140);
+	padding: 7px;
+	//text-align: center;
+}
+</style>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="intel-logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">FlexRAN 5GNR Reference Solution 22.07
+   </div>
+   <div id="projectbrief">Performance Report</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+
+
+<script>
+function create_csv_file(csv, filename) {
+    var myFile;
+    var dummyLink;
+
+    myFile = new Blob([csv], {type: "text/csv"});
+    
+    // Create a Dummy hyperlink
+    dummyLink = document.createElement("a");
+
+    dummyLink.download = filename;
+
+    dummyLink.href = window.URL.createObjectURL(myFile);
+
+    dummyLink.style.display = "none";
+
+    // Click the Dummy Button
+    dummyLink.click();
+}
+
+function myWirelessButton() {
+    var filename = "wireless.csv";
+    var csv = [];
+    var table = document.getElementById("mrcWirelessTable");
+    if (table){
+        tr = table.getElementsByTagName("TR");
+
+        for (var i = 0; i < tr.length; i++) {
+            var row = [], cols = tr[i].querySelectorAll("td, th");
+
+            for (var j = 0; j < cols.length; j++)  {
+                if (cols[j].style.display == "") {
+                    var str = cols[j].innerText;
+                    str = str.replace(/<br\s*\/?>/gi,' ');
+                    str = str.replace(/(?:\r\n|\r|\n)/g,' / ');
+                    str = str.replace(/,/g,' / ');
+                    row.push(str);
+                }
+            }
+
+            csv.push(row.join(","));
+        }
+
+        // Create the CSV File
+        create_csv_file(csv.join("\n"), filename);
+    }
+}
+
+function myPipeLineButton() {
+    var filename = "pipeline.csv";
+    var dropDownCells = document.getElementById("mrcPipelineDropDownCells");
+    var dropDownUrllc = document.getElementById("mrcPipelineDropDownUrllc");
+    var dropDownUrllcVal = 0;
+    var dropDownCellsVal = dropDownCells.value.toUpperCase();
+    var csv = [];
+    var pipelineTable = "mrcPipelineTable";
+    var str2;
+    var table;
+	
+	if (dropDownUrllc) {
+	    dropDownUrllcVal = Number(dropDownUrllc.value.toUpperCase());
+	}
+
+    if (dropDownUrllcVal == 0){
+        str2 = pipelineTable.concat(dropDownCellsVal);
+    } else {
+        val = Number(dropDownCellsVal);
+        val = val+100;
+        headerVal = val.toString();
+        str2 = pipelineTable.concat(headerVal);
+    }
+    table = document.getElementById(str2);
+
+    if (table){
+        tr = table.getElementsByTagName("TR");
+
+        for (var i = 0; i < tr.length; i++) {
+            var row = [], cols = tr[i].querySelectorAll("td, th");
+
+            for (var j = 0; j < cols.length; j++)  {
+                if (cols[j].style.display == "") {
+                    var str = cols[j].innerText;
+                    str = str.replace(/<br\s*\/?>/gi,' ');
+                    str = str.replace(/(?:\r\n|\r|\n)/g,' / ');
+                    str = str.replace(/,/g,' / ');
+                    row.push(str);
+                }
+            }
+
+            csv.push(row.join(","));
+        }
+
+        // Create the CSV File
+        create_csv_file(csv.join("\n"), filename);
+    }
+}
+
+function myQ2QPerfFunction() {
+    var dropDownCells, dropDownCellsVal;
+    var table, tr, td, i, txtValue, filterLen;
+
+    dropDownCells = document.getElementById("mrcQ2QPerformance");
+    if (dropDownCells) {
+        dropDownCellsVal = Number(dropDownCells.value.toUpperCase());
+    }
+    //console.log("dropDownCellsVal: ", dropDownCellsVal);
+
+    table = document.getElementById("mrcQ2QPerformanceTable");
+    tr = table.getElementsByTagName("TR");
+    if (dropDownCellsVal == 0) {
+        for (i = 0; i < tr.length; i++) {
+            trVal = Number(tr[i].id);
+            if (trVal == 1){
+                tr[i].style.display = "none";
+            } else if (trVal == 2){
+                td = tr[i].getElementsByTagName("TD")[0];
+                td.style.display = "";
+            }
+        }
+    } else {
+        for (i = 0; i < tr.length; i++) {
+            trVal = Number(tr[i].id);
+            if (trVal == 1){
+                tr[i].style.display = "";
+            } else if (trVal == 2){
+                td = tr[i].getElementsByTagName("TD")[0];
+                td.style.display = "none";
+            }
+        }
+    }
+}
+
+function mySdkFunction() {
+    var dropDownCells, dropDownCellsVal, dropDownCellsValLen = 0;
+    var dropDownMethod, dropDownMethodVal = 100;
+    var table, tr, td, i, txtValue, filterLen, nAll = 1;
+    var str1 = "ALL";
+    var nDisplay;
+    dropDownCells = document.getElementById("mrcSdkDropDown");
+    if (dropDownCells) {
+        dropDownCellsVal = dropDownCells.value.toUpperCase();
+        dropDownCellsValLen = dropDownCellsVal.length;
+        if(dropDownCellsVal.localeCompare(str1)) {
+            nAll = 0;
+        }
+    }
+    dropDownMethod = document.getElementById("mrcSdkDropDownMethod");
+    if (dropDownMethod) {
+        dropDownMethodVal = Number(dropDownMethod.value.toUpperCase());
+    }
+    table = document.getElementById("mrcSdkTable");
+    tr = table.getElementsByTagName("TR");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("TD")[1];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (nAll == 1) {
+                nDisplay = 1;
+            } else {
+                if ((txtValue.toUpperCase().indexOf(dropDownCellsVal) > -1) && (txtValue.length == dropDownCellsValLen)) {
+                    nDisplay = 1;
+                } else {
+                    nDisplay = 0;
+                }
+            }
+            if (nDisplay == 1) {
+                tr[i].style.display = "";
+                for (j = 0; j < tr.length; j++) {
+                    td = tr[i].getElementsByTagName("TD")[j];
+                    if (td){
+                        if (td.id == "") {
+                            td.style.display = "";
+                        } else if (dropDownMethodVal == 100) {
+                            td.style.display = "";
+                        } else if ((dropDownMethodVal != 100) && (Number(td.id) == dropDownMethodVal)) {
+                            td.style.display = "";
+                        } else {
+                            td.style.display = "none";
+                        }
+                    }
+                }
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+function myPipelineFunction() {
+    var dropDownCells, dropDownCellsVal;
+    var dropDownUrllc, dropDownUrllcVal = 0;
+    var dropDownLevel, dropDownLevelVal = 4;
+    var dropDownMethod, dropDownMethodVal = 100;
+    var div, table, tr, trVal, i, header, val, headerVal = "";
+    var pipelineTable = "mrcPipelineTable";
+    var pipelineDiv = "mrcPipelineDiv";
+    var pipelineChart = "mrcPipelineChart";
+    var str2, str3 = " Cell Test(s)";
+    dropDownCells = document.getElementById("mrcPipelineDropDownCells");
+    dropDownCellsVal = dropDownCells.value.toUpperCase();
+    dropDownLevel = document.getElementById("mrcPipelineDropDownLevel");
+    if (dropDownMethod) {
+        dropDownLevelVal = Number(dropDownLevel.value.toUpperCase());
+    }
+    dropDownMethod = document.getElementById("mrcPipelineDropDownMethod");
+    if (dropDownMethod) {
+        dropDownMethodVal = Number(dropDownMethod.value.toUpperCase());
+    }
+   dropDownUrllc = document.getElementById("mrcPipelineDropDownUrllc");
+    if (dropDownUrllc) {
+        dropDownUrllcVal = Number(dropDownUrllc.value.toUpperCase());
+    }
+    //console.log("dropDownLevelVal: ", dropDownLevelVal);
+    header = document.getElementById("mrcPipelineHeader");
+    if (header){
+        val = Number(dropDownCellsVal);
+        val = val+1;
+        headerVal = val.toString();
+        //console.log("Changing header to: ", headerVal.concat(str3));
+        header.innerHTML = headerVal.concat(str3);
+    }
+   
+   // Hide all the tables first
+    for (i = 0; i < 12; i++) {
+        str2 = pipelineTable.concat(i);
+        table = document.getElementById(str2);
+        if (table){
+            //console.log("Making Inactive: ", str2)
+            table.style.display = "none";
+            str2 = pipelineDiv.concat(i);
+            div = document.getElementById(str2);
+            if (div){
+                div.style.display = "none";
+            }
+
+            str2 = pipelineChart.concat(i);
+            div = document.getElementById(str2);
+            if (div){
+                div.style.display = "none";
+            }
+        }
+
+        str2 = pipelineTable.concat(i+100);
+        table = document.getElementById(str2);
+        if (table){
+            //console.log("Making Inactive: ", str2)
+            table.style.display = "none";
+            str2 = pipelineDiv.concat(i+100);
+            div = document.getElementById(str2);
+            if (div){
+                div.style.display = "none";
+            }
+
+            str2 = pipelineChart.concat(i+100);
+            div = document.getElementById(str2);
+            if (div){
+                div.style.display = "none";
+            }
+        }
+    }
+   div = document.getElementById("mrcPipelineChartHeader");
+   if (div){
+       if (dropDownUrllcVal == 0){
+          div.style.display = "";
+       } else {
+          div.style.display = "none";
+       }
+   }
+   
+   
+   if (dropDownUrllcVal == 0){
+        str2 = pipelineTable.concat(dropDownCellsVal);
+   } else {
+        val = Number(dropDownCellsVal);
+        val = val+100;
+        headerVal = val.toString();
+        str2 = pipelineTable.concat(headerVal);
+   }
+    table = document.getElementById(str2);
+    if (table){
+        //console.log("Making Active: ", str2)
+        table.style.display = "";
+
+        if (dropDownUrllcVal == 0){
+           str2 = pipelineDiv.concat(dropDownCellsVal);
+           div = document.getElementById(str2);
+           if (div){
+               div.style.display = "";
+           }
+
+           str2 = pipelineChart.concat(dropDownCellsVal);
+           div = document.getElementById(str2);
+           if (div){
+               div.style.display = "";
+               drawChart();
+           }
+      } else {
+           val = Number(dropDownCellsVal);
+           val = val+100;
+           headerVal = val.toString();
+           str2 = pipelineDiv.concat(headerVal);
+           div = document.getElementById(str2);
+           if (div){
+               div.style.display = "";
+           }
+      }
+
+        tr = table.getElementsByTagName("TR");
+        for (i = 0; i < tr.length; i++) {
+            trVal = Number(tr[i].id);
+            if (trVal <= dropDownLevelVal){
+                tr[i].style.display = "";
+                for (j = 0; j < tr.length; j++) {
+                    td = tr[i].getElementsByTagName("TD")[j];
+                    if (td){
+                        if (td.id == "") {
+                            td.style.display = "";
+                        } else if (dropDownMethodVal == 100) {
+                            td.style.display = "";
+                        } else if ((dropDownMethodVal != 100) && (Number(td.id) == dropDownMethodVal)) {
+                            td.style.display = "";
+                        } else {
+                            td.style.display = "none";
+                        }
+                    }
+                }
+            } else {
+            tr[i].style.display = "none";
+            }
+        }
+    }
+}
+</script>
+
+<!-- end header part -->
