@@ -142,4 +142,4 @@ else
   run_all
 fi
 
-$du_dir/../../utils/scp_to_dst.sh $ANALYSE_IP_FOLDER/${platform}/${test_ver} $pipline_result
+$du_dir/../../utils/scp_to_dst.sh $ANALYSE_IP_FOLDER/oran/${platform} $pipline_result/../
