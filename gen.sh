@@ -49,5 +49,5 @@ html_folder=$RESULT_DIR/html
 if [ ! -d $html_folder ]; then
     mkdir -p $html_folder
 fi 
-echo "----------------/usr/bin/mv $doxgenfolder/perf.tar.gz $RESULT_DIR/$perf_file_name---------------------"
+echo "----------------/usr/bin/mv $doxgenfolder/perf.tar.gz $html_folder/$perf_file_name---------------------"
 /usr/bin/mv $doxgenfolder/perf.tar.gz $html_folder/$perf_file_name
