@@ -22,6 +22,7 @@ l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac	
 echo "--------$l1_dir---------------"
 echo "--------$l2_dir---------------"
+
 ################################# change phy config ############################
 timer_cfg=${l1_dir}/phycfg_timer.xml
 echo "---------------------------------${CURRENT_DIR}/../utils/change_phy_cfg.sh ${timer_cfg}"
@@ -29,27 +30,17 @@ ${CURRENT_DIR}/../utils/change_phy_cfg.sh ${timer_cfg}
 
 #-----setup MBC-----
 $CURRENT_DIR/../setup/mbc_vc_setup.sh MBC
-dpdk_path=$l1_dir
-deviceid=`lspci |grep 0d5d |awk '{print $1}'|sed -n '1p'`
-
-if [ ! -n "$deviceid" ]; then
-  echo "-------pls setup vf mode MBC------"
-  exit 0
-fi
-sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}/dpdk.sh
-sed -i "s#\(^igbuioMode=\)\S*#\11#"  ${dpdk_path}/dpdk.sh
-
-
 
 rm -rf $pipline_results_dir/l2_failed.txt
+pipline_result=$pipline_results_dir/$platform/$test_ver
+if [ ! -d $pipline_result ]; then
+    mkdir -p $pipline_result
+fi 
 
 test_perf() {
     case_dir=$1
     test_cases=$2
-    pipline_result=$pipline_results_dir/$platform/$test_ver
-    if [ ! -d $pipline_result ]; then
-        mkdir -p $pipline_result
-    fi 
+
 
     echo "--------------------------- testcases $test_cases-------------------------------------"
     for test_case in ${test_cases}
@@ -118,4 +109,6 @@ else
     echo "------------test_cases $test_cases"
     test_perf $case_dir "${test_cases}"
 fi
+$CURRENT_DIR/../utils/scp_to_dst.sh ${ANALYSE_IP} $pipline_result
+
 $CURRENT_DIR/../kill.sh

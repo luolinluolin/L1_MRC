@@ -50,7 +50,6 @@ store_result() {
   mv $du_dir/l1_5g.log ${log_dir}
   mv $du_dir/l2_5g.log ${log_dir}
 
-  $du_dir/../../utils/scptodst.sh $ANALYSE_IP $pipline_result
 }
 
 run() {
@@ -142,3 +141,5 @@ if [ "$manually_case" != "" ]; then
 else
   run_all
 fi
+
+$du_dir/../../utils/scp_to_dst.sh $ANALYSE_IP $pipline_result

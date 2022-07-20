@@ -16,5 +16,4 @@ cd $base
 ./setup.sh build $flexran_version $dpdk_version
 
 cd $base
-./timer/do_sdk_perf.sh $platform $flexran_version
-./timer/do_pipline_perf.sh $platform $flexran_version
+./timer_perf.sh $platform $flexran_version
