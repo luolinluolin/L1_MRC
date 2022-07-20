@@ -46,6 +46,6 @@ do
 	cd ..
 done
 
-$CURRENT_DIR../utils/scp_to_dst.sh $ANALYSE_IP $sdk_results
+$CURRENT_DIR../utils/scp_to_dst.sh $ANALYSE_IP_FOLDER/${platform}/${test_ver} $sdk_results
 
 cd -

@@ -8,7 +8,7 @@ if [ $# -lt 2 ] || [ $1 = "-h" ];then
 fi
 
 platform=$1
-version=$2
+test_ver=$2
 manually_case=$3
 
 du_dir=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
@@ -20,10 +20,10 @@ $killall
 
 
 echo "---platform: $platform----"
-echo "---version: $version----"
+echo "---test_ver: $test_ver----"
 echo "-------test_cases: $test_cases---------------"
 
-pipline_result=$pipline_results_dir/$platform/$version
+pipline_result=$pipline_results_dir/$platform/$test_ver
 if [ ! -d $pipline_result ]; then
   mkdir -p $pipline_result
 fi
@@ -142,4 +142,4 @@ else
   run_all
 fi
 
-$du_dir/../../utils/scp_to_dst.sh $ANALYSE_IP $pipline_result
+$du_dir/../../utils/scp_to_dst.sh $ANALYSE_IP_FOLDER/${platform}/${test_ver} $pipline_result

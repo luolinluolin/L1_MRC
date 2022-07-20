@@ -9,7 +9,7 @@ cat $cfg_file
 
 export NIC=`sed '/^nic_name=/!d;s/.*=//' $cfg_file`
 export ORANISA=`sed '/^isa=/!d;s/.*=//' $cfg_file`
-ANALYSE_IP=`sed '/^analyse_ip=/!d;s/.*=//' $cfg_file`
+ANALYSE_IP_FOLDER=`sed '/^ANALYSE_IP_FOLDER=/!d;s/.*=//' $cfg_file`
 #---------------RU------------
 RU_NIC_PORT=`sed '/^ru_nic_port=/!d;s/.*=//' $cfg_file`
 RU_PTP_PORT=`sed '/^ru_ptp_port=/!d;s/.*=//' $cfg_file`

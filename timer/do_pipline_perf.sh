@@ -109,6 +109,6 @@ else
     echo "------------test_cases $test_cases"
     test_perf $case_dir "${test_cases}"
 fi
-$CURRENT_DIR/../utils/scp_to_dst.sh ${ANALYSE_IP} $pipline_result
+$CURRENT_DIR/../utils/scp_to_dst.sh ${ANALYSE_IP_FOLDER}/${platform}/${test_ver} $pipline_result
 
 $CURRENT_DIR/../kill.sh
