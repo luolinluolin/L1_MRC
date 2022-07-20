@@ -17,3 +17,4 @@ echo test_cases=$test_cases
 echo case_dir=$case_dir
 echo sdk_results_dir=$sdk_results_dir
 echo pipline_results_dir=$pipline_results_dir
+echo ANALYSE_IP_FOLDER=$ANALYSE_IP_FOLDER
