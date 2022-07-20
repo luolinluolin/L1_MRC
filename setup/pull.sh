@@ -30,6 +30,7 @@ if [ ! -d $REPO_DIR ]; then
 fi
 cd ${REPO_DIR}
 echo "-----------clone folder: $pwd-------------"
+git rm .gitattributes
 git reset --hard HEAD
 git pull
 git checkout $BRANCH
