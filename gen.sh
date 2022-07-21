@@ -32,6 +32,7 @@ source $CUR_DIR/gen/genenv.sh
 output_dir=$CFILE_RESULTS
 doxgenfolder=$FLEXRAN_L1_SW/doxygen/nr5g
 
+CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 echo "/usr/bin/cp -rf $CUR_DIR/gen/gen_doxygen_perf.sh $FLEXRAN_L1_SW/doxygen/nr5g"
 /usr/bin/cp -rf $CUR_DIR/gen/gen_doxygen_perf.sh $FLEXRAN_L1_SW/doxygen/nr5g
 /usr/bin/cp -rf $CUR_DIR/gen/doxygen/*.c ${output_dir}
