@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 if [ $# -lt 2 ] || [ $1 = "-h" ];then
     echo "
