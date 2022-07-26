@@ -81,6 +81,8 @@ else
  echo "error input correct ACC name"
 fi
 
+echo "********************dpdk version === $dpdk_v**************************"
+cd $dpdk_v;./usertools/dpdk-devbind.py -b igb_uio ${deviceid}
 
 #######################################################################################
 #######################################################################################
@@ -91,10 +93,7 @@ phy_config=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/phycfg_timer.xml
 $CURRENT_DIR/../utils/change_phy_cfg.sh $phy_config
 ##############################
 
-export INIH_PATH=$BASE/pf-bb-config/inih
 
-echo "********************dpdk version === $dpdk_v**************************"
-cd $dpdk_v;./usertools/dpdk-devbind.py -b igb_uio ${deviceid}
 ##############################
 
 #######################################################################################
