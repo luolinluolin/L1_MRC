@@ -22,7 +22,6 @@ send "cd $workpath;source ./timerenv.sh;cd  $l1sw/bin/nr5g/gnb/testmac/; ./l2.sh
 #ebbu_pool_event_chain_print_state
 expect {
   "All Tests Completed*" {
-    sleep 20
     send "exit\r"
     send "$workpath/../kill.sh"
     send "---All Tests Completed*\r"
