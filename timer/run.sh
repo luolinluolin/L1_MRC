@@ -9,7 +9,7 @@ rm -rf $BASE/*.log
 
 ./l1.ex $BASE $l1_sw&
 
-sleep 20
+sleep 5 
 
 ./l2.ex $BASE $l1_sw $case $results_dir
 
