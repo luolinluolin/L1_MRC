@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ $# -ne 3 ] || [ $1 = "-h" ];then
     echo "
          example : ./timer_perf.sh  cslsp prod_r21.11 prod_r21.11
