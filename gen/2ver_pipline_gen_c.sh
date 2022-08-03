@@ -11,10 +11,10 @@ version2=$2
 CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
 source $CUR_DIR/genenv.sh
-source $CUR_DIR/../var/timervar.sh
+source $CUR_DIR/../var/var.sh
 
 # perf_report=$mrc_perf_dir/perf_report
-result_dir=$pipline_results_dir/..
+result_dir=$timer_results_dir/..
 output_dir=$CFILE_RESULTS
 
 cd $mrc_perf_dir;chmod +x build.sh;./build.sh

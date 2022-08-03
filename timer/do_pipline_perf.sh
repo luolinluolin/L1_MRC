@@ -31,8 +31,8 @@ ${CURRENT_DIR}/../utils/change_phy_cfg.sh ${timer_cfg}
 #-----setup MBC-----
 $CURRENT_DIR/../setup/mbc_vc_setup.sh MBC
 
-rm -rf $pipline_results_dir/l2_failed.txt
-pipline_result=$pipline_results_dir/$platform/$test_ver
+rm -rf $timer_results_dir/l2_failed.txt
+pipline_result=$timer_results_dir/$platform/$test_ver
 if [ ! -d $pipline_result ]; then
     mkdir -p $pipline_result
 fi 
@@ -70,7 +70,7 @@ test_perf() {
         # ./l2.ex 
 
         cd $CURRENT_DIR 
-        ./run.sh $CURRENT_DIR ./$case_dir/$test_case.cfg $pipline_results_dir
+        ./run.sh $CURRENT_DIR ./$case_dir/$test_case.cfg $timer_results_dir
 
         log_dir=$pipline_result/${test_case}
         if [ ! -d $log_dir ]; then
@@ -103,11 +103,11 @@ test_perf() {
 
 if [ "$test_one_case" != "" ]
 then
-    echo "------------test_cases $test_one_case"
+    echo "------------timer_test_cases $test_one_case"
     test_perf $case_dir "${test_one_case}"
 else
-    echo "------------test_cases $test_cases"
-    test_perf $case_dir "${test_cases}"
+    echo "------------timer_test_cases $timer_test_cases"
+    test_perf $case_dir "${timer_test_cases}"
 fi
 $CURRENT_DIR/../utils/scp_to_dst.sh ${ANALYSE_IP_FOLDER}/timer/${platform} $pipline_result/../
 

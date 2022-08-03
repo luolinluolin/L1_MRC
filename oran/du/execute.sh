@@ -21,9 +21,9 @@ $killall
 
 echo "---platform: $platform----"
 echo "---test_ver: $test_ver----"
-echo "-------test_cases: $test_cases---------------"
+echo "-------oran_test_cases: $oran_test_cases---------------"
 
-pipline_result=$pipline_results_dir/$platform/$test_ver
+pipline_result=$oran_results_dir/$platform/$test_ver
 if [ ! -d $pipline_result ]; then
   mkdir -p $pipline_result
 fi
@@ -80,7 +80,7 @@ run() {
 }
 
 run_all () {
-  for i in $test_cases 
+  for i in $oran_test_cases 
   do
     # i=sub3_mu0_10mhz_4x4
     # i=sub3_mu0_20mhz_4x4

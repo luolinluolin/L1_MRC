@@ -13,7 +13,7 @@ version2=$4
 CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
 source $CUR_DIR/genenv.sh
-source $CUR_DIR/../var/timervar.sh
+source $CUR_DIR/../var/var.sh
 
 # perf_report=$mrc_perf_dir/perf_report
 result_dir=$RESULT_DIR

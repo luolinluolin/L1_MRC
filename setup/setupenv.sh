@@ -1,7 +1,7 @@
 #---------------used NIC------------
 MRC_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)/../
 
-source $MRC_DIR/var/setupvar.sh
+source $MRC_DIR/var/var.sh
 
 env_file=$MRC_DIR/var/env.sh
 

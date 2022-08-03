@@ -1,7 +1,7 @@
 MRC_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)/..
 export path=$path:/opt/utils/doxygen-1.8.12/bin
 
-source $MRC_DIR/var/timervar.sh
+source $MRC_DIR/var/var.sh
 
 SDK_RESULTS=$sdk_results_dir
 CFILE_RESULTS=$RESULT_DIR/perfc
