@@ -1,7 +1,7 @@
 #!/bin/bash
-CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+SETUP_CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
-source ${CURRENT_DIR}/../timer/timerenv.sh
+source ${SETUP_CURRENT_DIR}/../timer/timerenv.sh
 
 accid=`lspci |grep acc |awk '{print $7}'|sed -n '1p'`
 if [ $accid = "0d5c" ]; then
@@ -44,8 +44,9 @@ cd ${BASE}/inih/; meson build; cd build; ninja; cp -rf lib* ${bbdev_config}/inih
 cd ${bbdev_config}; make clean;make
 
 #######################################################################################
+SETUP_CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 echo "-------------install igb uio---------------"
-sh ${CURRENT_DIR}/igb_uio_install.sh
+sh ${SETUP_CURRENT_DIR}/igb_uio_install.sh
 #######################################################################################
 
 ## create vf 
@@ -90,7 +91,7 @@ cd $dpdk_v;./usertools/dpdk-devbind.py -b igb_uio ${deviceid}
 cd $BASE
 phy_config=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/phycfg_timer.xml
 
-$CURRENT_DIR/../utils/change_phy_cfg.sh $phy_config
+$SETUP_CURRENT_DIR/../utils/change_phy_cfg.sh $phy_config
 ##############################
 
 

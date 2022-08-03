@@ -9,7 +9,7 @@
 platform=$1
 test_ver=$2
 
-CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+SDK_CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 # This script takes as an argument an expression that is passed to the --gtest_filter.
 # To run all functional tests this script should be run as follows: ./run_all_tests *Check*
 if [ $# -ne 2 ] || [ $1 = "-h" ];then
@@ -22,7 +22,7 @@ if [ $# -ne 2 ] || [ $1 = "-h" ];then
 fi
 
 
-source $CURRENT_DIR/timerenv.sh
+source $SDK_CURRENT_DIR/timerenv.sh
 
 
 echo "---------------sdk_results_dir $sdk_results_dir-----------"
@@ -46,6 +46,6 @@ do
 	cd ..
 done
 
-$CURRENT_DIR/../utils/scp_to_dst.sh $ANALYSE_IP_FOLDER/sdk_results/${platform} $sdk_results/../
+$SDK_CURRENT_DIR/../utils/scp_to_dst.sh $ANALYSE_IP_FOLDER/sdk_results/${platform} $sdk_results/../
 
 cd -

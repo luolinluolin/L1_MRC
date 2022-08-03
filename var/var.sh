@@ -1,8 +1,8 @@
 
 platform=$1
 
-CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
-cfg_file=$CURRENT_DIR/mrc.conf
+VAR_CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+cfg_file=$VAR_CURRENT_DIR/mrc.conf
 
 
 echo "----------------common config-----------------"
@@ -30,7 +30,7 @@ sdk_results_dir=$RESULT_DIR/sdk_results
 oran_results_dir=$RESULT_DIR/oran/
 
 
-source $CURRENT_DIR/test_case.sh
+source $VAR_CURRENT_DIR/test_case.sh
 
 echo '-----------timer.conf------------------'
 if [ $platform = "cslsp" ]

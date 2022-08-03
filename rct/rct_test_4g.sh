@@ -9,8 +9,8 @@ fi
 platform=$1
 test_ver=$2
 
-CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
-source ${CURRENT_DIR}/../timer/timerenv.sh	
+RCT_CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+source ${RCT_CURRENT_DIR}/../timer/timerenv.sh	
 
 /usr/bin/cp -rf $FLEXRAN_L1_SW/build/lte/testapp/linux/lte_testapp $DIR_WIRELESS_TEST_4G
 

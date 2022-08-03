@@ -10,10 +10,10 @@ platform=$1
 test_ver=$2
 soft_ldpc=$3
 
-CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
-source ${CURRENT_DIR}/../timer/timerenv.sh	
+RCT_CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
+source ${RCT_CURRENT_DIR}/../timer/timerenv.sh	
 
-${CURRENT_DIR}/../setup/mbc_vc_setup.sh
+${RCT_CURRENT_DIR}/../setup/mbc_vc_setup.sh
 
 l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 timer_cfg=${l1_dir}/phycfg_timer.xml
