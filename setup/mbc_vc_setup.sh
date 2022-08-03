@@ -44,7 +44,6 @@ cd ${BASE}/inih/; meson build; cd build; ninja; cp -rf lib* ${bbdev_config}/inih
 cd ${bbdev_config}; make clean;make
 
 #######################################################################################
-SETUP_CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 echo "-------------install igb uio---------------"
 sh ${SETUP_CURRENT_DIR}/igb_uio_install.sh
 #######################################################################################
@@ -73,9 +72,14 @@ then
   echo "****deviceid: ${deviceid1}"
   echo "****deviceid: ${deviceid2}"
   echo "---set variable vf MBC----"
+  if [ $1 = "PF" ]; then
+  sed -i "s#\(^igbuioMode=\)\S*#\11#"  ${dpdk_path}/dpdk.sh
+  sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid}#" ${dpdk_path}/dpdk.sh
+  else
   sed -i "s#\(^igbuioMode=\)\S*#\10#"  ${dpdk_path}/dpdk.sh
   sed -i "s#\(fecDevice0=\)\S*#\10000:${deviceid1}#" ${dpdk_path}/dpdk.sh
   sed -i "s#\(fecDevice1=\)\S*#\10000:${deviceid2}#" ${dpdk_path}/dpdk.sh
+  fi
 
   ${dpdk_path}/dpdk.sh
 else
@@ -91,7 +95,7 @@ cd $dpdk_v;./usertools/dpdk-devbind.py -b igb_uio ${deviceid}
 cd $BASE
 phy_config=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/phycfg_timer.xml
 
-$SETUP_CURRENT_DIR/../utils/change_phy_cfg.sh $phy_config
+$SETUP_CURRENT_DIR/../utils/change_phy_cfg.sh $phy_config $1
 ##############################
 
 
@@ -107,8 +111,13 @@ then
   echo "start to bind MBC card driver"
   deviceid1=`lspci |grep acc |awk '{print $1}'|sed -n '2p'`
   if [ ${ACC} = "ACC100" ]; then
+    if [ $1 = "PF" ]; then
+    echo "cd ${bbdev_config};./pf_bb_config ACC100 -c ./acc100/acc100_config_pf_5g.cfg"
+    cd ${bbdev_config};./pf_bb_config ACC100 -c ./acc100/acc100_config_pf_5g.cfg
+    else
     echo "cd ${bbdev_config};./pf_bb_config ACC100 -c ./acc100/acc100_config_1vf_5g.cfg"
     cd ${bbdev_config};./pf_bb_config ACC100 -c ./acc100/acc100_config_1vf_5g.cfg
+    fi
   elif [ ${ACC} = "ACC200" ]; then
     echo "cd ${bbdev_config};./pf_bb_config ACC200 -c ./acc200/acc200_config_vf_5g.cfg"
     cd ${bbdev_config};./pf_bb_config ACC200 -c ./acc200/acc200_config_vf_5g.cfg
