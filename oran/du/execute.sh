@@ -47,8 +47,8 @@ store_result() {
   echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
   echo "------------$log_dir --------------" 
 
-  mv $du_dir/l1_5g.log ${log_dir}
-  mv $du_dir/l2_5g.log ${log_dir}
+  mv $du_dir/l1_5g.log ${log_dir}/l1_log.txt
+  mv $du_dir/l2_5g.log ${log_dir}/l2_log.txt
 
 }
 
@@ -80,7 +80,7 @@ run() {
 }
 
 run_all () {
-  for i in $oran_test_cases 
+  for test_case in $oran_test_cases 
   do
     # i=sub3_mu0_10mhz_4x4
     # i=sub3_mu0_20mhz_4x4
@@ -100,14 +100,14 @@ run_all () {
     fi
 
     echo "-----------------launch du--------------------"
-    run $i&
+    run $test_case&
 
     echo "-----------------launch ru--------------------"
     sleep 30
-    l1_ru_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/$i/oru/
-    ssh $RU_IP "source /etc/profile; cd $ru_dir; ./setup.sh; sleep 20; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${i} ${ru_dir}"
+    l1_ru_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/$test_case/oru/
+    ssh $RU_IP "source /etc/profile; cd $ru_dir; ./setup.sh; sleep 20; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${test_case} ${ru_dir}"
 
-    store_result ${i}
+    ${du_dir}/../../utils/store_result.sh $du_dir $l1_dir $pipline_result/${test_case}
 
   done
 
@@ -118,7 +118,7 @@ run_all () {
 
 run_one() {
   
-  i=$manually_case
+  test_case=$manually_case
 
   echo "-----------revomve src old file-----------------"
   result=$l1_dir/l1_mlog_stats.txt
@@ -129,9 +129,9 @@ run_one() {
   fi
 
   echo "-----------------launch du--------------------"
-  run $i 
+  run $test_case 
 
-  store_result ${i}
+  ${du_dir}/../../utils/store_result.sh $du_dir $l1_dir $pipline_result/${test_case}
 
   echo "execute.sh script is done"
 }

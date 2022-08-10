@@ -3,9 +3,10 @@ SETUP_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
 if [ $# -ne 3 ];then
    echo "
-     ./setup.sh pull flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
-     ./setup.sh build flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
-     ./setup.sh build_noclean flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)
+     ./setup.sh pull flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)    (pull code and no build)
+     ./setup.sh build flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)   (pull code and build with clean)
+     ./setup.sh build_noclean flexran_branch(prod_r21.11) dpdk_branch(prod_21_11) (pull code and increasement build)
+     ./setup.sh build_nopull flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)  (no pull code and increasement build)
      "
    exit 0
 fi

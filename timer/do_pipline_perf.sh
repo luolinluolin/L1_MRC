@@ -59,30 +59,8 @@ test_perf() {
         cd $TIMER_CUR_DIR 
         ./run.sh $TIMER_CUR_DIR ./$case_dir/$test_case.cfg $timer_results_dir
 
-        log_dir=$pipline_result/${test_case}
-        if [ ! -d $log_dir ]; then
-            mkdir -p $log_dir
-        else
-            rm -rf $log_dir/*
-        fi
-        /usr/bin/mv -f $l1_dir/l1mlog* ${log_dir}
-        /usr/bin/mv -f $l1_dir/l1_mlog_stats.txt ${log_dir}
 
-        echo "------------cp $l1_dir/l1_mlog_stats.txt to --------------" 
-        echo "------------$log_dir --------------" 
-
-        l1_log=$log_dir/l1_${test_case}.txt
-        l2_log=$log_dir/l2_${test_case}.txt
-        if [ -f $l1_log ]
-        then
-            rm -rf $l1_log
-        fi
-        if [ -f $l2_log ]
-        then
-            rm -rf $l2_log
-        fi
-        /usr/bin/mv -f $TIMER_CUR_DIR/l1_5g.log $l1_log
-        /usr/bin/mv -f $TIMER_CUR_DIR/l2_5g.log $l2_log
+        ${TIMER_CUR_DIR}/../utils/store_result.sh $TIMER_CUR_DIR $l1_dir $pipline_result/${test_case}
     done
     
 }
