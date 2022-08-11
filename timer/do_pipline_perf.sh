@@ -24,13 +24,10 @@ echo "--------$l1_dir---------------"
 echo "--------$l2_dir---------------"
 
 ################################# change phy config ############################
-timer_cfg=${l1_dir}/phycfg_timer.xml
-echo "---------------------------------${TIMER_CUR_DIR}/../utils/change_phy_cfg.sh ${timer_cfg}"
-${TIMER_CUR_DIR}/../utils/change_phy_cfg.sh ${timer_cfg}
-
-#-----setup MBC-----
-$TIMER_CUR_DIR/../setup/mbc_vc_setup.sh MBC
-
+if [ "${test_one_case}" == "" ]; then
+    #-----setup MBC-----
+    $TIMER_CUR_DIR/../setup/mbc_vc_setup.sh MBC
+fi
 
 rm -rf $timer_results_dir/l2_failed.txt
 pipline_result=$timer_results_dir/$platform/$test_ver
@@ -74,6 +71,7 @@ else
     echo "------------timer_test_cases $timer_test_cases"
     test_perf $case_dir "${timer_test_cases}"
 fi
+
 $TIMER_CUR_DIR/../utils/scp_to_dst.sh ${ANALYSE_IP_FOLDER}/timer/${platform} $pipline_result/../
 
 $TIMER_CUR_DIR/../kill.sh
