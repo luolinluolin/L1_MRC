@@ -26,6 +26,14 @@ timer_icld_case=`(cat $cfgfile |$JQ '.[0]|.timer_icld_info|.[]|.case' |sed 's/\"
 timer_icld_info=`(cat $cfgfile |$JQ '.[0]|.timer_icld_info|.[]|.info' |sed 's/\"//g')`
 timer_icld_cfile=`(cat $cfgfile |$JQ '.[0]|.timer_icld_info|.[]|.cfile' |sed 's/\"//g')`
 
+timer_spreec_case=`(cat $cfgfile |$JQ '.[0]|.timer_spreec_info|.[]|.case' |sed 's/\"//g')`
+timer_spreec_info=`(cat $cfgfile |$JQ '.[0]|.timer_spreec_info|.[]|.info' |sed 's/\"//g')`
+timer_spreec_cfile=`(cat $cfgfile |$JQ '.[0]|.timer_spreec_info|.[]|.cfile' |sed 's/\"//g')`
+
+timer_sprmcc_case=`(cat $cfgfile |$JQ '.[0]|.timer_sprmcc_info|.[]|.case' |sed 's/\"//g')`
+timer_sprmcc_info=`(cat $cfgfile |$JQ '.[0]|.timer_sprmcc_info|.[]|.info' |sed 's/\"//g')`
+timer_sprmcc_cfile=`(cat $cfgfile |$JQ '.[0]|.timer_sprmcc_info|.[]|.cfile' |sed 's/\"//g')`
+
 oran_cslsp_case=`(cat $cfgfile |$JQ '.[0]|.oran_cslsp_info|.[]|.case' |sed 's/\"//g')`
 oran_cslsp_info=`(cat $cfgfile |$JQ '.[0]|.oran_cslsp_info|.[]|.info' |sed 's/\"//g')`
 oran_cslsp_cfile=`(cat $cfgfile |$JQ '.[0]|.oran_cslsp_info|.[]|.cfile' |sed 's/\"//g')`
@@ -33,6 +41,10 @@ oran_cslsp_cfile=`(cat $cfgfile |$JQ '.[0]|.oran_cslsp_info|.[]|.cfile' |sed 's/
 oran_iclsp_case=`(cat $cfgfile |$JQ '.[0]|.oran_iclsp_info|.[]|.case' |sed 's/\"//g')`
 oran_iclsp_info=`(cat $cfgfile |$JQ '.[0]|.oran_iclsp_info|.[]|.info' |sed 's/\"//g')`
 oran_iclsp_cfile=`(cat $cfgfile |$JQ '.[0]|.oran_iclsp_info|.[]|.cfile' |sed 's/\"//g')`
+
+oran_spreec_case=`(cat $cfgfile |$JQ '.[0]|.oran_spreec_info|.[]|.case' |sed 's/\"//g')`
+oran_spreec_info=`(cat $cfgfile |$JQ '.[0]|.oran_spreec_info|.[]|.info' |sed 's/\"//g')`
+oran_spreec_cfile=`(cat $cfgfile |$JQ '.[0]|.oran_spreec_info|.[]|.cfile' |sed 's/\"//g')`
 
 rct_platform1=`cat $cfgfile |$JQ '.[0]|.rct_platform1' |sed 's/\"//g'`
 rct_platform2=`cat $cfgfile |$JQ '.[0]|.rct_platform2' |sed 's/\"//g'`

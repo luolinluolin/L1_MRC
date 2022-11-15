@@ -32,7 +32,7 @@
  *           <div class="release_date">Mar 2022</div>
  *         </div>
  *         <div class="release_content">
- *           <div class="release_version">Release 22.03</div>
+ *           <div class="release_version">Release 22.07</div>
  *           <div>
  *             <p>
  *               <ul>

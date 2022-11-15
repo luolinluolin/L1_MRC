@@ -5,6 +5,8 @@ if [ $# -lt 2 ] || [ $1 = "-h" ];then
          example : ./do_pipline_perf.sh  cslsp prod_r21.11
          example : ./do_pipline_perf.sh  iclsp prod_r21.11
          example : ./do_pipline_perf.sh  icld prod_r21.11
+         example : ./do_pipline_perf.sh  spreec prod_r21.11
+         example : ./do_pipline_perf.sh  sprmcc prod_r21.11
      "
    exit 0
 fi
@@ -17,7 +19,7 @@ test_one_case=$3
 TIMER_CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 $TIMER_CUR_DIR/../kill.sh
 
-source $TIMER_CUR_DIR/timerenv.sh
+source $TIMER_CUR_DIR/timerenv.sh ${platform}
 l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
 l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac	
 echo "--------$l1_dir---------------"

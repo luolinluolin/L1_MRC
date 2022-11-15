@@ -6,7 +6,7 @@ if [ $# -ne 3 ];then
      ./setup.sh pull flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)    (pull code and no build)
      ./setup.sh build flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)   (pull code and build with clean)
      ./setup.sh build_noclean flexran_branch(prod_r21.11) dpdk_branch(prod_21_11) (pull code and increasement build)
-     ./setup.sh build_nopull flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)  (no pull code and increasement build)
+     ./setup.sh build_nopull flexran_branch(prod_r21.11) dpdk_branch(prod_21_11)  (no pull code and clean build)
      "
    exit 0
 fi
@@ -55,7 +55,7 @@ then
   ./flexran_build.sh -r 5gnr -m bbu -m wls -m mlog -m cpa -m xran -m l1app -m testmac -m testapp
 
 
-elif [ $OPTION = "build_noclean" ] || [ $OPTION = "build_nopull" ]
+elif [ $OPTION = "build_noclean" ]
 then
 
   echo "---------build dpdk--------------"
@@ -67,6 +67,21 @@ then
   source $SETUP/setupenv.sh
   cd $FLEXRAN_L1_SW
   ./flexran_build.sh -r 5gnr -m all -c
+elif [ $OPTION = "build_nopull" ]
+then
+
+  echo "---------build dpdk--------------"
+  rm -rf $RTE_SDK/build
+  cd $SETUP_DIR
+  $SETUP/meson_build.sh
+  cd $RTE_SDK/build
+  ninja
+  
+  echo "---------build flexran--------------"
+  cd $SETUP_DIR
+  source $SETUP/setupenv.sh
+  cd $FLEXRAN_L1_SW
+  ./flexran_build.sh -r 5gnr -m all
 else 
   echo "wrong build option, pls input build or build_noclean"
   exit

@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ $# -lt 2 ] || [ $1 = "-h" ];then
     echo "
-         example : ./execute.sh  cslsp prod_r21.11 sub3_mu0_10mhz_4x4
-         example : ./execute.sh  iclsp prod_r21.11 sub3_mu0_10mhz_4x4
+         example : ./execute.sh  cslsp prod_r21.11 orancfg/sub3_mu0_10mhz_4x4
+         example : ./execute.sh  iclsp prod_r21.11 orancfg/sub3_mu0_10mhz_4x4
      "
    exit 0
 fi
@@ -13,7 +13,7 @@ manually_case=$3
 
 du_dir=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 ru_dir=$du_dir/../ru
-source $du_dir/../oranenv.sh
+source $du_dir/../oranenv.sh ${platform}
 
 killall=$du_dir/../../kill.sh
 $killall
@@ -57,10 +57,13 @@ run() {
   # phy_cfg=$2
   # ru_cfg=$3
   echo "---------cfg_dir: $cfg_dir--------------"
-  cfg_dir=$l1_dir/orancfg/$case/gnb/
+  cfg_dir=$l1_dir/$case/gnb/
   testmac_cfg=`find $cfg_dir -name "testmac_*_oru.cfg"`
   phy_cfg=`find $cfg_dir -name "phycfg*.xml"`
-  ru_cfg=`find $cfg_dir -name "xrancfg*.xml"`
+  ru_cfg=`find $cfg_dir -name "xrancfg*oru.xml"`
+  echo "-----------oran config ru_cfg: $ru_cfg-----------"
+  echo "-----------oran config phy_cfg: $phy_cfg-----------"
+  echo "-----------oran config testmac_cfgg: $testmac_cfg-----------"
 
   ./update_conf.sh $testmac_cfg $phy_cfg $ru_cfg
 
@@ -68,7 +71,7 @@ run() {
 
   ./l1_5.ex $du_dir $cfg_dir&
 
-  sleep 30
+  sleep 10
 
   l1_sw=$FLEXRAN_L1_SW
   l2_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/testmac
@@ -100,12 +103,12 @@ run_all () {
     fi
 
     echo "-----------------launch du--------------------"
-    run $test_case&
+    run orancfg/$test_case&
 
     echo "-----------------launch ru--------------------"
     sleep 30
     l1_ru_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1/orancfg/$test_case/oru/
-    ssh $RU_IP "source /etc/profile; cd $ru_dir; ./setup.sh; sleep 20; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${test_case} ${ru_dir}"
+    ssh $RU_IP "source /etc/profile; cd $ru_dir; cd ${ru_dir}; ./execute_ru.ex $l1_ru_dir ${test_case} ${ru_dir}"
 
     ${du_dir}/../../utils/store_result.sh $du_dir $l1_dir $pipline_result/${test_case}
 

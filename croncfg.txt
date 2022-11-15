@@ -1,1 +1,9 @@
 0 23 * * * /home/disk1/luolin/L1_MRC/build_test.sh cslsp prod_r22.07 prod_r22.07
+
+0 19 * * * /home/disk1/luolin/L1_MRC/build_test.sh cslsp master main_dev_21
+0 0 * * * /home/disk1/luolin/L1_MRC/rct_test.sh cslsp master
+
+
+0 19 * * * /home/disk1/luolin/L1_MRC/build_test.sh iclsp master main_dev_21
+0 0 * * * /home/disk1/luolin/L1_MRC/rct_test.sh iclsp master
+

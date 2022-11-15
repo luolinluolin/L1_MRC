@@ -85,7 +85,7 @@
  * @page ref_executive_summary Executive Performance and Release Updates
  * <DIV style="text-align:justify;">
  *
-* Here are some of the highlights in the FlexRAN 22.07 release:
+* Here are some of the highlights in the FlexRAN 22.11 release:
  *    - <B>SDK updates</B>:
  *        - SDK function refactoring:
  *           - Lot of the SDK modules (PUCCH, PUSCH, SRS, Beam weight generation, PRACH) were re-written using C++ templates and OneAPI DVEC library
@@ -155,7 +155,7 @@
  * Beta Quality criteria for KPI (Key Performance Indicator)/Performance:
  *    - All KPI's tested with each scenario must have less than 15% deviation from target
  *    - There were no specific Cycle Count Performance Optimization tasks for this release.
- *        - KPI was to maintain Cycle Count Performance and BBU Core Utilization when compared with previous FlexRAN 22.03 Release.
+ *        - KPI was to maintain Cycle Count Performance and BBU Core Utilization when compared with previous FlexRAN 22.07 Release.
  *        - All Cycle Count Performance Scenarios improved with the exception of the mmWave scenario which degraded 1 to 3%.
  *        - This falls within the limits of the 15% deviation to satisfy for Beta Quality.
  *        - <b>Beta Quality criteria for Cycle Count Performance and BBU Core Utilization was achieved.</b>
@@ -166,7 +166,7 @@
  *    - <B>2.</B> PUSCH Channel Estimation optimization <I>(~10-15% improvement)</I>
  *    - <B>3.</B> SRS Channel Estimation algorithm improvement <I>(No change in cycles)</I>
  *
- * Because of these changes, the cycle count performance changes (compared to 22.03 release) across various different use cases are as below:
+ * Because of these changes, the cycle count performance changes (compared to 22.07 release) across various different use cases are as below:
  * <BR/><BR/>
  * <B>Table shows Cycle count change (sum of cycles for all blocks) and BBU core utilization change (avg utilization on all BBU cores allocated)</B>
  * <BR/><BR/>
@@ -176,7 +176,7 @@
  *   <TH class="mrc_platform_head_small" rowspan="3">Use Case</TH>
  *   <TH class="mrcll_platform_head_small" rowspan="3">Num Cells</TH>
  *   <TH class="mrc_platform_head_small" rowspan="3">Hardware<BR/>Accelerator</TH>
- *   <TH class="mrc_platform_head_small" colspan="6">Pipeline<BR/>Performance<BR/>Change v/s 22.03</TH>
+ *   <TH class="mrc_platform_head_small" colspan="6">Pipeline<BR/>Performance<BR/>Change v/s 22.07</TH>
  *   <TH class="mrc_platform_head_small" rowspan="3">Optimization</TH>
  *   <TH class="mrc_platform_head_small" rowspan="3">Pass/Fail</TH>
  * </TR>
@@ -294,7 +294,7 @@
  * Beta Quality criteria for KPI (Key Performance Indicator)/Performance:
  *    - All KPI's tested with each scenario must have less than 15% deviation from target
  *    - There were no specific Uplink Wireless Performance for PUSCH/PUCCH or PRACH for this release.
- *        - KPI was to maintain Uplink Wireless Performance when compared with previous FlexRAN 22.03 Release.
+ *        - KPI was to maintain Uplink Wireless Performance when compared with previous FlexRAN 22.07 Release.
  *        - Uplink Wireless Performance results for all test scenarios were maintained.
  *            - Please refer to Section 8: Wireless Performance Data
  *              - @ref ref_wireless_pusch_clxsp_n3000
@@ -309,7 +309,7 @@
  *
  * We run all the 3GPP required <B>wireless performance tests as defined in 38.104 Chapter 8</B> to test our UL receiver.
  * These tests are run with a software simulation of the channel models and not done with a real UE / radio equipment. <BR/><BR/>
- * <B>The Wireless Performance for PUSCH, PUCCH and PRACH are the same as previous 22.03 release.</B>
+ * <B>The Wireless Performance for PUSCH, PUCCH and PRACH are the same as previous 22.07 release.</B>
  * 
  * <BR/><BR/>
  *
@@ -514,7 +514,7 @@
  *
  * <TABLE cellspacing = "0" cellpadding = "2" border = "0" class = "mrcTableBorderClass">
  * <TR><TH class="mrc_platform_head_small" rowspan="2">Use Case</TH><TH class="mrc_platform_head_small" rowspan="2">Test Case</TH><TH class="mrc_platform_head_small" rowspan="2">Number of Cells</TH><TH class="mrc_platform_head_small" rowspan="2">Number of BBU Cores <BR/>(HT Cores)</TH><TH class="mrc_platform_head_small" colspan="2">Number of IO Cores<BR/>for ORAN<BR/>(HT Cores)</TH><TH class="mrc_platform_head_small" rowspan="2">BBU Utilization<BR/>per Core</TH><TH class="mrc_platform_head_small" rowspan="2">Pass/<BR/>Fail</TH></TR>
- * <TR><TH class="mrc_platform_head_small">22.03 Release</TH><TH class="mrc_platform_head_small">22.07 Release</TH></TR>
+ * <TR><TH class="mrc_platform_head_small">22.07 Release</TH><TH class="mrc_platform_head_small">22.11 Release</TH></TR>
  * <TR><TH class="mrc_platform">Sub3 Numerology 0 20Mhz 4x4</TH><TH class="mrc_platform">12220</TH><TH class="mrc_platform">12</TH><TH class="mrc_platform">16</TH><TH class="mrc_platform">2</TH><TH class="mrc_platform">2</TH><TH class="mrc_platform">78%</TH><TH class="mrc_platform">Pass</TH></TR>
  * <TR><TH class="mrc_platform">Sub3 Numerology 1 1000Mhz 4x4</TH><TH class="mrc_platform">4304</TH><TH class="mrc_platform">4</TH><TH class="mrc_platform">14</TH><TH class="mrc_platform">2</TH><TH class="mrc_platform">2</TH><TH class="mrc_platform">44%</TH><TH class="mrc_platform">Pass</TH></TR>
  * <TR><TH class="mrc_platform">Sub6 Numerology 1 100Mhz 64x64 8 stream</TH><TH class="mrc_platform">3368</TH><TH class="mrc_platform">3</TH><TH class="mrc_platform">18</TH><TH class="mrc_platform">4</TH><TH class="mrc_platform" style="background-color:rgb(168, 250, 46);">2</TH><TH class="mrc_platform">70%</TH><TH class="mrc_platform">Pass</TH></TR>
@@ -559,7 +559,7 @@
  * <BR/><BR/>
  * 
  * @section ref_platforms Testing Setup details
- * We benchmark the 22.07 release on the following hardware platforms:
+ * We benchmark the 22.11 release on the following hardware platforms:
  * - <B>Cascade Lake SP 6248</B> (20 core) running at 2.5Ghz. This is an Intel Wolfpass platform
  * - <B>Ice Lake SP 6338N</B> (32 cores) running at 2.5Ghz. This is an Intel Coyotepass platform
  * - <B>Ice Lake D</B> (10 cores) running at 2.4Ghz. This is an Intel pre-production platform

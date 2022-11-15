@@ -1,4 +1,4 @@
-BASE=${WORK_DIR}/..
+BASE=$1
 cd $BASE
 if [ ! -d dpdk-kmods ];then
   git clone http://dpdk.org/git/dpdk-kmods

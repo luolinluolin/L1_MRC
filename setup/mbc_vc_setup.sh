@@ -27,7 +27,12 @@ export   ftp_proxy=ftp://proxy-prc.intel.com:911/
 export   https_proxy=https://proxy-prc.intel.com:911/
 
 #######################################################################################
-cd $BASE
+tool_dir=/opt/flexran_cfg_tool
+if [ ! -d $tool_dir ];then
+  mkdir $tool_dir
+fi
+
+cd $tool_dir
 #cd $BASE_FLEXRAN; rm -rf pf-bb-config dpdk-kmods
 if [ ! -d pf-bb-config ];then
   git clone https://github.com/intel/pf-bb-config.git
@@ -38,14 +43,14 @@ if [ ! -d inih ];then
 fi
 
 bbdev_config=${dpdk_v}/bbdev_pf_config_app
-cp -R ${BASE}/inih/ ${bbdev_config}
-cd ${BASE}/inih/; meson build; cd build; ninja; cp -rf lib* ${bbdev_config}/inih/
+cp -R ${tool_dir}/inih/ ${bbdev_config}
+cd ${tool_dir}/inih/; meson build; cd build; ninja; cp -rf lib* ${bbdev_config}/inih/
 #cd ${bbdev_config}/inih/extra;make -f Makefile.static clean;make -f Makefile.static;sudo cp -rf libinih.a ../
 cd ${bbdev_config}; make clean;make
 
 #######################################################################################
 echo "-------------install igb uio---------------"
-sh ${SETUP_CURRENT_DIR}/igb_uio_install.sh
+sh ${SETUP_CURRENT_DIR}/igb_uio_install.sh $tool_dir
 #######################################################################################
 
 ## create vf 

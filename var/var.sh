@@ -38,6 +38,8 @@ then
    echo "------------casecade lake sp test $timer_cslsp_case------------------"
    timer_test_cases=$timer_cslsp_case
    case_dir=cascade_lake-sp
+   echo "------------casecade lake sp test $oran_cslsp_case------------------"
+   oran_test_cases=$oran_cslsp_case
 fi
 
 if [ $platform = "iclsp" ]
@@ -45,6 +47,8 @@ then
    echo "------------ice lake sp test $timer_iclsp_case------------------"
    timer_test_cases=$timer_iclsp_case
    case_dir=icelake-sp
+   echo "------------ice lake sp test $oran_iclsp_case------------------"
+   oran_test_cases=$oran_iclsp_case
 fi
 
 if [ $platform = "icld" ]
@@ -54,14 +58,18 @@ then
    case_dir=icelake-d
 fi
 
-if [ $platform = "cslsp" ]
+if [ $platform = "spreec" ]
 then
-   echo "------------casecade lake sp test $oran_cslsp_case------------------"
-   oran_test_cases=$oran_cslsp_case
+   echo "------------spr eec test $timer_spreec_case------------------"
+   timer_test_cases=$timer_spreec_case
+   case_dir=spr-sp-eec
+   echo "------------ice lake sp test $oran_spreec_case------------------"
+   oran_test_cases=$oran_spreec_case
 fi
 
-if [ $platform = "iclsp" ]
+if [ $platform = "sprmcc" ]
 then
-   echo "------------ice lake sp test $oran_iclsp_case------------------"
-   oran_test_cases=$oran_iclsp_case
+   echo "------------spr mcc test $timer_spreec_case------------------"
+   timer_test_cases=$timer_sprmcc_case
+   case_dir=spr-sp-mcc
 fi

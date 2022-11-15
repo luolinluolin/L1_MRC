@@ -36,6 +36,26 @@
             {"case": "icxd_mu0_20mhz_4x4_hton", "info": "ICXD_HTON_ACC100_SUB3_20MHZ_4X4", "cfile": "ref_icxd_hton_acc100_sub3_20mhz_4x4"},
             {"case": "icxd_mu1_100mhz_4x4_hton", "info": "ICXD_HTON_ACC100_SUB6_100MHZ_4X4", "cfile": "ref_icxd_hton_acc100_sub6_100mhz_4x4"}
         ],
+        "timer_spreec_info": [
+            {"case": "sprsp_eec_mu0_10mhz_4x4_hton", "info": "SPRSP_EEC_SUB3_10MHZ_4X4", "cfile": "ref_spreec_hton_sub3_10mhz_4x4"},
+            {"case": "sprsp_eec_mu0_20mhz_4x4_hton", "info": "SPRSP_EEC_SUB3_20MHZ_4X4", "cfile": "ref_spreec_hton_sub3_20mhz_4x4"},
+            {"case": "sprsp_eec_mu0_20mhz_4x4_hton_multi_numerology", "info": "SPRSP_EEC_20MHZ_4X4_MULTI_NUMEROLOGY", "cfile": "ref_spreec_hton_sub3_20mhz_4x4_multi_numerology"},
+            {"case": "sprsp_eec_mu1_100mhz_4x4_hton", "info": "SPRSP_EEC_SUB6_100MHZ_4X4", "cfile": "ref_spreec_hton_sub6_100mhz_4x4"},
+            {"case": "sprsp_eec_mu1_100mhz_mmimo_32x32_hton", "info": "SPRSP_EEC_MMIMO_100MHZ_32X32", "cfile": "ref_spreec_hton_mmimo_100mhz_32x32"},
+            {"case": "sprsp_eec_mu1_100mhz_mmimo_64x64_16stream_hton_6cell", "info": "SPRSP_EEC_MMIMO_100MHZ_64X64_16STREAMS_6CELL", "cfile": "ref_spreec_hton_mmimo_100mhz_64x64_16streams_6cell"},
+            {"case": "sprsp_eec_mu1_100mhz_mmimo_64x64_16stream_hton", "info": "SPRSP_EEC_MMIMO_100MHZ_64X64_16STREAMS", "cfile": "ref_spreec_hton_mmimo_100mhz_64x64_16streams"},
+            {"case": "sprsp_eec_mu1_100mhz_mmimo_64x64_8stream_hton", "info": "SPRSP_EEC_MMIMO_100MHZ_64X64_8STREAMS", "cfile": "ref_spreec_hton_mmimo_100mhz_64x64_8streams"}
+        ],
+        "timer_sprmcc_info": [
+            {"case": "sprsp_mcc_mu0_10mhz_4x4_hton", "info": "SPRSP_MCC_SUB3_10MHZ_4X4", "cfile": "ref_sprmcc_hton_sub3_10mhz_4x4"},
+            {"case": "sprsp_mcc_mu0_20mhz_4x4_hton", "info": "SPRSP_MCC_SUB3_20MHZ_4X4", "cfile": "ref_sprmcc_hton_sub3_20mhz_4x4"},
+            {"case": "sprsp_mcc_mu0_20mhz_4x4_hton_multi_numerology", "info": "SPRSP_MCC_20MHZ_4X4_MULTI_NUMEROLOGY", "cfile": "ref_sprmcc_hton_sub3_20mhz_4x4_multi_numerology"},
+            {"case": "sprsp_mcc_mu1_100mhz_4x4_hton", "info": "SPRSP_MCC_SUB6_100MHZ_4X4", "cfile": "ref_sprmcc_hton_sub6_100mhz_4x4"},
+            {"case": "sprsp_mcc_mu1_100mhz_mmimo_32x32_hton", "info": "SPRSP_MCC_MMIMO_100MHZ_32X32", "cfile": "ref_sprmcc_hton_mmimo_100mhz_32x32"},
+            {"case": "sprsp_mcc_mu1_100mhz_mmimo_64x64_16stream_hton_6cell", "info": "SPRSP_MCC_MMIMO_100MHZ_64X64_16STREAMS_6CELL", "cfile": "ref_sprmcc_hton_mmimo_100mhz_64x64_16streams_6cell"},
+            {"case": "sprsp_mcc_mu1_100mhz_mmimo_64x64_16stream_hton", "info": "SPRSP_MCC_MMIMO_100MHZ_64X64_16STREAMS", "cfile": "ref_sprmcc_hton_mmimo_100mhz_64x64_16streams"},
+            {"case": "sprsp_mcc_mu1_100mhz_mmimo_64x64_8stream_hton", "info": "SPRSP_MCC_MMIMO_100MHZ_64X64_8STREAMS", "cfile": "ref_sprmcc_hton_mmimo_100mhz_64x64_8streams"}
+        ],
         "oran_cslsp_info":
         [
             {"case": "sub3_mu0_10mhz_4x4", "info": "CLXSP_HTON_ACC100_SUB3_10MHZ_4X4_ORAN_CVL", "cfile": "ref_clxsp_hton_acc100_sub3_10mhz_4x4_oran_cvl"},
@@ -46,6 +66,13 @@
         "oran_iclsp_info":
         [
             {"case": "sub6_mu1_100mhz_32x32", "info": "ICXSP_HTON_MBC_MMIMO_100MHZ_32X32_ORAN_CVL", "cfile": "ref_icxsp_hton_mbc_mmimo_100mhz_32x32_oran_cvl"}
+        ],
+        "oran_spreec_info":
+        [
+            {"case": "sub3_mu0_10mhz_4x4", "info": "SPRSP_EEC_SUB3_10MHZ_4X4_ORAN_CVL", "cfile": "ref_spreec_hton_sub3_10mhz_4x4_oran_cvl"},
+            {"case": "sub3_mu0_20mhz_4x4", "info": "SPRSP_EEC_SUB3_20MHZ_4X4_ORAN_CVL", "cfile": "ref_spreec_hton_sub3_20mhz_4x4_oran_cvl"},
+            {"case": "sub6_mu1_100mhz_4x4", "info": "SPRSP_EEC_SUB6_100MHZ_4X4_ORAN_CVL", "cfile": "ref_spreec_hton_sub6_100mhz_4x4_oran_cvl"},
+            {"case": "sub3_mu0_20mhz_sub3_mu1_20mhz_4x4", "info": "SPRSP_EEC_SUB3_20MHZ_4X4_MULTI_NUMEROLOGY_ORAN_CVL", "cfile": "ref_spreec_hton_sub3_20mhz_4x4_multi_numerology_oran_cvl"}
         ],
         "rct_platform1": "cslsp",
         "rct_platform2": "cslsp",

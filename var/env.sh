@@ -2,7 +2,7 @@
 
 
 
-if [ $# -ne 1 ];then
+if [ $# -lt 1 ];then
     echo "
          example: source ./setup/env.sh snc
          default : source ./setup/env.sh avx512
@@ -12,6 +12,8 @@ else
     ISA=$1
 fi
 
+#original_name='change'
+if [ "${original_name}" == "" ]; then
 githubpre=/networking.wireless.flexran
 export flexran_l1_sw=$githubpre.flexran-l1-sw
 export flexran_l1_5g_test=$githubpre.flexran-l1-5g-test
@@ -20,6 +22,16 @@ export wireless_sdk=$githubpre.wireless-sdk
 export wireless_convergence_l1=$githubpre.wireless-convergence-l1
 export wireless_dpdk_ae=$githubpre.wireless-dpdk-ae
 export flexran_xran=$githubpre.flexran-xran
+else
+line='-'
+export flexran_l1_sw=flexran${line}l1${line}sw
+export flexran_l1_5g_test=flexran${line}l1${line}5g${line}test
+export flexran_l1_4g_test=flexran${line}l1${line}4g${line}test
+export wireless_sdk=wireless${line}sdk
+export wireless_convergence_l1=wireless${line}convergence${line}l1
+export wireless_dpdk_ae=wireless${line}dpdk${line}ae
+export flexran_xran=flexran${line}xran
+fi
 
 BASE=$WORK_DIR
 # BASE=/home/luolin/master
@@ -79,6 +91,7 @@ echo RTE_SDK_KMOD=${RTE_SDK_KMOD}
 #scl enable devtoolset-8 bash
 
 alias l1sw="cd $FLEXRAN_L1_SW"
+alias xran="cd $XRAN_DIR"
 alias master="cd $FLEXRAN_L1_SW/../"
 alias test="cd $DIR_WIRELESS_TEST_5G"
 MRC_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)/../

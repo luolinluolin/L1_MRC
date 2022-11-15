@@ -5,7 +5,7 @@ set ru_dir  [lindex $argv 0]
 set case  [lindex $argv 1]
 set base [lindex $argv 2]
 
-log_file ./$case.log
+log_file ./ru.log
 spawn su - root
 
 expect "*#"

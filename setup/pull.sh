@@ -32,8 +32,8 @@ cd ${REPO_DIR}
 echo "-----------clone folder: $pwd-------------"
 git rm .gitattributes
 git reset --hard HEAD
+git checkout $BRANCH -f
 git pull
-git checkout $BRANCH
 cd ..
 }
 

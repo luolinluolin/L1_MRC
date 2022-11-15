@@ -1,8 +1,10 @@
 
+platform=$1
+
 #---------------used NIC------------
 MRC_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)/..
 
-source $MRC_DIR/var/var.sh
+source $MRC_DIR/var/var.sh ${platform}
 
 env_file=$MRC_DIR/var/env.sh
 

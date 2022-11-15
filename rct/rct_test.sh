@@ -13,6 +13,9 @@ soft_ldpc=$3
 RCT_CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 source ${RCT_CURRENT_DIR}/../timer/timerenv.sh	
 
+
+${RCT_CURRENT_DIR}/../kill.sh
+
 ${RCT_CURRENT_DIR}/../setup/mbc_vc_setup.sh
 
 l1_dir=$FLEXRAN_L1_SW/bin/nr5g/gnb/l1
