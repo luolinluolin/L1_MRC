@@ -53,6 +53,13 @@ echo "d5: $d5"
 echo "----------change ru cfg $ru_cfg-----------"
 sed -i "s#<PciBusAddoRu0Vf0>.*<\/PciBusAddoRu0Vf0>#<PciBusAddoRu0Vf0>${d0}<\/PciBusAddoRu0Vf0>#g"  $ru_cfg
 sed -i "s#<PciBusAddoRu0Vf1>.*<\/PciBusAddoRu0Vf1>#<PciBusAddoRu0Vf1>${d1}<\/PciBusAddoRu0Vf1>#g"  $ru_cfg
+
+sed -i "s#<PciBusAddoRu0Vf2>.*<\/PciBusAddoRu0Vf2>#<PciBusAddoRu0Vf2>${d2}<\/PciBusAddoRu0Vf2>#g"  $ru_cfg
+sed -i "s#<PciBusAddoRu0Vf3>.*<\/PciBusAddoRu0Vf3>#<PciBusAddoRu0Vf3>${d3}<\/PciBusAddoRu0Vf3>#g"  $ru_cfg
+sed -i "s#<PciBusAddoRu0Vf4>.*<\/PciBusAddoRu0Vf4>#<PciBusAddoRu0Vf4>${d4}<\/PciBusAddoRu0Vf4>#g"  $ru_cfg
+sed -i "s#<PciBusAddoRu0Vf5>.*<\/PciBusAddoRu0Vf5>#<PciBusAddoRu0Vf5>${d5}<\/PciBusAddoRu0Vf5>#g"  $ru_cfg
+
+
 sed -i "s#<PciBusAddoRu1Vf0>.*<\/PciBusAddoRu1Vf0>#<PciBusAddoRu1Vf0>${d2}<\/PciBusAddoRu1Vf0>#g"  $ru_cfg
 sed -i "s#<PciBusAddoRu1Vf1>.*<\/PciBusAddoRu1Vf1>#<PciBusAddoRu1Vf1>${d3}<\/PciBusAddoRu1Vf1>#g"  $ru_cfg
 sed -i "s#<PciBusAddoRu2Vf0>.*<\/PciBusAddoRu2Vf0>#<PciBusAddoRu2Vf0>${d4}<\/PciBusAddoRu2Vf0>#g"  $ru_cfg
@@ -67,6 +74,12 @@ dst5="00:11:22:33:00:51"
 
 sed -i "s#<oRuRem0Mac0>.*<\/oRuRem0Mac0>#<oRuRem0Mac0>${dst0}<\/oRuRem0Mac0>#g"  $ru_cfg
 sed -i "s#<oRuRem0Mac1>.*<\/oRuRem0Mac1>#<oRuRem0Mac1>${dst1}<\/oRuRem0Mac1>#g"  $ru_cfg
+
+sed -i "s#<oRuRem0Mac2>.*<\/oRuRem0Mac2>#<oRuRem0Mac2>${dst0}<\/oRuRem0Mac2>#g"  $ru_cfg
+sed -i "s#<oRuRem0Mac3>.*<\/oRuRem0Mac3>#<oRuRem0Mac3>${dst1}<\/oRuRem0Mac3>#g"  $ru_cfg
+sed -i "s#<oRuRem0Mac4>.*<\/oRuRem0Mac4>#<oRuRem0Mac4>${dst0}<\/oRuRem0Mac4>#g"  $ru_cfg
+sed -i "s#<oRuRem0Mac5>.*<\/oRuRem0Mac5>#<oRuRem0Mac5>${dst1}<\/oRuRem0Mac5>#g"  $ru_cfg
+
 sed -i "s#<oRuRem1Mac0>.*<\/oRuRem1Mac0>#<oRuRem1Mac0>${dst2}<\/oRuRem1Mac0>#g"  $ru_cfg
 sed -i "s#<oRuRem1Mac1>.*<\/oRuRem1Mac1>#<oRuRem1Mac1>${dst3}<\/oRuRem1Mac1>#g"  $ru_cfg
 sed -i "s#<oRuRem2Mac0>.*<\/oRuRem2Mac0>#<oRuRem2Mac0>${dst4}<\/oRuRem2Mac0>#g"  $ru_cfg
