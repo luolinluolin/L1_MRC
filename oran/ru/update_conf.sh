@@ -1,6 +1,6 @@
 #!/bin/bash
 runsh=$1/run_o_ru.sh
-rucfg=$2
+ru_cfg=$1/usecase_ru.cfg
 
 base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 # base=$PWD
@@ -42,3 +42,18 @@ sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.3/$d3/" ${runsh}
 sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.4/$d4/" ${runsh}
 sed -i "s/0000:[0-9a-z]\{2\}:[0-9a-z]\{2\}.5/$d5/" ${runsh}
 ####################################
+
+
+dst0="00:11:22:33:00:00"
+dst1="00:11:22:33:00:10"
+dst2="00:11:22:33:00:20"
+dst3="00:11:22:33:00:30"
+dst4="00:11:22:33:00:40"
+dst5="00:11:22:33:00:50"
+
+sed -i "s#oXuRem0Mac0=.*#oXuRem0Mac0=${dst0}#g"  $ru_cfg
+sed -i "s#oXuRem0Mac1=.*#oXuRem0Mac1=${dst1}#g"  $ru_cfg
+sed -i "s#oXuRem1Mac0=.*#oXuRem1Mac0=${dst2}#g"  $ru_cfg
+sed -i "s#oXuRem1Mac1=.*#oXuRem1Mac1=${dst3}#g"  $ru_cfg
+sed -i "s#oXuRem2Mac0=.*#oXuRem2Mac0=${dst4}#g"  $ru_cfg
+sed -i "s#oXuRem2Mac1=.*#oXuRem2Mac1=${dst5}#g"  $ru_cfg
