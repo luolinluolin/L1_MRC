@@ -53,6 +53,12 @@ dst5="00:11:22:33:00:50"
 
 sed -i "s#oXuRem0Mac0=.*#oXuRem0Mac0=${dst0}#g"  $ru_cfg
 sed -i "s#oXuRem0Mac1=.*#oXuRem0Mac1=${dst1}#g"  $ru_cfg
+
+sed -i "s#oXuRem0Mac2=.*#oXuRem0Mac2=${dst2}#g"  $ru_cfg
+sed -i "s#oXuRem0Mac3=.*#oXuRem0Mac3=${dst3}#g"  $ru_cfg
+sed -i "s#oXuRem0Mac4=.*#oXuRem0Mac4=${dst4}#g"  $ru_cfg
+sed -i "s#oXuRem0Mac5=.*#oXuRem0Mac5=${dst5}#g"  $ru_cfg
+
 sed -i "s#oXuRem1Mac0=.*#oXuRem1Mac0=${dst2}#g"  $ru_cfg
 sed -i "s#oXuRem1Mac1=.*#oXuRem1Mac1=${dst3}#g"  $ru_cfg
 sed -i "s#oXuRem2Mac0=.*#oXuRem2Mac0=${dst4}#g"  $ru_cfg
