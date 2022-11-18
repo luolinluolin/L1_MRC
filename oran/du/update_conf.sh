@@ -5,7 +5,7 @@ ru_cfg=$3
 
 base=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
-mac0="phystart 4 0 500000"
+mac0="phystart 4 0 100000"
 # mac1="setcore 0xF81F0"
 
 
@@ -75,10 +75,10 @@ dst5="00:11:22:33:00:51"
 sed -i "s#<oRuRem0Mac0>.*<\/oRuRem0Mac0>#<oRuRem0Mac0>${dst0}<\/oRuRem0Mac0>#g"  $ru_cfg
 sed -i "s#<oRuRem0Mac1>.*<\/oRuRem0Mac1>#<oRuRem0Mac1>${dst1}<\/oRuRem0Mac1>#g"  $ru_cfg
 
-sed -i "s#<oRuRem0Mac2>.*<\/oRuRem0Mac2>#<oRuRem0Mac2>${dst0}<\/oRuRem0Mac2>#g"  $ru_cfg
-sed -i "s#<oRuRem0Mac3>.*<\/oRuRem0Mac3>#<oRuRem0Mac3>${dst1}<\/oRuRem0Mac3>#g"  $ru_cfg
-sed -i "s#<oRuRem0Mac4>.*<\/oRuRem0Mac4>#<oRuRem0Mac4>${dst0}<\/oRuRem0Mac4>#g"  $ru_cfg
-sed -i "s#<oRuRem0Mac5>.*<\/oRuRem0Mac5>#<oRuRem0Mac5>${dst1}<\/oRuRem0Mac5>#g"  $ru_cfg
+sed -i "s#<oRuRem0Mac2>.*<\/oRuRem0Mac2>#<oRuRem0Mac2>${dst2}<\/oRuRem0Mac2>#g"  $ru_cfg
+sed -i "s#<oRuRem0Mac3>.*<\/oRuRem0Mac3>#<oRuRem0Mac3>${dst3}<\/oRuRem0Mac3>#g"  $ru_cfg
+sed -i "s#<oRuRem0Mac4>.*<\/oRuRem0Mac4>#<oRuRem0Mac4>${dst4}<\/oRuRem0Mac4>#g"  $ru_cfg
+sed -i "s#<oRuRem0Mac5>.*<\/oRuRem0Mac5>#<oRuRem0Mac5>${dst5}<\/oRuRem0Mac5>#g"  $ru_cfg
 
 sed -i "s#<oRuRem1Mac0>.*<\/oRuRem1Mac0>#<oRuRem1Mac0>${dst2}<\/oRuRem1Mac0>#g"  $ru_cfg
 sed -i "s#<oRuRem1Mac1>.*<\/oRuRem1Mac1>#<oRuRem1Mac1>${dst3}<\/oRuRem1Mac1>#g"  $ru_cfg
