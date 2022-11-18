@@ -59,11 +59,14 @@ run() {
   echo "---------cfg_dir: $cfg_dir--------------"
   cfg_dir=$l1_dir/$case/gnb/
   testmac_cfg=`find $cfg_dir -name "testmac_*_oru.cfg"`
+  if [ ! $testmac_cfg ]; then
+  testmac_cfg=`find $cfg_dir -name "testmac_*.cfg"`
+  fi
   phy_cfg=`find $cfg_dir -name "phycfg*.xml"`
   ru_cfg=`find $cfg_dir -name "xrancfg*oru.xml"`
   echo "-----------oran config ru_cfg: $ru_cfg-----------"
   echo "-----------oran config phy_cfg: $phy_cfg-----------"
-  echo "-----------oran config testmac_cfgg: $testmac_cfg-----------"
+  echo "-----------oran config testmac_cfg: $testmac_cfg-----------"
 
   ./update_conf.sh $testmac_cfg $phy_cfg $ru_cfg
 
@@ -145,4 +148,4 @@ else
   run_all
 fi
 
-$du_dir/../../utils/scp_to_dst.sh $ANALYSE_IP_FOLDER/oran/${platform} $pipline_result/../
+$du_dir/../../utils/scp_to_dst.sh $ANALYSE_IP_FOLDER/oran/${platform} $pipline_result/..

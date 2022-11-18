@@ -8,7 +8,7 @@ log_file ./l1_5g.log
 spawn su - root
 
 expect "*#"
-send "cd $workpath/../;source ./oranenv.sh; cd  $l1_dir; ./l1.sh -oru\r"
+send "cd $workpath/../;source ./oranenv.sh; cd  $l1_dir; sh ./l1.sh -oru\r"
 
 expect "Received MSG_TYPE_PHY_SHUTDOWN_REQ"
 #send "----------------Received MSG_TYPE_PHY_SHUTDOWN_REQ\r"
