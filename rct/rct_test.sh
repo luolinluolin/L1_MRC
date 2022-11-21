@@ -1,14 +1,14 @@
-if [ $# -lt 2 ] || [ $1 = "-h" ];then
+if [ $# -ne 3 ] || [ $1 = "-h" ];then
     echo "
-         example : ./rct_test.sh  cslsp prod_r21.11 soft_ldpc
-         example : ./rct_test.sh  iclsp prod_r21.11 soft_ldpc
-         example : ./rct_test.sh  icld prod_r21.11 soft_ldpc
+         example : ./rct_test.sh  cslsp prod_r21.11 ldpc_option(software_ldpc|hardware_ldpc)
+         example : ./rct_test.sh  iclsp prod_r21.11 ldpc_option(software_ldpc|hardware_ldpc)
+         example : ./rct_test.sh  icld prod_r21.11 ldpc_option(software_ldpc|hardware_ldpc)
      "
    exit 0
 fi
 platform=$1
 test_ver=$2
-soft_ldpc=$3
+ldpc_option=$3
 
 RCT_CURRENT_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 source ${RCT_CURRENT_DIR}/../timer/timerenv.sh	
@@ -25,14 +25,11 @@ sed -i 's/<PuschLinearInterpEnable>.*<\/PuschLinearInterpEnable>/<PuschLinearInt
 sed -i 's/<PuschLinearInterpGranularityAll>.*<\/PuschLinearInterpGranularityAll>/<PuschLinearInterpGranularityAll>5<\/PuschLinearInterpGranularityAll>/g' ${timer_cfg}
 sed -i 's/<prachThresholdMethod>.*<\/prachThresholdMethod>/<prachThresholdMethod>1<\/prachThresholdMethod>/g' ${timer_cfg}
 
-if [ "$soft_ldpc" == "soft_ldpc" ]; then
+if [ "$software_ldpc" == "software_ldpc" ]; then
   sed -i "s#<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>#<dpdkBasebandFecMode>0<\/dpdkBasebandFecMode>#g"  ${cfg}
-  store_result=$RESULT_DIR/rct/$platform/$test_ver/soft_ldpc
-else
-  store_result=$RESULT_DIR/rct/$platform/$test_ver/hardware_ldpc
 fi
 
-
+store_result=$RESULT_DIR/rct/$platform/$test_ver/${ldpc_option}
 if [ ! -d $store_result ]; then
     mkdir -p $store_result
 else

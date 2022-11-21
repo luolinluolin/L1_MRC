@@ -1,11 +1,12 @@
 
-if [ $# -ne 1 ] || [ $1 = "-h" ];then
+if [ $# -ne 2 ] || [ $1 = "-h" ];then
     echo "
-         example : ./rct_gen.sh prod_r21.11
+         example : ./rct_gen.sh prod_r21.11 ldpc_option(software_ldpc|hardware_ldpc)
      "
    exit 0
 fi
 version=$1
+ldpc_option=$2
 CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
 source $CUR_DIR/genenv.sh
@@ -44,7 +45,7 @@ gen_c_common() {
         case_inf=${cases_inf[$num]}
         echo "------num $num-----case_inf ${case_inf}-------------"
 
-        test_result=rctresult.txt
+        test_result=${ldpc_option}/rctresult.txt
         cfile=${cfiles_name[${num}]}.c
         mlog=${mrc_perf_dir}/${test_result}
         rm -rf $cfile

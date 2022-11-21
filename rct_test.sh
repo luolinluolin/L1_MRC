@@ -11,7 +11,7 @@ platform=$1
 test_ver=$2
 
 # acc
-./rct/rct_test.sh ${platform} ${test_ver}
+./rct/rct_test.sh ${platform} ${test_ver} hardware_ldpc
 
 # soft ldpc
-./rct/rct_test.sh ${platform} ${test_ver} soft_ldpc
+./rct/rct_test.sh ${platform} ${test_ver} software_ldpc

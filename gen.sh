@@ -1,23 +1,24 @@
-if [ $# -ne 2 ] || [ $1 = "-h" ];then
+if [ $# -ne 3 ] || [ $1 = "-h" ];then
     echo "
-         example : ./gen.sh  prod_r21.11 prod_r22.03
+         example : ./gen.sh  prod_r21.11 prod_r22.03 ldpc_option(software_ldpc|hardware_ldpc)
      "
    exit 0
 fi
 
 version1=$1
 version2=$2
+ldpc_option=$3
 
 echo "-----------gen c file-----------"
 ./gen/sdk_gen_c.sh $version2
 ./gen/1ver_pipline_gen_c.sh $version2
 ./gen/2ver_pipline_gen_c.sh $version1 $version2
-./gen/rct_gen.sh $version2
+./gen/rct_gen.sh $version2 $ldpc_option
 # ./gen/rct_gen_2v.sh $version1 $version2
 CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 source $CUR_DIR/gen/genenv.sh
 echo "------------./gen/rct_gen_2v.sh $rct_platform1 $version1 $rct_platform1 $version2-----------"
-./gen/rct_gen_2v.sh $rct_platform1 $version1 $rct_platform2 $version2
+./gen/rct_gen_2v.sh $rct_platform1 $version1 $rct_platform2 $version2 $ldpc_option
 
 echo "-----------gen html repo-----------"
 doxgenfolder=/opt/doxygen-1.8.17/build/bin

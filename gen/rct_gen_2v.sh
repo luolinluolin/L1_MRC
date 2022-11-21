@@ -1,7 +1,7 @@
 
-if [ $# -ne 4 ] || [ $1 = "-h" ];then
+if [ $# -ne 5 ] || [ $1 = "-h" ];then
     echo "
-         example : ./rct_gen_2v.sh iclsp prod_r22.03 spree master
+         example : ./rct_gen_2v.sh iclsp prod_r22.03 spree master  ldpc_option(software_ldpc|hardware_ldpc)
      "
    exit 0
 fi
@@ -9,6 +9,7 @@ platform1=$1
 version1=$2
 platform2=$3
 version2=$4
+ldpc_option=$5
 
 CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0});pwd)
 
@@ -50,12 +51,13 @@ gen_c_common() {
     echo "test diff case: $spree_case ${platform2}"
 
 
+    test_result=${ldpc_option}/rctresult.txt
     cd $mrc_perf_dir
     rm -rf $version1.txt $version2.txt
-    echo "cp $input_dir/$platform1/$version1/rctresult.txt ./$version1.txt"
-    cp $input_dir/$platform1/$version1/rctresult.txt ./$version1.txt
-    echo "cp $input_dir/$platform2/$version2/rctresult.txt ./$version2.txt"
-    cp $input_dir/$platform2/$version2/rctresult.txt ./$version2.txt
+    echo "cp $input_dir/$platform1/$version1/${test_result} ./$version1.txt"
+    cp $input_dir/$platform1/$version1/${test_result} ./$version1.txt
+    echo "cp $input_dir/$platform2/$version2/${test_result} ./$version2.txt"
+    cp $input_dir/$platform2/$version2/${test_result} ./$version2.txt
 
     
     output_cfile_name=${cfiles_name[${spreenum}]}
