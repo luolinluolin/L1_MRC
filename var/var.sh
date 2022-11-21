@@ -27,7 +27,7 @@ PTP_DIR=`sed '/^ptp_dir=/!d;s/.*=//' $cfg_file`
 #---------------store dir----------------
 timer_results_dir=$RESULT_DIR/timer
 sdk_results_dir=$RESULT_DIR/sdk_results
-oran_results_dir=$RESULT_DIR/oran/
+oran_results_dir=$RESULT_DIR/oran
 
 
 source $VAR_CURRENT_DIR/test_case.sh
