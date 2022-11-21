@@ -27,10 +27,12 @@ sed -i 's/<prachThresholdMethod>.*<\/prachThresholdMethod>/<prachThresholdMethod
 
 if [ "$soft_ldpc" == "soft_ldpc" ]; then
   sed -i "s#<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>#<dpdkBasebandFecMode>0<\/dpdkBasebandFecMode>#g"  ${cfg}
+  store_result=$RESULT_DIR/rct/$platform/$test_ver/soft_ldpc
+else
+  store_result=$RESULT_DIR/rct/$platform/$test_ver/hardware_ldpc
 fi
 
 
-store_result=$RESULT_DIR/rct/$platform/$test_ver
 if [ ! -d $store_result ]; then
     mkdir -p $store_result
 else
