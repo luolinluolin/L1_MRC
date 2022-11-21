@@ -47,15 +47,14 @@ gen_c_common() {
 
         test_result=${ldpc_option}/rctresult.txt
         cfile=${cfiles_name[${num}]}.c
-        mlog=${mrc_perf_dir}/${test_result}
+        mlog=${mrc_perf_dir}/rctresult.txt
         rm -rf $cfile
         rm -rf ${mlog}
         cd $mrc_perf_dir
-        echo "$input_dir/${case}/${version}/${test_result}"
+        echo "cp $input_dir/${case}/${version}/${test_result} ./"
         cp $input_dir/${case}/${version}/${test_result} ./
-        echo "$input_dir/${case}/${version}/${test_result}"
-        echo "./perf_report ${type} 1 ${test_result} "\"${case_inf}\"" ${cfiles_name[${num}]}"
-        ./perf_report ${type} 1  ${test_result} ${case_inf} ${cfiles_name[${num}]}
+        echo "./perf_report ${type} 1 rctresult.txt "\"${case_inf}\"" ${cfiles_name[${num}]}"
+        ./perf_report ${type} 1  rctresult.txt ${case_inf} ${cfiles_name[${num}]}
 
         rm -rf ${output_dir}/${cfile}
         mv ${cfile} ${output_dir}
