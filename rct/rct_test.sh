@@ -25,7 +25,8 @@ sed -i 's/<PuschLinearInterpEnable>.*<\/PuschLinearInterpEnable>/<PuschLinearInt
 sed -i 's/<PuschLinearInterpGranularityAll>.*<\/PuschLinearInterpGranularityAll>/<PuschLinearInterpGranularityAll>5<\/PuschLinearInterpGranularityAll>/g' ${timer_cfg}
 sed -i 's/<prachThresholdMethod>.*<\/prachThresholdMethod>/<prachThresholdMethod>1<\/prachThresholdMethod>/g' ${timer_cfg}
 
-if [ "$software_ldpc" == "software_ldpc" ]; then
+echo "----configure dpdkBasebandFecMode "
+if [ "$ldpc_option" == "software_ldpc" ]; then
   sed -i "s#<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>#<dpdkBasebandFecMode>0<\/dpdkBasebandFecMode>#g"  ${timer_cfg}
 fi
 
