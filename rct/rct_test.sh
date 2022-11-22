@@ -51,4 +51,4 @@ rm -rf $DIR_WIRELESS_TEST_5G/results
 echo "mv $DIR_WIRELESS_TEST_5G/results/*  ${store_result}/"
 mv $DIR_WIRELESS_TEST_5G/results/*  ${store_result}
 
-$RCT_CURRENT_DIR/../utils/scp_to_dst.sh ${ANALYSE_IP_FOLDER}/rct/${platform} $store_result/../*
+$RCT_CURRENT_DIR/../utils/scp_to_dst.sh ${ANALYSE_IP_FOLDER}/rct/* $RESULT_DIR/rct/*

@@ -193,26 +193,26 @@
  *       <OL>
  *           <LI class="mrcUlLi">PUSCH
  *               <OL>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_iclsp_iclsp_acc100_diff</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_n3000</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_cslsp_cslsp_acc100_diff</LI>
+//  *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_n3000</LI>
  *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_acc100</LI>
  *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_icxsp_acc100</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_soft_ldpc</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_icxsp_soft_ldpc</LI>
+//  *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_soft_ldpc</LI>
+//  *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_icxsp_soft_ldpc</LI>
  *               </OL>
  *           </LI>
  *           <LI class="mrcUlLi">PUCCH
  *               <OL>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_spree_spree_vs_cslsp_diff</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_spree</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_cslsp_vs_cslsp_diff</LI>
+//  *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_spree</LI>
  *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_clxsp</LI>
  *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_icxsp</LI>
  *               </OL>
  *           </LI>
  *           <LI class="mrcUlLi">PRACH
  *               <OL>
- *                   <LI class="mrcUlLi">@ref ref_wireless_prach_spree_spree_vs_cslsp_diff</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_prach_spree</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_prach_cslsp_vs_cslsp_diff</LI>
+//  *                   <LI class="mrcUlLi">@ref ref_wireless_prach_spree</LI>
  *                   <LI class="mrcUlLi">@ref ref_wireless_prach_clxsp</LI>
  *                   <LI class="mrcUlLi">@ref ref_wireless_prach_icxsp</LI>
  *               </OL>
