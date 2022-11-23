@@ -63,7 +63,7 @@
  *       <OL>
  *           <LI class="mrcUlLi">@ref ref_sub3_10mhz_tests</LI>
  *           <LI class="mrcUlLi">@ref ref_sub3_20mhz_tests</LI>
- *           <LI class="mrcUlLi">@ref ref_sub6_100mhz_tests</LI>
+ *           <LI class="mrcUlLi">@ref ref_sub6_tests_4x4</LI>
  *           <LI class="mrcUlLi">@ref ref_sub6_mmimo_32x32_tests</LI>
  *           <LI class="mrcUlLi">@ref ref_sub6_mmimo_64x64_tests</LI>
  *           <LI class="mrcUlLi">@ref ref_mmwave_tests</LI>
