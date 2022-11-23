@@ -1,7 +1,7 @@
 [
     {
-        "version1": "2203",
-        "version2": "2207",
+        "version1": "2207",
+        "version2": "2211",
         "cslsp_q2q_summary": "ref_clxsp_hton_acc100_q2q_summary",
         "iclsp_q2q_summary": "ref_icxsp_hton_acc100_q2q_summary",
         "icld_q2q_summary": "ref_icxd_hton_acc100_q2q_summary",
@@ -78,13 +78,13 @@
         "rct_platform2": "cslsp",
         "rct_pusch_diff_info":
         [
-            {"case": "iclsp_iclsp", "info": "PUSCH_ICLSP_ICLSP_ACC100", "cfile": "ref_wireless_pusch_iclsp_iclsp_acc100_diff"}
+            {"case": "iclsp_iclsp", "info": "PUSCH_ICLSP_ICLSP_ACC100", "cfile": "ref_wireless_pusch_cslsp_cslsp_diff"}
         ],
 
         "rct_pusch_info":
         [
-            {"case": "cslsp", "info": "PUSCH_CLXSP_ACC100", "cfile": "ref_wireless_pusch_clxsp_acc100"},
-            {"case": "iclsp", "info": "PUSCH_ICXSP_ACC100", "cfile": "ref_wireless_pusch_icxsp_acc100"}
+            {"case": "cslsp", "info": "PUSCH_CLXSP_ACC100", "cfile": "ref_wireless_pusch_clxsp"},
+            {"case": "iclsp", "info": "PUSCH_ICXSP_ACC100", "cfile": "ref_wireless_pusch_icxsp"}
         ],
         "rct_pucch_info":
         [

@@ -42,19 +42,22 @@ gen_c_common() {
         # cases_inf=`echo ${cases_inf}|awk -F "\" \"" '{print $num}'|sed "s/\"//g"`
         # case_inf=`echo ${cases_inf}|cut -d \| -f $num|sed "s/\(\" \"\|\"\)//"`
         # case_inf=\"$case_inf\"
-        case_inf=${cases_inf[$num]}
+        case_inf=${cases_inf[$num]}_${ldpc_option}
         echo "------num $num-----case_inf ${case_inf}-------------"
 
         test_result=${ldpc_option}/rctresult.txt
-        cfile=${cfiles_name[${num}]}.c
+        output_file_name=${cfiles_name[${num}]}_${ldpc_option}
+        cfile=${output_file_name}.c
         mlog=${mrc_perf_dir}/rctresult.txt
         rm -rf $cfile
         rm -rf ${mlog}
         cd $mrc_perf_dir
+
         echo "cp $input_dir/${case}/${version}/${test_result} ./"
         cp $input_dir/${case}/${version}/${test_result} ./
-        echo "./perf_report ${type} 1 rctresult.txt "\"${case_inf}\"" ${cfiles_name[${num}]}"
-        ./perf_report ${type} 1  rctresult.txt ${case_inf} ${cfiles_name[${num}]}
+
+        echo "./perf_report ${type} 1 rctresult.txt "\"${case_inf}\"" ${output_file_name}"
+        ./perf_report ${type} 1  rctresult.txt ${case_inf} ${output_file_name}
 
         rm -rf ${output_dir}/${cfile}
         mv ${cfile} ${output_dir}

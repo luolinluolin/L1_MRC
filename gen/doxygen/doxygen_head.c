@@ -63,7 +63,7 @@
  *       <OL>
  *           <LI class="mrcUlLi">@ref ref_sub3_10mhz_tests</LI>
  *           <LI class="mrcUlLi">@ref ref_sub3_20mhz_tests</LI>
- *           <LI class="mrcUlLi">@ref ref_sub6_tests</LI>
+ *           <LI class="mrcUlLi">@ref ref_sub6_100mhz_tests</LI>
  *           <LI class="mrcUlLi">@ref ref_sub6_mmimo_32x32_tests</LI>
  *           <LI class="mrcUlLi">@ref ref_sub6_mmimo_64x64_tests</LI>
  *           <LI class="mrcUlLi">@ref ref_mmwave_tests</LI>
@@ -193,28 +193,28 @@
  *       <OL>
  *           <LI class="mrcUlLi">PUSCH
  *               <OL>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_cslsp_cslsp_acc100_diff</LI>
-//  *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_n3000</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_acc100</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_icxsp_acc100</LI>
-//  *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_soft_ldpc</LI>
-//  *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_icxsp_soft_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_cslsp_cslsp_diff_hardware_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_n3000</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_hardware_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_icxsp_hardware_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_clxsp_software_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pusch_icxsp_software_ldpc</LI>
  *               </OL>
  *           </LI>
  *           <LI class="mrcUlLi">PUCCH
  *               <OL>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_cslsp_vs_cslsp_diff</LI>
-//  *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_spree</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_clxsp</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_icxsp</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_cslsp_vs_cslsp_diff_hardware_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_spree_hardware_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_clxsp_hardware_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_pucch_icxsp_hardware_ldpc</LI>
  *               </OL>
  *           </LI>
  *           <LI class="mrcUlLi">PRACH
  *               <OL>
- *                   <LI class="mrcUlLi">@ref ref_wireless_prach_cslsp_vs_cslsp_diff</LI>
-//  *                   <LI class="mrcUlLi">@ref ref_wireless_prach_spree</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_prach_clxsp</LI>
- *                   <LI class="mrcUlLi">@ref ref_wireless_prach_icxsp</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_prach_cslsp_vs_cslsp_diff_hardware_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_prach_spree_hardware_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_prach_clxsp_hardware_ldpc</LI>
+ *                   <LI class="mrcUlLi">@ref ref_wireless_prach_icxsp_hardware_ldpc</LI>
  *               </OL>
  *           </LI>
  *       </OL>

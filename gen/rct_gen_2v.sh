@@ -60,7 +60,7 @@ gen_c_common() {
     cp $input_dir/$platform2/$version2/${test_result} ./$version2.txt
 
     
-    output_cfile_name=${cfiles_name[${spreenum}]}
+    output_cfile_name=${cfiles_name[${spreenum}]}_${ldpc_option}
     cfile=${output_cfile_name}.c
     rm -rf ${cfile}
     string1=${case_inf}_${platform1}
