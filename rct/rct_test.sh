@@ -29,6 +29,7 @@ echo "----configure dpdkBasebandFecMode "
 if [ "$ldpc_option" == "software_ldpc" ]; then
   sed -i "s#<dpdkBasebandFecMode>.*<\/dpdkBasebandFecMode>#<dpdkBasebandFecMode>0<\/dpdkBasebandFecMode>#g"  ${timer_cfg}
 fi
+sed -i 's/<PucchF0NoiseEstType>.*<\/PucchF0NoiseEstType>/<PucchF0NoiseEstType>0<\/PucchF0NoiseEstType>/g' $cfg
 
 store_result=$RESULT_DIR/rct/$platform/$test_ver/${ldpc_option}
 if [ ! -d $store_result ]; then
